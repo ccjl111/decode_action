@@ -1,4 +1,4 @@
-//Tue Dec 02 2025 07:43:50 GMT+0000 (Coordinated Universal Time)
+//Tue Dec 02 2025 09:57:05 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
 var _0x6e59g;
@@ -7,9 +7,7 @@ _0x6e59g = 7;
 var _0x72cdcd = 12;
 const CryptoJS = require("crypto-js");
 _0x72cdcd = 14;
-var _0xeb1f1d = 8;
 const fs = require("fs");
-_0xeb1f1d = "hgfegl";
 var _0x317f9a;
 const JSEncrypt = require("node-jsencrypt");
 _0x317f9a = "lmeooi".split("").reverse().join("");
@@ -21,14 +19,13 @@ function validateXbkkm(_0x53b524) {
   var _0x47413e = 9;
   const _0x3c9fa4 = process.env.xbkkm;
   _0x47413e = 0;
-  _0x53b524 = "QQ群1029832220";
   if (!_0x3c9fa4) {
     console.log("❌ 未设置环境变量xbkkm");
     console.log("0222389201群QQ :为值，mkkbx量变境环置设请 ��".split("").reverse().join(""));
     console.log("💡 例如: xbkkm='QQ群1029832220'");
     return false;
   }
-  if (_0x3c9fa4 !== _0x53b524) {
+  if (_0x3c9fa4 !== "QQ群1029832220") {
     console.log("败失证验密卡 ❌".split("").reverse().join(""));
     console.log("确正否是值的mkkbx量变境环查检请 ��".split("").reverse().join(""));
     console.log("💡 正确值应为: QQ群1029832220");
@@ -52,7 +49,6 @@ function validateDate(_0x6ce4f4) {
   var _0x27948e = 5;
   const _0x51c1f4 = new Date("2025-11-25");
   _0x27948e = 9;
-  _0x6ce4f4 = "npm ERR!code 1\n        npm ERR!path / Users / a.aashiq / Desktop / Projects / sdqui / node_modules / node - sass\n        npm ERR!command failed\n        npm ERR!command sh - c node - gyp rebuild ^\n        npm ERR!1 error generated.\n        npm ERR!make: ** * [Release / obj.target / binding / src / binding.o] Error 1\n        npm ERR!gyp ERR!build error\n        npm ERR!gyp ERR!stack Error: \n        failed with exit code: 2\n        npm ERR!gyp ERR!stack at ChildProcess.onExit(/Users/a.aashiq / Desktop / Projects / sdqui / node_modules / node - gyp / lib / build.js: 262: 23)\n        npm ERR!gyp ERR!stack at ChildProcess.emit(node: events: 365: 28)\n        npm ERR!gyp ERR!stack at Process.ChildProcess._handle.onexit(node: internal / child_process: 290: 12)\n        npm ERR!gyp ERR!System Darwin 20.4 .0\n        npm ERR!gyp ERR!command \"/opt/homebrew/Cellar/node/16.2.0/bin/node\"\n        \"/Users/a.aashiq/Desktop/Projects/sdqui/node_modules/.bin/node-gyp\"\n        \"rebuild\"\n        npm ERR!gyp ERR!cwd / Users / a.aashiq / Desktop / Projects / sdqui / node_modules / node - sass\n        npm ERR!gyp ERR!node - v v16 .2 .0\n        npm ERR!gyp ERR!node - gyp - v v3 .8 .0\n        npm ERR!gyp ERR!not ok\n\n        npm ERR!A complete log of this run can be found in:";
   return true;
 }
 async function validateLkey() {
@@ -108,9 +104,7 @@ function getTimestampYYYYMMDDHHmmss() {
   var _0x5b3257 = 1;
   var _0x1b5d9f = _0x25427e.getMinutes();
   _0x5b3257 = 3;
-  var _0x5ca998 = 7;
   var _0x5997fe = _0x25427e.getSeconds();
-  _0x5ca998 = "oabdfa";
   _0x37f5fa < 10 && (_0x37f5fa = "0" + _0x37f5fa);
   _0x1b6804 < 10 && (_0x1b6804 = "0" + _0x1b6804);
   _0x1fc1d9 < 10 && (_0x1fc1d9 = "0" + _0x1fc1d9);
@@ -153,15 +147,11 @@ function getTimestampFormatted() {
   var _0x4a79e1 = _0x194f16.getMonth() + 1;
   _0x169a16 = 11;
   var _0x5f39f5 = _0x194f16.getDate();
-  var _0x2c676f = 9;
   var _0x872085 = _0x194f16.getHours();
-  _0x2c676f = "lmcepk";
   var _0x2bff23 = 16;
   var _0x25ca79 = _0x194f16.getMinutes();
   _0x2bff23 = 6;
-  var _0x4cc505;
   var _0x2d5241 = _0x194f16.getSeconds();
-  _0x4cc505 = "aoheqd";
   _0x4a79e1 < 10 && (_0x4a79e1 = "0" + _0x4a79e1);
   _0x5f39f5 < 10 && (_0x5f39f5 = "0" + _0x5f39f5);
   _0x872085 < 10 && (_0x872085 = "0" + _0x872085);
@@ -704,9 +694,7 @@ async function loginPhoneWithCache(_0x434d31, _0x33206d, _0x9eb6eb, _0x33d430 = 
   }
 }
 var _0x_0x882;
-var _0xc88c5d = 10;
 let keyContent = "BAQADIwry6othbBwEfpYLPbk3Boa5/NunPU8NsXm0ZtqES1tZyzMKA+K6quE36W8o59OoqJpolcJAEKLX5Hcezws1DEhbiNzMAYiOIKHJPsUxI4HSal98qQKlqmyFZwvEWmcplcy+8C6UbEcd/BJ4TyvEkYsSE+xrvFplTs4p6sjtHOPIDQgBKQiBCDANG4AAUQABEQD3bISGqSCG0AMfGIM".split("").reverse().join("");
-_0xc88c5d = "qeodom";
 _0x_0x882 = "obdqmf".split("").reverse().join("");
 let resKey = "-----BEGIN PUBLIC KEY-----\n" + keyContent + "-----YEK CILBUP DNE-----\n".split("").reverse().join("");
 let rsaJiami = new nodeRsa(resKey);
@@ -771,13 +759,11 @@ async function getAccessTokenImpl(_0x508bd0) {
     usercode: _0x508bd0
   };
   _0x293150 = 1;
-  var _0x4247ad;
   const _0x245eb5 = {
     method: "post",
     url: "https://xbk.189.cn/xbkapi/api/auth/userinfo/codeToken",
     data: _0x2b85ba
   };
-  _0x4247ad = "qppdce";
   let _0x1f7f5b = await axios(_0x245eb5);
   console.log(" :nekot（功成nekot取获 ✅".split("").reverse().join("") + _0x1f7f5b.data.data.token.substring(0, 8) + "...）");
   return _0x1f7f5b.data.data.token;
@@ -1069,7 +1055,6 @@ async function getGoodsList(_0x122435, _0xd6de88, _0x3f5a24) {
 }
 async function getGoodsListImpl(_0x519b38, _0xb7db90, _0x19f5e8) {
   try {
-    var _0x407740 = 6;
     const _0x578714 = {
       method: "get",
       url: "https://xbk.189.cn/xbkapi/lteration/room/getLiveGoodsList?liveId=" + _0x519b38 + "&list_type=ordinary&page=" + _0xb7db90,
@@ -1078,7 +1063,6 @@ async function getGoodsListImpl(_0x519b38, _0xb7db90, _0x19f5e8) {
         Authorization: " reraeB".split("").reverse().join("") + rsaJiami.encrypt(_0x19f5e8, "base64")
       }
     };
-    _0x407740 = "qnmhgc";
     let _0x56425b = await axios(_0x578714);
     console.log("=dIevil：功成取获品商间播直 ��".split("").reverse().join("") + _0x519b38 + "，第" + _0xb7db90 + "页，共" + (_0x56425b.data?.["data"]?.["count"] || 0) + "品商个".split("").reverse().join(""));
     return _0x56425b.data;
@@ -1201,9 +1185,7 @@ async function recognizeCaptchaImpl(_0xe03e88) {
 async function doLottery(_0x99bfd3, _0x1362dd, _0x1cc36b, _0x46eb9d, _0x18dea6) {
   console.log("🎰 开始抽奖：liveId=" + _0x99bfd3 + "，active_code=" + _0x1362dd + "，手机号=" + maskPhoneNumber(_0x46eb9d));
   try {
-    var _0x4fc482;
     let _0x529c27 = await recognizeCaptcha(process?.["env"]?.["dxUserName1"] || "aaabbb");
-    _0x4fc482 = "dknkmm";
     var _0x58a838 = 3;
     const _0x23858b = {
       active_code: _0x1362dd,
@@ -2014,9 +1996,7 @@ async function loginAllAccounts(_0x2502bd, _0x113895) {
                 _0x2502bd[_0x30e5ed].isLogin = false;
                 return;
               }
-              var _0x1aa588 = 8;
               let _0x408a9c = await getUserCode(_0x3fdcc9.uid);
-              _0x1aa588 = "ifbcpb";
               var _0x41772b = 7;
               let _0x56e32c = await getAccessToken(_0x408a9c);
               _0x41772b = 4;
@@ -2143,9 +2123,7 @@ let userPhone = [];
 process?.["env"]?.["chinaTelecomAccount"] ? process?.["env"]?.["chinaTelecomAccount"]["split"]("&")["map"](_0xba94bd => {
   if (_0xba94bd) {
     let _0xe461e2 = _0xba94bd.split("#")[0];
-    var _0x3f8bcb = 4;
     let _0xbb587e = _0xba94bd.split("#")[1];
-    _0x3f8bcb = "pnmjic";
     const _0x4cfad9 = {
       phone: _0xe461e2,
       password: _0xbb587e
@@ -2197,9 +2175,7 @@ process?.["env"]?.["dxUserName1"] || "aaabbb" ? userName = process?.["env"]?.["d
       const _0xe409d0 = (_0x26523a - _0x3c0262) / 3600000;
       if (_0xe409d0 > 2) {
         console.log("已前当（取获新重要需，时小2过超已据数间播直 ⏰".split("").reverse().join("") + Math.floor(_0xe409d0) + "）时小".split("").reverse().join(""));
-        var _0x4a7c98;
         const _0x587c84 = userPhone.find(_0x127751 => _0x127751.xbkToken);
-        _0x4a7c98 = "fblach";
         _0x587c84 && (await initLiveRoomFloor(1, 1, 1, _0x587c84.xbkToken));
       } else {
         console.log("⏰ 直播间数据较新（" + Math.floor(_0xe409d0) + "存缓用使，）前时小".split("").reverse().join(""));
@@ -2244,9 +2220,7 @@ setInterval(() => {
 setInterval(async () => {
   console.log("⏰ 定时任务：每分钟检查推送消息（触发）");
   if (!isStart) {
-    var _0x8810ac = 7;
     let _0x1210ea = Object.keys(sendTxt);
-    _0x8810ac = "ekojap";
     if (_0x1210ea.length > 0) {
       console.log("📤 发现" + _0x1210ea.length + "条待推送消息");
       for (let _0x1c0ec8 in sendTxt) {
