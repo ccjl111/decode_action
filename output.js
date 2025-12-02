@@ -1,4 +1,4 @@
-//Tue Dec 02 2025 03:32:41 GMT+0000 (Coordinated Universal Time)
+//Tue Dec 02 2025 03:34:20 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
 var _0x402dd = 2;
@@ -134,9 +134,7 @@ _0xd11cdb = 8;
 var _0xb968cd;
 const now = new Date();
 _0xb968cd = 11;
-var _0x9d3b = 10;
 const yf = "" + now.getFullYear() + (now.getMonth() + 1).toString().padStart(2, "0");
-_0x9d3b = "fojdgi";
 var _0x43bdee;
 let dhjl = {};
 _0x43bdee = 3;
@@ -178,19 +176,18 @@ function runTime(_0x23f81e, _0x5a24d7, _0x351316) {
 }
 function generateUUID(_0x32182b) {
   var _0x11af8a = 10;
-  _0x32182b = "abcdef0123456789";
   _0x11af8a = 13;
   const _0x1b84ff = [Array.from({
     length: 8
-  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join(""), Array.from({
+  }, () => "abcdef0123456789"[Math.floor(Math.random() * "abcdef0123456789".length)]).join(""), Array.from({
     length: 4
-  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join(""), "4" + Array.from({
+  }, () => "abcdef0123456789"[Math.floor(Math.random() * "abcdef0123456789".length)]).join(""), "4" + Array.from({
     length: 3
-  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join(""), Array.from({
+  }, () => "abcdef0123456789"[Math.floor(Math.random() * "abcdef0123456789".length)]).join(""), Array.from({
     length: 4
-  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join(""), Array.from({
+  }, () => "abcdef0123456789"[Math.floor(Math.random() * "abcdef0123456789".length)]).join(""), Array.from({
     length: 12
-  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join("")];
+  }, () => "abcdef0123456789"[Math.floor(Math.random() * "abcdef0123456789".length)]).join("")];
   return _0x1b84ff;
 }
 var _0x3fcf2a = 7;
@@ -605,9 +602,7 @@ async function getSign(_0xcff381) {
   return null;
 }
 async function qgNight(_0x2a2c94, _0x10ca9c, _0x4b1e6c, _0x4e74cc, _0x3f8653) {
-  var _0x317be4;
   _0x3f8653 = 0;
-  _0x317be4 = "pccjih";
   _0x4e74cc && (_0x3f8653 = runTime(23, 58, 30));
   if (_0x3f8653 > Math.floor(Date.now() / 1000) + _0x4b1e6c) {
     const _0x5831eb = _0x3f8653 - Math.floor(Date.now() / 1000) - _0x4b1e6c;
@@ -699,9 +694,7 @@ async function run(_0x59fc46, _0xb1a123) {
   var _0x5f4446;
   _0xb1a123 = 0;
   _0x5f4446 = 0;
-  var _0xa9955e;
   const _0x5ae931 = _0xb1a123 > 0 ? _0xb1a123 : 0;
-  _0xa9955e = "ipfomg";
   try {
     await main(_0x5ae931, _0x163fd, _0x262446);
   } catch (_0x1f3ac0) {
