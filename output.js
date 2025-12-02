@@ -1,2074 +1,719 @@
-//Tue Dec 02 2025 03:31:11 GMT+0000 (Coordinated Universal Time)
+//Tue Dec 02 2025 03:32:41 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
-const querystring = require("querystring"),
-  axios = require("axios"),
-  fs = require("fs"),
-  path = require("path"),
-  {
-    "SocksProxyAgent": SocksProxyAgent
-  } = require("socks-proxy-agent");
-function detectLiveAd(adData = {}) {
-  try {
-    let _0xdf43b = adData.adExtInfo || adData.extInfo || adData?.ad?.adExtInfo || "{}";
-    if (typeof _0xdf43b === "gnirts".split("").reverse().join("")) {
-      try {
-        _0xdf43b = JSON.parse(_0xdf43b);
-      } catch (error) {
-        _0xdf43b = {};
-      }
-    }
-    const _0xb68g = ["播直".split("").reverse().join(""), "live", "主播", "EVIL".split("").reverse().join(""), "zb", "BZ".split("").reverse().join("")],
-      _0xb6eced = String(adData.creativeId || adData?.ad?.creativeId || "").toLowerCase(),
-      _0x70c6d = String(_0xdf43b.description || "").toLowerCase(),
-      _0x90755c = String(_0xdf43b.title || adData.title || "").toLowerCase(),
-      _0x008a = String(_0xdf43b.caption || adData.caption || "").toLowerCase(),
-      _0x659c = [_0xb6eced, _0x70c6d, _0x90755c, _0x008a, JSON.stringify(_0xdf43b || {})];
-    for (const _0x27ad of _0x659c) {
-      for (const _0xb8d of _0xb68g) {
-        if (_0x27ad && _0x27ad.includes(_0xb8d.toLowerCase())) {
-          return true;
-        }
-      }
-    }
-    var _0xc94a;
-    const _0x0f5e = adData.materialTime || adData?.ad?.materialTime || 0;
-    _0xc94a = 3;
-    if (_0x0f5e > 60000) return true;
-    if (_0xb6eced.startsWith("live_") || _0xb6eced.startsWith("zb_") || _0xb6eced.startsWith("live-") || _0xb6eced.startsWith("zb-")) return true;
-    return false;
-  } catch (error) {
-    return false;
+var _0x402dd = 2;
+var _0xed_0xbda = 4;
+const crypto = require("crypto");
+_0xed_0xbda = "nlcceg".split("").reverse().join("");
+_0x402dd = "oejmmh".split("").reverse().join("");
+const fs = require("fs");
+const https = require("https");
+var _0x6ab17e;
+const axios = require("axios");
+_0x6ab17e = 9;
+const {
+  XMLParser: XMLParser
+} = require("fast-xml-parser");
+const {
+  JSEncrypt: JSEncrypt
+} = require("node-jsencrypt");
+const agent = new https.Agent({
+  rejectUnauthorized: false
+});
+var _0x_0x362 = 9;
+var _0xef9a6c = 8;
+const axiosInstance = axios.create({
+  httpsAgent: agent,
+  headers: {
+    "User-Agent": "Mozilla/5.0 (Linux; Android 13; 22081212C Build/TKQ1.220829.002) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.97 Mobile Safari/537.36"
   }
-}
-function readIntConfig(configName, defaultValue) {
-  var _0x3cf9f = 15;
-  const _0x8cbb = parseInt(process.env[configName], 10);
-  _0x3cf9f = 9;
-  return isNaN(_0x8cbb) ? defaultValue : _0x8cbb;
-}
-function readStringConfig(configName, defaultValue) {
-  const _0x4g_0x531 = process.env[configName];
-  return _0x4g_0x531 ? _0x4g_0x531.trim() : defaultValue;
-}
-function readRangeConfig(configName, minDefault, maxDefault) {
-  const _0x3c5gd = process.env[configName];
-  if (!_0x3c5gd) return [minDefault, maxDefault];
-  const _0x633d = _0x3c5gd.includes("-") ? "-" : ",";
-  const _0xa2g9e = _0x3c5gd.split(_0x633d).map(item => item.trim()).filter(Boolean);
-  if (_0xa2g9e.length === 2) {
-    var _0x_0x4a2 = 4;
-    const _0x5476c = parseInt(_0xa2g9e[0], 10);
-    _0x_0x4a2 = 4;
-    const _0x95gcf = parseInt(_0xa2g9e[1], 10);
-    if (!isNaN(_0x5476c) && !isNaN(_0x95gcf) && _0x5476c <= _0x95gcf) {
-      return [_0x5476c, _0x95gcf];
-    }
-  }
-  return [minDefault, maxDefault];
-}
-const COIN_LIMIT = readIntConfig("KSCOIN_LIMIT", 500000),
-  LOW_REWARD_THRESHOLD = readIntConfig("KSLOW_REWARD_THRESHOLD", 10),
-  LOW_REWARD_LIMIT = readIntConfig("TIMIL_DRAWER_WOLSK".split("").reverse().join(""), 3),
-  LOOK_COUNT = readIntConfig("KSLOOK_COUNT", 50),
-  FOLLOW_COUNT = readIntConfig("KSFOLLOW_COUNT", 5),
-  SEARCH_COUNT = readIntConfig("TNUOC_HCRAESSK".split("").reverse().join(""), 5),
-  SEARCH_FOLLOW_COUNT = readIntConfig("KSSEARCHFOLLOW_COUNT", 2),
-  BOX_COUNT = readIntConfig("KSBOX_COUNT", 30),
-  FOOD_COUNT = readIntConfig("KSFOOD_COUNT", 50),
-  KBOX_COUNT = readIntConfig("KSKBOX_COUNT", 1);
-const [ROUND_START_MIN, ROUND_START_MAX] = readRangeConfig("KSROUND_START_WAIT", 7, 15);
-const [WATCH_AD_MIN, WATCH_AD_MAX] = readRangeConfig("EMIT_DA_HCTAWSK".split("").reverse().join(""), 30, 40);
-const [PRE_LOOK_FOLLOW_MIN, PRE_LOOK_FOLLOW_MAX] = readRangeConfig("KSPRE_LOOK_FOLLOW_WAIT", 15, 30);
-const [BETWEEN_LOOK_FOLLOW_MIN, BETWEEN_LOOK_FOLLOW_MAX] = readRangeConfig("KSBETWEEN_LOOK_FOLLOW_WAIT", 35, 50);
-const [PRE_SEARCH_FOLLOW_MIN, PRE_SEARCH_FOLLOW_MAX] = readRangeConfig("KSPRE_SEARCH_FOLLOW_WAIT", 15, 30);
-const [BETWEEN_SEARCH_FOLLOW_MIN, BETWEEN_SEARCH_FOLLOW_MAX] = readRangeConfig("KSBETWEEN_SEARCH_FOLLOW_WAIT", 15, 30);
-const [ROUND_END_MIN, ROUND_END_MAX] = readRangeConfig("KSROUND_END_WAIT", 10, 20);
-const [TASK_SWITCH_MIN, TASK_SWITCH_MAX] = readRangeConfig("TIAW_HCTIWS_KSATSK".split("").reverse().join(""), 15, 30);
-const MAX_CONCURRENCY = readIntConfig("MAX_CONCURRENCY", 888);
-var _0x3938a = 7;
-const SCRIPT_VERSION = "eerf-8v".split("").reverse().join("");
-_0x3938a = 10;
-const DEVICE_ID_FILE = ".device_id.txt";
-var _0x4f408f;
-const SKIP_LIVE_ADS = ["1", "true", "yes", "on"].includes(readStringConfig("SDA_EVIL_PIKS".split("").reverse().join(""), "1").toLowerCase());
-_0x4f408f = 5;
-var _0x71b = 15;
-const SKIP_LIVE_MAX_RETRIES = Math.max(1, readIntConfig("SEIRTER_XAM_EVIL_PIKS".split("").reverse().join(""), 5));
-_0x71b = 0;
-var _0x9ff = 10;
-const ENABLE_CHANGE_DID = ["1", "eurt".split("").reverse().join(""), "yes", "on"].includes(readStringConfig("DID_EGNAHC_ELBANE".split("").reverse().join(""), "0").toLowerCase());
-_0x9ff = 2;
-function getTasksToExecute() {
-  var _0x20fa6a;
-  const _0xcf6e = process.env.Task;
-  _0x20fa6a = "nngfka";
-  if (!_0xcf6e) return ["look", "box", "food", "kbox", "search", "wollof_kool".split("").reverse().join(""), "search_follow"];
-  var _0x3baafb = 17;
-  const _0x712d = _0xcf6e.split(",").map(task => task.trim().toLowerCase()).filter(Boolean);
-  _0x3baafb = 6;
-  var _0x621cf = 12;
-  const _0xb385f = ["look", "box", "food", "kbox", "search", "look_follow", "search_follow"];
-  _0x621cf = "mhnipg";
-  const _0x53ca9f = _0x712d.filter(task => _0xb385f.includes(task));
-  return _0x53ca9f.length === 0 ? ["kool".split("").reverse().join(""), "box", "doof".split("").reverse().join(""), "kbox", "hcraes".split("").reverse().join(""), "wollof_kool".split("").reverse().join(""), "search_follow"] : _0x53ca9f;
-}
-function parseAccountsFromEnv() {
-  const _0x8c43bc = [];
-  const _0x10_0x251 = new Set();
-  if (process.env.ksck) {
-    const _0xf4f3c = process.env.ksck.split("&").map(cookie => cookie.trim()).filter(Boolean);
-    _0x8c43bc.push(..._0xf4f3c);
-  }
-  for (let i = 1; i <= 666; i++) {
-    const _0x2b9ae = "ksck" + i;
-    if (process.env[_0x2b9ae]) {
-      const _0x6f8f = process.env[_0x2b9ae].split("&").map(cookie => cookie.trim()).filter(Boolean);
-      _0x8c43bc.push(..._0x6f8f);
-    }
-  }
-  const _0x3d6dab = [];
-  for (const _0xc78d of _0x8c43bc) {
-    if (!_0x10_0x251.has(_0xc78d)) {
-      _0x10_0x251.add(_0xc78d);
-      _0x3d6dab.push(_0xc78d);
-    }
-  }
-  return _0x3d6dab;
-}
-var _0x76g16c = 2;
-const accounts = parseAccountsFromEnv();
-_0x76g16c = 9;
-var _0xabbe;
-const accountCount = accounts.length;
-_0xabbe = 3;
-var _0xaa1c9d = 13;
-const tasksToExecute = getTasksToExecute();
-_0xaa1c9d = 1;
-function generateDeviceId() {
-  try {
-    const _0xccae8a = length => {
-      const _0xcd6ge = "0123456789abcdef";
-      let _0x75ef = "";
-      for (let i = 0; i < length; i++) {
-        _0x75ef += _0xcd6ge.charAt(Math.floor(Math.random() * _0xcd6ge.length));
-      }
-      return _0x75ef;
-    };
-    var _0x2_0xbb8 = 7;
-    const _0x11_0xb31 = _0xccae8a(16);
-    _0x2_0xbb8 = "pnohmn".split("").reverse().join("");
-    return "_DIORDNA".split("").reverse().join("") + _0x11_0xb31;
-  } catch (error) {
-    console.log("生成设备ID失败: " + error.message);
-    var _0xad5a6d;
-    const _0xb246c = Date.now().toString(16).toUpperCase();
-    _0xad5a6d = "njhkcg";
-    return "ANDROID_" + _0xb246c.substring(0, 16);
-  }
-}
-function getOrCreateDeviceId() {
-  try {
-    if (fs.existsSync(DEVICE_ID_FILE)) {
-      var _0xbg1e4e;
-      const _0xd6ad2e = fs.readFileSync(DEVICE_ID_FILE, "8ftu".split("").reverse().join("")).trim();
-      _0xbg1e4e = 14;
-      if (_0xd6ad2e && _0xd6ad2e.length === 32) {
-        return _0xd6ad2e;
-      } else {
-        if (_0xd6ad2e && _0xd6ad2e.length > 0) {
-          try {
-            fs.unlinkSync(DEVICE_ID_FILE);
-          } catch (error) {}
-        }
-      }
-    }
-    const chars = "0123456789abcdef";
-    const _0xf5dge = () => {
-      var _0x235g = 14;
-      let _0x6d5da = "";
-      _0x235g = "eljfme";
-      for (let i = 0; i < 32; i++) {
-        _0x6d5da += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return _0x6d5da;
-    };
-    var _0x80f8g = 0;
-    const _0xc30da = _0xf5dge();
-    _0x80f8g = 11;
-    try {
-      fs.writeFileSync(DEVICE_ID_FILE, _0xc30da, "utf8");
-    } catch (error) {
-      console.log("保存设备ID失败: " + error.message);
-    }
-    return _0xc30da;
-  } catch (error) {
-    console.log(" :败失DI备设取读".split("").reverse().join("") + error.message);
-    var _0x5f8f9g;
-    const chars = "0123456789abcdef";
-    _0x5f8f9g = 7;
-    var _0x1a_0x9b5 = 7;
-    let _0x5g18b = "";
-    _0x1a_0x9b5 = 9;
-    for (let i = 0; i < 32; i++) {
-      _0x5g18b += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return _0x5g18b;
-  }
-}
-async function sendRequest(requestConfig, proxyUrl = null, requestDescription = "求请知未".split("").reverse().join("")) {
-  const _0xbec24a = {
-    ...requestConfig
-  };
-  let _0xba6c3f = null;
-  if (proxyUrl) {
-    try {
-      _0xba6c3f = new SocksProxyAgent(proxyUrl);
-    } catch (error) {
-      console.log("[错误] " + requestDescription + " 代理URL无效(" + error.message + "式模连直试尝，)".split("").reverse().join(""));
-    }
-  }
-  var _0x3_0x895;
-  const _0xab441f = _0xbec24a.method || "TEG".split("").reverse().join("");
-  _0x3_0x895 = 11;
-  var _0x4_0xff5 = 14;
-  const _0x5721f = _0xbec24a.url;
-  _0x4_0xff5 = 7;
-  const _0xb376bf = _0xbec24a.headers || {};
-  const _0xafa1a = _0xbec24a.body || _0xbec24a.form;
-  try {
-    var _0xe837f = 4;
-    const _0xde_0x75a = Date.now();
-    _0xe837f = 6;
-    const _0xf898d = {
-      "method": _0xab441f,
-      "url": _0x5721f,
-      "headers": _0xb376bf,
-      "data": _0xafa1a,
-      "timeout": _0xbec24a.timeout || 30000,
-      "startTime": _0xde_0x75a,
-      ...(_0xba6c3f && {
-        "httpAgent": _0xba6c3f,
-        "httpsAgent": _0xba6c3f
-      })
-    };
-    const _0xe2fca = await axios(_0xf898d);
-    var _0xbd_0xf35;
-    const responseTime = Date.now() - _0xde_0x75a;
-    _0xbd_0xf35 = 1;
-    return {
-      "response": _0xe2fca,
-      "body": _0xe2fca.data
-    };
-  } catch (error) {
-    var _0xf326bf;
-    const responseTime = error.config?.startTime ? Date.now() - error.config.startTime : 0;
-    _0xf326bf = 3;
-    if (error.response) {
-      var _0x4d5f0a = 1;
-      const _0xa1c = error.response.data || null;
-      _0x4d5f0a = 3;
-      return {
-        "response": error.response,
-        "body": _0xa1c
-      };
-    } else if (error.request) {} else {}
-    return {
-      "response": null,
-      "body": null
-    };
-  }
-}
-function isValidIP(ip) {
-  if (!ip || typeof ip !== "gnirts".split("").reverse().join("")) return false;
-  if (ip.includes(">lmth<".split("").reverse().join("")) || ip.includes("503 Service Temporarily Unavailable") || ip.includes("yawetaG daB 205".split("").reverse().join("")) || ip.includes("504 Gateway Timeout")) {
+});
+_0xef9a6c = "mecicm".split("").reverse().join("");
+_0x_0x362 = 7;
+var _0xedd77a;
+const runNum = "3";
+_0xedd77a = 10;
+var _0x2b8f;
+var _0x129d1e = 6;
+_0x129d1e = 9;
+_0x2b8f = 5;
+var _0x9185c;
+_0x9185c = 4;
+function verifyLicense(_0x4c89c6) {
+  var _0x57f3e4 = 10;
+  const _0x510005 = process.env.dx0d;
+  _0x57f3e4 = 16;
+  if (!_0x510005) {
+    console.log("】0222389201群QQ【值 量变境环 d0xd 置设未 :误错".split("").reverse().join(""));
     return false;
   }
-  var _0x855d7e;
-  const _0x69d9c = new RegExp("$}3,1{d\\}3{).\\}3,1{d\\(^".split("").reverse().join(""), "");
-  _0x855d7e = 14;
-  var _0x576ccb;
-  const _0xcd5e = new RegExp("^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$", "");
-  _0x576ccb = "nhfjmd";
-  if (_0x69d9c.test(ip)) {
-    var _0xd88f7d = 7;
-    const _0x5df = ip.split(".");
-    _0xd88f7d = "hamjfm".split("").reverse().join("");
-    for (const _0xe84e9a of _0x5df) {
-      const _0xgfbb9c = parseInt(_0xe84e9a, 10);
-      if (_0xgfbb9c < 0 || _0xgfbb9c > 255 || isNaN(_0xgfbb9c)) return false;
-    }
-    return true;
+  _0x4c89c6 = "0222389201群QQ".split("").reverse().join("");
+  if (_0x510005 !== _0x4c89c6) {
+    console.log("值量变境环 d0xd 查检请，败失证验密卡 :误错".split("").reverse().join(""));
+    return false;
   }
-  return _0xcd5e.test(ip);
+  console.log("功成证验密卡".split("").reverse().join(""));
+  return true;
 }
-async function testProxyConnectivity(proxyUrl, testDescription = "代理连通性检测", maxRetries = 10) {
-  if (!proxyUrl) {
-    return {
-      "ok": true,
-      "msg": "✅ 未配置代理（直连模式）",
-      "ip": "localhost"
+class ExchangeStats {
+  constructor() {
+    this.stats = {};
+    this.exchangeRecords = [];
+  }
+  addSuccess(_0x197da3, _0x3b000d = "费话".split("").reverse().join("")) {
+    const _0x23c092 = {
+      Jblns: "stats",
+      ENDli: "successCou" + "tn".split("").reverse().join(""),
+      SembF: "amounts",
+      uJjxk: "push",
+      RumEf: "exchangeRecords",
+      cWKfF: "toLocaleString",
+      vSjnE: "zh-CN"
     };
+    !this[_0x23c092.Jblns][_0x197da3] && (this[_0x23c092.Jblns][_0x197da3] = {
+      successCount: 0,
+      failedCount: 0,
+      amounts: []
+    });
+    this[_0x23c092.Jblns][_0x197da3][_0x23c092.ENDli]++;
+    this[_0x23c092.Jblns][_0x197da3][_0x23c092.SembF][_0x23c092.uJjxk](_0x3b000d);
+    this[_0x23c092.RumEf][_0x23c092.uJjxk]({
+      phone: _0x197da3,
+      amount: _0x3b000d,
+      status: "成功",
+      time: new Date()[_0x23c092.cWKfF](_0x23c092.vSjnE)
+    });
   }
-  var _0x1f21de;
-  let _0x2f69e = null;
-  _0x1f21de = 11;
-  const _0x1fd3ca = ["https://httpbin.org/ip", "https://api.ipify.org?format=json", "moc.pinosj//:sptth".split("").reverse().join(""), "https://api.my-ip.io/ip.json"];
-  for (let _0x4fc18d = 1; _0x4fc18d <= maxRetries; _0x4fc18d++) {
-    for (const _0x7651g of _0x1fd3ca) {
-      try {
-        const {
-          "response": response,
-          "body": body
-        } = await sendRequest({
-          "method": "GET",
-          "url": _0x7651g,
-          "headers": {
-            "User-Agent": "ProxyTester/1.0"
-          },
-          "timeout": 15000
-        }, proxyUrl, testDescription + " → " + new URL(_0x7651g).hostname);
-        if (typeof body === "string" && (body.includes("<html>") || body.includes("503 Service Temporarily Unavailable") || body.includes("502 Bad Gateway") || body.includes("504 Gateway Timeout"))) {
-          continue;
-        }
-        if (body) {
-          let _0x46a9aa = null;
-          if (_0x7651g.includes("httpbin.org") && body.origin) {
-            _0x46a9aa = body.origin;
-          } else if (_0x7651g.includes("ipify.org") && body.ip) {
-            _0x46a9aa = body.ip;
-          } else if (_0x7651g.includes("jsonip.com") && body.ip) {
-            _0x46a9aa = body.ip;
-          } else if (_0x7651g.includes("oi.pi-ym".split("").reverse().join("")) && body.ip) {
-            _0x46a9aa = body.ip;
-          } else if (typeof body === "gnirts".split("").reverse().join("") && !body.includes("<")) {
-            _0x46a9aa = body.trim();
-          }
-          if (_0x46a9aa && isValidIP(_0x46a9aa)) {
-            return {
-              "ok": true,
-              "msg": " :PI口出，常正理代5SKCOS ✅".split("").reverse().join("") + _0x46a9aa,
-              "ip": _0x46a9aa
-            };
-          }
-        }
-      } catch (error) {
-        _0x2f69e = error;
-        continue;
-      }
-      await new Promise(resolve => setTimeout(resolve, 500));
+  addFailed(_0xc6f013, _0x389076 = "") {
+    !this.stats[_0xc6f013] && (this.stats[_0xc6f013] = {
+      successCount: 0,
+      failedCount: 0,
+      amounts: []
+    });
+    this.stats[_0xc6f013].failedCount++;
+    this.exchangeRecords.push({
+      phone: _0xc6f013,
+      amount: "话费",
+      status: "失败",
+      reason: _0x389076,
+      time: new Date().toLocaleString("zh-CN")
+    });
+  }
+  generateReport() {
+    if (Object.keys(this.stats).length === 0) {
+      return "本次无兑换记录";
     }
-    if (_0x4fc18d < maxRetries) {
-      var _0x5_0xg65 = 7;
-      const _0xf8f8ed = _0x4fc18d * 2000;
-      _0x5_0xg65 = 9;
-      await new Promise(resolve => setTimeout(resolve, _0xf8f8ed));
+    const _0x48a61f = ["话费兑换统计报告:"];
+    var _0x5273f1 = 11;
+    let _0x1ed8af = 0;
+    _0x5273f1 = 7;
+    let _0x13293c = 0;
+    for (const [_0xd4d549, _0x35238d] of Object.entries(this.stats)) {
+      const _0x1f4499 = _0x35238d.successCount;
+      var _0x177fbb;
+      const _0x975fb2 = _0x35238d.failedCount;
+      _0x177fbb = 7;
+      var _0x3d4e78;
+      const _0x3b19f3 = _0x35238d.amounts || [];
+      _0x3d4e78 = 8;
+      _0x1ed8af += _0x1f4499;
+      _0x13293c += _0x975fb2;
+      const _0x1824a7 = getFirstThree(_0xd4d549);
+      var _0x152b5e = 6;
+      const _0x2c5e56 = _0x3b19f3.length > 0 ? "(" + [...new Set(_0x3b19f3)].join(", ") + ")" : "";
+      _0x152b5e = "lpkmnm".split("").reverse().join("");
+      _0x48a61f.push("号码 " + _0x1824a7 + "xxx: 成功 " + _0x1f4499 + " 次, 失败 " + _0x975fb2 + " 次 " + _0x2c5e56);
     }
+    _0x48a61f.push("总计: 成功 " + _0x1ed8af + " 次, 失败 " + _0x13293c + " 次");
+    return _0x48a61f.join("\n");
   }
-  try {
-    new URL(proxyUrl);
-  } catch (error) {
-    return {
-      "ok": false,
-      "msg": "❌ 代理URL格式错误: " + error.message,
-      "ip": null
-    };
-  }
-  return {
-    "ok": false,
-    "msg": "❌ 代理测试失败: " + (_0x2f69e?.message || "所有测试端点均无法访问"),
-    "ip": null
-  };
 }
-const usedProxyIPs = new Set();
-async function getAccountBasicInfo(cookie, proxyUrl, accountIdentifier = "?") {
-  var _0x5b5ebb;
-  const _0x87066a = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview/basicInfo?source=bottom_guide_first";
-  _0x5b5ebb = "nefgmm";
-  const {
-    "body": responseData
-  } = await sendRequest({
-    "method": "GET",
-    "url": _0x87066a,
-    "headers": {
-      "Host": "nebula.kuaishou.com",
-      "User-Agent": "kwai-android aegon/3.56.0",
-      "Cookie": cookie,
-      "Content-Type": "application/x-www-form-urlencoded"
+var _0xd11cdb = 12;
+const exchangeStats = new ExchangeStats();
+_0xd11cdb = 8;
+var _0xb968cd;
+const now = new Date();
+_0xb968cd = 11;
+var _0x9d3b = 10;
+const yf = "" + now.getFullYear() + (now.getMonth() + 1).toString().padStart(2, "0");
+_0x9d3b = "fojdgi";
+var _0x43bdee;
+let dhjl = {};
+_0x43bdee = 3;
+try {
+  var _0x356e7d = 13;
+  const data = fs.readFileSync("gol.费话换豆金信电".split("").reverse().join(""), "8ftu".split("").reverse().join(""));
+  _0x356e7d = 2;
+  dhjl = JSON.parse(data);
+} catch (_0x4ec6c8) {
+  dhjl = {};
+}
+!dhjl[yf] && (dhjl[yf] = {});
+function printn(_0xd2187e) {
+  var _0x569860;
+  const _0x2e0242 = new Date().toLocaleTimeString("zh-CN", {
+    hour12: false,
+    fractionalSecondDigits: 3
+  });
+  _0x569860 = 12;
+  console.log("\n[" + _0x2e0242 + "] " + _0xd2187e);
+}
+function getFirstThree(_0x4cb861) {
+  if (typeof _0x4cb861 === "number") {
+    return _0x4cb861.toString().slice(0, 3);
+  } else {
+    if (typeof _0x4cb861 === "gnirts".split("").reverse().join("")) {
+      return _0x4cb861.slice(0, 3);
+    } else {
+      throw new TypeError("rorre".split("").reverse().join(""));
+    }
+  }
+}
+function runTime(_0x23f81e, _0x5a24d7, _0x351316) {
+  var _0x5cbabb = 9;
+  const _0x5dc92e = new Date();
+  _0x5cbabb = "khbjgk".split("").reverse().join("");
+  _0x5dc92e.setHours(_0x23f81e, _0x5a24d7, _0x351316, 0);
+  return Math.floor(_0x5dc92e.getTime() / 1000);
+}
+function generateUUID(_0x32182b) {
+  var _0x11af8a = 10;
+  _0x32182b = "abcdef0123456789";
+  _0x11af8a = 13;
+  const _0x1b84ff = [Array.from({
+    length: 8
+  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join(""), Array.from({
+    length: 4
+  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join(""), "4" + Array.from({
+    length: 3
+  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join(""), Array.from({
+    length: 4
+  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join(""), Array.from({
+    length: 12
+  }, () => _0x32182b[Math.floor(Math.random() * _0x32182b.length)]).join("")];
+  return _0x1b84ff;
+}
+var _0x3fcf2a = 7;
+const key = Buffer.from("1234567`90koiuyhgtfrdews", "8ftu".split("").reverse().join(""));
+_0x3fcf2a = 3;
+var _0x16e = 13;
+const iv = Buffer.alloc(8, 0);
+_0x16e = 3;
+function encrypt(_0x5e2100) {
+  const _0x399d9d = {
+    BatMz: "createCipheriv",
+    ERzzo: "cbc-3ede-s" + "de".split("").reverse().join(""),
+    thSTv: "update",
+    irMjp: "utf8",
+    BHgCU: "xeh",
+    nVodA: function (_0x98599d, _0x497864) {
+      return _0x98599d + _0x497864;
     },
-    "timeout": 8000
-  }, proxyUrl, "账号[" + accountIdentifier + "] 获取基本信息");
-  if (responseData && responseData.result === 1 && responseData.data) {
-    let _0x1b2ff = null;
-    if (responseData.data.userData) {
-      _0x1b2ff = responseData.data.userData.ud || responseData.data.userData.userId || responseData.data.userData.user_id || responseData.data.userData.id || null;
+    HnPRK: function (_0x470162, _0x61450e) {
+      return _0x470162 ^ _0x61450e;
+    },
+    IgOxV: function (_0x2cf479, _0x38d728) {
+      return _0x2cf479 ^ _0x38d728;
+    },
+    pFBNi: "final",
+    wRDNs: "hex"
+  };
+  const _0x5b67f9 = crypto[_0x399d9d.BatMz](_0x399d9d.ERzzo.split("").reverse().join(""), key, iv);
+  var _0x49b415;
+  let _0x52a1a4 = _0x5b67f9[_0x399d9d.thSTv](_0x5e2100, _0x399d9d.irMjp, _0x399d9d.BHgCU.split("").reverse().join(""));
+  _0x49b415 = _0x399d9d.nVodA(_0x399d9d.HnPRK(830894, 830887), _0x399d9d.IgOxV(919070, 919066));
+  _0x52a1a4 += _0x5b67f9[_0x399d9d.pFBNi](_0x399d9d.wRDNs);
+  return _0x52a1a4;
+}
+function decrypt(_0x5577ec) {
+  const _0x581bd8 = crypto.createDecipheriv("des-ede3-cbc", key, iv);
+  var _0x233652 = 18;
+  let _0x1b4a2e = _0x581bd8.update(_0x5577ec, "xeh".split("").reverse().join(""), "utf8");
+  _0x233652 = 18;
+  _0x1b4a2e += _0x581bd8.final("8ftu".split("").reverse().join(""));
+  return _0x1b4a2e;
+}
+var _0xb6a5d;
+const publicKeyB64 = "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBkLT15ThVgz6/NOl6s8GNPofdWzWbCkWnkaAm7O2LjkM1H7dMvzkiqdxU02jamGRHLX/ZNMCXHnPcW/sDhiFCBN18qFvy8g6VYb9QtroI09e176s+ZCtiv7hbin2cCTj99iUpnEloZm19lwHyo69u5UMiPMpq0/XKBO8lYhN/gwIDAQAB\n-----END PUBLIC KEY-----";
+_0xb6a5d = 7;
+const publicKeyData = "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC+ugG5A8cZ3FqUKDwM57GM4io6JGcStivT8UdGt67PEOihLZTw3P7371+N47PrmsCpnTRzbTgcupKtUv8ImZalYk65dU8rjC/ridwhw9ffw2LBwvkEnDkkKKRi2liWIItDftJVBiWOh17o6gfbPoNrWORcAdcbpk2L+udld5kZNwIDAQAB\n-----END PUBLIC KEY-----";
+function b64(_0x15a560) {
+  const _0x3e958e = new JSEncrypt();
+  _0x3e958e.setPublicKey(publicKeyB64);
+  return _0x3e958e.encrypt(_0x15a560);
+}
+function encryptPara(_0x1dcd34) {
+  const _0x5d5e4f = {
+    DdbpX: function (_0x54bcd6, _0x9b7c1) {
+      return _0x54bcd6 !== _0x9b7c1;
+    },
+    HakFB: "string",
+    pKBJj: "stringify",
+    lmWxw: "ocglll",
+    aEWGy: "setPublicK" + "ye".split("").reverse().join(""),
+    ZHeDx: function (_0x23662e, _0x429946) {
+      return _0x23662e - _0x429946;
+    },
+    REEXx: function (_0x1b3109, _0x79423) {
+      return _0x1b3109 ^ _0x79423;
+    },
+    WzmXV: function (_0x448616, _0xd763b3) {
+      return _0x448616 ^ _0xd763b3;
+    },
+    iRXiI: function (_0x295924, _0x40e693) {
+      return _0x295924 ^ _0x40e693;
+    },
+    Yaasn: function (_0x1a5a1c, _0xc4c2f9) {
+      return _0x1a5a1c < _0xc4c2f9;
+    },
+    jiGrZ: "length",
+    bwzop: "slice",
+    FSIlm: function (_0x4ed959, _0x5afcc9) {
+      return _0x4ed959 + _0x5afcc9;
+    },
+    bqQHZ: function (_0x18a5c6, _0x36285d) {
+      return _0x18a5c6 ^ _0x36285d;
+    },
+    JgfZY: function (_0x4b8f20, _0x585492) {
+      return _0x4b8f20 ^ _0x585492;
+    },
+    bDuCb: "encrypt",
+    AGkTX: function (_0x1c43b3, _0x3aaff0) {
+      return _0x1c43b3 ^ _0x3aaff0;
+    },
+    EcCIP: "push",
+    UCCmq: "from",
+    nMuQs: "46esab",
+    eLrDZ: "concat",
+    PEwMM: "toString",
+    WqTlS: "hex"
+  };
+  _0x5d5e4f.DdbpX(typeof _0x1dcd34, _0x5d5e4f.HakFB) && (_0x1dcd34 = JSON[_0x5d5e4f.pKBJj](_0x1dcd34));
+  var _0x5859f4;
+  const _0x3d1cda = new JSEncrypt();
+  _0x5859f4 = _0x5d5e4f.lmWxw.split("").reverse().join("");
+  _0x3d1cda[_0x5d5e4f.aEWGy](publicKeyData);
+  var _0x2bd074;
+  const _0x42cb72 = _0x5d5e4f.ZHeDx(_0x5d5e4f.REEXx(576856, 576984), _0x5d5e4f.WzmXV(794329, 794322));
+  _0x2bd074 = _0x5d5e4f.REEXx(492813, 492808);
+  const _0x5196c5 = [];
+  for (let _0x216277 = _0x5d5e4f.iRXiI(310960, 310960); _0x5d5e4f.Yaasn(_0x216277, _0x1dcd34[_0x5d5e4f.jiGrZ]); _0x216277 += _0x42cb72) {
+    const _0x5f5da7 = _0x1dcd34[_0x5d5e4f.bwzop](_0x216277, _0x5d5e4f.FSIlm(_0x216277, _0x42cb72));
+    var _0x3ad357 = _0x5d5e4f.FSIlm(_0x5d5e4f.bqQHZ(644436, 644436), _0x5d5e4f.JgfZY(127011, 127014));
+    const _0x4b6b39 = _0x3d1cda[_0x5d5e4f.bDuCb](_0x5f5da7);
+    _0x3ad357 = _0x5d5e4f.AGkTX(416192, 416196);
+    _0x4b6b39 && _0x5196c5[_0x5d5e4f.EcCIP](Buffer[_0x5d5e4f.UCCmq](_0x4b6b39, _0x5d5e4f.nMuQs.split("").reverse().join("")));
+  }
+  return Buffer[_0x5d5e4f.eLrDZ](_0x5196c5)[_0x5d5e4f.PEwMM](_0x5d5e4f.WqTlS);
+}
+function encodePhone(_0x4cbf56) {
+  return _0x4cbf56.split("").map(_0x1b98b2 => String.fromCharCode(_0x1b98b2.charCodeAt(0) + 2)).join("");
+}
+async function userLoginNormal(_0x14b044, _0x1c4a26) {
+  const _0x414669 = {
+    gqTKe: function (_0x39f5c5) {
+      return _0x39f5c5();
+    },
+    fuzEA: "toISOString",
+    LuWHA: "replace",
+    wAtOC: "[-:]",
+    mdAij: "\\..*",
+    ULKoG: "slice",
+    BFYKA: function (_0x521e70, _0x2483e4) {
+      return _0x521e70 ^ _0x2483e4;
+    },
+    DPaPV: function (_0x1195c7, _0x1a921d) {
+      return _0x1195c7 + _0x1a921d;
+    },
+    Nnlzn: function (_0x18bb46, _0x50ff45) {
+      return _0x18bb46 ^ _0x50ff45;
+    },
+    trScN: function (_0x24dfc5, _0x2a2ac9) {
+      return _0x24dfc5 ^ _0x2a2ac9;
+    },
+    BQYaO: function (_0x43ac18, _0x4a0442) {
+      return _0x43ac18 ^ _0x4a0442;
+    },
+    PRgcs: function (_0x12f122, _0x306857) {
+      return _0x12f122 ^ _0x306857;
+    },
+    SEHsD: function (_0x86a293, _0x5124dc) {
+      return _0x86a293 + _0x5124dc;
+    },
+    DpIUd: function (_0x5733f8, _0x479d42) {
+      return _0x5733f8 ^ _0x479d42;
+    },
+    txVFz: "userLoginNormal",
+    uwGva: "#11.3.0#channel35#Xiaomi Redmi K30 Pro#",
+    nbiaZ: "20002",
+    JFaEs: "110003",
+    IPnmx: "Sid98s",
+    gmBBw: function (_0x3e764f, _0xae183b) {
+      return _0x3e764f(_0xae183b);
+    },
+    nagXk: "test",
+    kQqdI: function (_0x2ed5fe, _0x25522e) {
+      return _0x2ed5fe + _0x25522e;
+    },
+    fqHeh: function (_0x395f2c, _0xabcb12) {
+      return _0x395f2c + _0xabcb12;
+    },
+    AWYXV: function (_0x3c4b45, _0x2ba7e8) {
+      return _0x3c4b45 ^ _0x2ba7e8;
+    },
+    EJuAm: function (_0x5dd87b, _0x1cabad) {
+      return _0x5dd87b ^ _0x1cabad;
+    },
+    qfnma: function (_0x279e6c, _0x4c441d) {
+      return _0x279e6c(_0x4c441d);
+    },
+    JgKgP: function (_0x5b85fe, _0x6b135e) {
+      return _0x5b85fe ^ _0x6b135e;
+    },
+    aNDfh: "post",
+    JXcEd: "https://appgologin.189.cn:9031/login/client/userLoginNormal",
+    aqQyy: "data",
+    tKXQu: "responseDa" + "at".split("").reverse().join(""),
+    kzWPb: "loginSuccessResult",
+    pcrCk: function (_0x107582, _0x2157e5, _0x57b272, _0x10837c) {
+      return _0x107582(_0x2157e5, _0x57b272, _0x10837c);
+    },
+    tbLWO: "userId",
+    WVxKp: "token",
+    pcLQW: function (_0x12759d, _0x2b7fa0) {
+      return _0x12759d + _0x2b7fa0;
+    },
+    YhrTu: function (_0x2cc201, _0x14aca4) {
+      return _0x2cc201 ^ _0x14aca4;
+    },
+    atVnt: function (_0xa2975, _0x3cca50) {
+      return _0xa2975 ^ _0x3cca50;
+    },
+    xBqKY: "error",
+    zOUyk: ":败失录登",
+    YvTFq: "message"
+  };
+  const _0x3f7483 = _0x414669.gqTKe(generateUUID);
+  var _0xca4918;
+  const _0x796269 = new Date()[_0x414669.fuzEA]()[_0x414669.LuWHA](new RegExp(_0x414669.wAtOC, "g"), "")[_0x414669.LuWHA](new RegExp(_0x414669.mdAij, ""), "")[_0x414669.ULKoG](_0x414669.BFYKA(505841, 505841), _0x414669.BFYKA(448230, 448232));
+  _0xca4918 = _0x414669.DPaPV(_0x414669.Nnlzn(474734, 474732), _0x414669.Nnlzn(905287, 905280));
+  const _0x579c3c = "iPhone 14 15.4." + _0x3f7483[_0x414669.trScN(720254, 720254)] + _0x3f7483[_0x414669.BQYaO(220870, 220871)] + _0x14b044 + _0x796269 + _0x1c4a26[_0x414669.ULKoG](_0x414669.BQYaO(553365, 553365), _0x414669.PRgcs(167741, 167739)) + "0$$$0.";
+  var _0x33d1c9 = _0x414669.SEHsD(_0x414669.DpIUd(760524, 760527), _0x414669.BQYaO(536000, 536004));
+  const _0x1ee2ef = {
+    headerInfos: {
+      code: _0x414669.txVFz,
+      timestamp: _0x796269,
+      broadAccount: "",
+      broadToken: "",
+      clientType: _0x414669.uwGva,
+      shopId: _0x414669.nbiaZ,
+      source: _0x414669.JFaEs,
+      sourcePassword: _0x414669.IPnmx,
+      token: "",
+      userLoginName: _0x414669.gmBBw(encodePhone, _0x14b044)
+    },
+    content: {
+      attach: _0x414669.nagXk,
+      fieldData: {
+        loginType: "4",
+        accountType: "",
+        loginAuthCipherAsymmertric: _0x414669.gmBBw(b64, _0x579c3c),
+        deviceUid: _0x414669.kQqdI(_0x414669.fqHeh(_0x3f7483[_0x414669.AWYXV(856996, 856996)], _0x3f7483[_0x414669.EJuAm(728953, 728952)]), _0x3f7483[_0x414669.AWYXV(476263, 476261)]),
+        phoneNum: _0x414669.qfnma(encodePhone, _0x14b044),
+        isChinatelecom: "0",
+        systemVersion: "12",
+        authentication: _0x414669.gmBBw(encodePhone, _0x1c4a26)
+      }
     }
-    if (!_0x1b2ff) {
-      _0x1b2ff = responseData.data.ud || responseData.data.userId || responseData.data.user_id || null;
+  };
+  _0x33d1c9 = _0x414669.fqHeh(_0x414669.JgKgP(482560, 482563), _0x414669.EJuAm(780525, 780524));
+  try {
+    const _0x52136e = await axiosInstance[_0x414669.aNDfh](_0x414669.JXcEd, _0x1ee2ef);
+    const _0xa828e9 = _0x52136e[_0x414669.aqQyy][_0x414669.tKXQu][_0x414669.aqQyy][_0x414669.kzWPb];
+    if (_0xa828e9) {
+      var _0x2a989e;
+      const _0x5964e3 = await _0x414669.pcrCk(getTicket, _0x14b044, _0xa828e9[_0x414669.tbLWO], _0xa828e9[_0x414669.WVxKp]);
+      _0x2a989e = _0x414669.pcLQW(_0x414669.YhrTu(642323, 642321), _0x414669.atVnt(594313, 594318));
+      return _0x5964e3;
     }
-    return {
-      "nickname": responseData.data.userData?.nickname || null,
-      "totalCoin": responseData.data.totalCoin ?? null,
-      "allCash": responseData.data.allCash ?? null,
-      "ud": _0x1b2ff
+    return false;
+  } catch (_0x2e0451) {
+    console[_0x414669.xBqKY](_0x414669.zOUyk.split("").reverse().join(""), _0x2e0451[_0x414669.YvTFq]);
+    return false;
+  }
+}
+async function getTicket(_0x16782e, _0x1b2dac, _0xdc3e0e) {
+  const _0x5ea274 = new Date().toISOString().replace(new RegExp("]:-[".split("").reverse().join(""), "g"), "").replace(new RegExp("\\..*", ""), "").slice(0, 14);
+  var _0xbd4233;
+  const _0x225ce2 = "<Request>\n    <HeaderInfos>\n      <Code>getSingle</Code>\n      <Timestamp>" + _0x5ea274 + "</Timestamp>\n      <BroadAccount></BroadAccount>\n      <BroadToken></BroadToken>\n      <ClientType>#9.6.1#channel50#iPhone 14 Pro Max#</ClientType>\n      <ShopId>20002</ShopId>\n      <Source>110003</Source>\n      <SourcePassword>Sid98s</SourcePassword>\n      <Token>" + _0xdc3e0e + "</Token>\n      <UserLoginName>" + _0x16782e + "</UserLoginName>\n    </HeaderInfos>\n    <Content>\n      <Attach>test</Attach>\n      <FieldData>\n        <TargetId>" + encrypt(_0x1b2dac) + "</TargetId>\n        <Url>4a6862274835b451</Url>\n      </FieldData>\n    </Content>\n  </Request>";
+  _0xbd4233 = "oqiopk".split("").reverse().join("");
+  try {
+    var _0x466a06;
+    const _0x223538 = await axiosInstance.post("https://appgologin.189.cn:9031/map/clientXML", _0x225ce2, {
+      headers: {
+        "user-agent": "CtClient;10.4.1;Android;13;22081212C;NTQzNzgx!#!MTgwNTg1",
+        "Content-Type": "application/xml"
+      }
+    });
+    _0x466a06 = 5;
+    const _0x461e5a = new XMLParser();
+    const _0x248bb9 = _0x461e5a.parse(_0x223538.data);
+    const _0xfdc6a6 = _0x248bb9.Response?.["Ticket"];
+    if (_0xfdc6a6) {
+      return decrypt(_0xfdc6a6);
+    }
+    return false;
+  } catch (_0x29e26e) {
+    console.error(":败失tekcit取获".split("").reverse().join(""), _0x29e26e.message);
+    return false;
+  }
+}
+async function conversionRights(_0x17466f, _0x510aae, _0x253dab, _0x59585b) {
+  try {
+    const _0x359898 = {
+      id: _0x510aae,
+      accId: _0x59585b,
+      showType: "9003",
+      showEffect: "8",
+      czValue: "0"
     };
+    var _0x427901 = 9;
+    const _0x38545a = encryptPara(_0x359898);
+    _0x427901 = 3;
+    printn(getFirstThree(_0x17466f) + ":开始兑换");
+    const _0x3f6738 = await axiosInstance.post("sthgiRreviecer/esidarap/ngis-tj/nc.981.krappaw//:sptth".split("").reverse().join(""), {
+      para: _0x38545a
+    }, {
+      headers: _0x253dab.headers
+    });
+    const _0x23ee51 = _0x3f6738.data;
+    printn(getFirstThree(_0x17466f) + ":" + JSON.stringify(_0x23ee51));
+    if (_0x3f6738.data.includes("功成换兑".split("").reverse().join("")) || _0x3f6738.data.includes("已兑换")) {
+      !dhjl[yf]["等级话费"] && (dhjl[yf]["等级话费"] = "");
+      dhjl[yf]["等级话费"] += "#" + _0x17466f;
+      fs.writeFileSync("电信金豆换话费.log", JSON.stringify(dhjl, null, 2), "utf8");
+      exchangeStats.addSuccess(_0x17466f, "话费");
+      return;
+    } else {
+      exchangeStats.addFailed(_0x17466f, JSON.stringify(_0x23ee51));
+    }
+  } catch (_0x15f7ab) {
+    printn(getFirstThree(_0x17466f) + ": 兑换请求发生错误: " + _0x15f7ab.message);
+    exchangeStats.addFailed(_0x17466f, _0x15f7ab.message);
+  }
+}
+async function exchangeForDay(_0x29514d, _0x319f82, _0x2a5fc1, _0x517043, _0x3f6ed7) {
+  const _0x289099 = Array.from({
+    length: parseInt(runNum)
+  }, (_0x25c0c7, _0x1e0d50) => _0x1e0d50 * _0x517043);
+  console.log("号码 " + getFirstThree(_0x29514d) + "xxx: 开始发送 " + runNum + " 次兑换请求");
+  for (const _0x194e40 of _0x289099) {
+    await new Promise(_0x52c4f0 => setTimeout(_0x52c4f0, _0x194e40 * 1000));
+    await conversionRights(_0x29514d, _0x2a5fc1, _0x319f82, _0x3f6ed7);
+  }
+}
+async function getLevelRightsList(_0x5e0d10, _0x801e6c, _0xcd629d) {
+  const _0x2cb21b = {
+    calkM: "hg_qd_djqydh",
+    ftnQK: "20001",
+    KqGNM: function (_0x2919d3, _0xa220a) {
+      return _0x2919d3(_0xa220a);
+    },
+    cJJnG: function (_0xd16ac6, _0x304ce1) {
+      return _0xd16ac6 + _0x304ce1;
+    },
+    OVmoJ: function (_0x249040, _0x3a2299) {
+      return _0x249040 ^ _0x3a2299;
+    },
+    pfQQr: "post",
+    WniNo: "ofnIthgiRleveLyreuq/esidarap/ngis-tj/nc.981.krappaw//:sptth",
+    JWXHP: "headers",
+    ShMle: "data",
+    qSKyh: function (_0x475781, _0x4b8c20) {
+      return _0x475781 === _0x4b8c20;
+    },
+    ysXyp: "code",
+    pWMVH: function (_0xd62803, _0x55ef84) {
+      return _0xd62803 ^ _0x55ef84;
+    },
+    xOVfW: "log",
+    BfHSv: "stringify",
+    twHbr: "currentLev" + "le".split("").reverse().join(""),
+    TZzRQ: function (_0x1db524, _0x3e9f81) {
+      return _0x1db524 + _0x3e9f81;
+    },
+    CSmfb: "filter",
+    uyYHE: "map",
+    rfYBS: function (_0x12636e, _0x3378b8) {
+      return _0x12636e + _0x3378b8;
+    },
+    BiIxL: "message"
+  };
+  try {
+    const _0xc7ecb2 = {
+      type: _0x2cb21b.calkM,
+      accId: _0xcd629d,
+      shopId: _0x2cb21b.ftnQK
+    };
+    var _0x5b7395;
+    const _0x268b5c = _0x2cb21b.KqGNM(encryptPara, _0xc7ecb2);
+    _0x5b7395 = _0x2cb21b.cJJnG(_0x2cb21b.OVmoJ(323131, 323131), _0x2cb21b.OVmoJ(445826, 445831));
+    const _0x3df37e = await axiosInstance[_0x2cb21b.pfQQr](_0x2cb21b.WniNo.split("").reverse().join(""), {
+      para: _0x268b5c
+    }, {
+      headers: _0x801e6c[_0x2cb21b.JWXHP]
+    });
+    const _0x339489 = _0x3df37e[_0x2cb21b.ShMle];
+    if (_0x2cb21b.qSKyh(_0x339489[_0x2cb21b.ysXyp], _0x2cb21b.pWMVH(182646, 182503))) {
+      console[_0x2cb21b.xOVfW]("获取失败:" + JSON[_0x2cb21b.BfHSv](_0x339489) + ",原因大概是sign过期了");
+      return null;
+    }
+    const _0x57d5f2 = _0x2cb21b.KqGNM(parseInt, _0x339489[_0x2cb21b.twHbr]);
+    const _0x2f1738 = _0x2cb21b.cJJnG("V", _0x57d5f2);
+    var _0x10338f = _0x2cb21b.TZzRQ(_0x2cb21b.OVmoJ(204017, 204020), _0x2cb21b.pWMVH(751437, 751437));
+    const _0x2183f7 = _0x339489[_0x2f1738][_0x2cb21b.CSmfb](_0x1273a9 => _0x1273a9.title && _0x1273a9.title.includes("话费"))[_0x2cb21b.uyYHE](_0x5e23a5 => _0x5e23a5.activityId);
+    _0x10338f = _0x2cb21b.rfYBS(_0x2cb21b.OVmoJ(506515, 506517), _0x2cb21b.pWMVH(745350, 745344));
+    return _0x2183f7;
+  } catch (_0x3f2a31) {
+    console[_0x2cb21b.xOVfW]("获取失败,重试一次: " + _0x3f2a31[_0x2cb21b.BiIxL]);
+    return null;
+  }
+}
+async function getSign(_0xcff381) {
+  try {
+    const _0x23daf7 = await axiosInstance.get("https://wappark.189.cn/jt-sign/ssoHomLogin?ticket=" + _0xcff381, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Linux; Android 13; 22081212C Build/TKQ1.220829.002) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.97 Mobile Safari/537.36"
+      }
+    });
+    const _0x1b277c = _0x23daf7.data;
+    if (_0x1b277c.resoultCode === "0") {
+      var _0x2b3d77 = 16;
+      const _0x5b8777 = _0x1b277c.sign;
+      _0x2b3d77 = 11;
+      const _0x4560e2 = _0x1b277c.accId;
+      return {
+        sign: _0x5b8777,
+        accId: _0x4560e2
+      };
+    } else {
+      console.log("获取sign失败[" + _0x1b277c.resoultCode + "]: " + JSON.stringify(_0x1b277c));
+    }
+  } catch (_0x2f4a40) {
+    console.log("getSign 发生错误: " + _0x2f4a40.message);
   }
   return null;
 }
-const forceColor = String(process.env.FORCE_COLOR || "").toLowerCase();
-const noColor = String(process.env.NO_COLOR || "").toLowerCase() === "1";
-const enableColors = !noColor && forceColor !== "0";
-var _0xb94fe = 14;
-const colors = enableColors ? {
-  "reset": "[0m",
-  "bright": "[1m",
-  "dim": "[2m",
-  "red": "[31m",
-  "green": "[32m",
-  "yellow": "[33m",
-  "blue": "[34m",
-  "magenta": "[35m",
-  "cyan": "[36m",
-  "white": "[37m"
-} : {
-  "reset": "",
-  "bright": "",
-  "dim": "",
-  "red": "",
-  "green": "",
-  "yellow": "",
-  "blue": "",
-  "magenta": "",
-  "cyan": "",
-  "white": ""
-};
-_0xb94fe = 6;
-function colorText(text, colorCode) {
-  if (!enableColors || !colorCode) {
-    return String(text);
+async function qgNight(_0x2a2c94, _0x10ca9c, _0x4b1e6c, _0x4e74cc, _0x3f8653) {
+  var _0x317be4;
+  _0x3f8653 = 0;
+  _0x317be4 = "pccjih";
+  _0x4e74cc && (_0x3f8653 = runTime(23, 58, 30));
+  if (_0x3f8653 > Math.floor(Date.now() / 1000) + _0x4b1e6c) {
+    const _0x5831eb = _0x3f8653 - Math.floor(Date.now() / 1000) - _0x4b1e6c;
+    console.log("当前时间:" + new Date().toLocaleTimeString("NC-hz".split("").reverse().join("")) + (",跟设定的时间不同," + "待等".split("").reverse().join("")) + _0x5831eb + "秒开始兑换每天一次的");
+    await new Promise(_0xecddbe => setTimeout(_0xecddbe, _0x5831eb * 1000));
   }
-  return colorCode + text + colors.reset;
-}
-function formatTag(text) {
-  return colorText("[" + text + "]", colors.bright + colors.cyan);
-}
-function formatSuccess(text) {
-  return colorText("[" + text + "]", colors.bright + colors.green);
-}
-function formatWarning(text) {
-  return colorText("[" + text + "]", colors.bright + colors.yellow);
-}
-function centerText(text, width) {
-  text = String(text);
-  if (text.length >= width) return text.substring(0, width);
-  var _0xeceg = 1;
-  const _0xadce8f = width - text.length;
-  _0xeceg = 9;
-  var _0x3d78c = 6;
-  const _0x6abbgc = Math.floor(_0xadce8f / 2);
-  _0x3d78c = 2;
-  var _0x156g;
-  const _0xda5ag = _0xadce8f - _0x6abbgc;
-  _0x156g = 6;
-  return " ".repeat(_0x6abbgc) + text + " ".repeat(_0xda5ag);
-}
-class KuaishouAccount {
-  constructor({
-    "index": index,
-    "salt": salt,
-    "cookie": cookie,
-    "nickname": nickname = "",
-    "proxyUrl": proxyUrl = null,
-    "tasksToExecute": tasksToExecute = ["look"],
-    "remark": remark = "",
-    "udFromLogin": udFromLogin = null
-  }) {
-    this.index = index;
-    this.salt = salt;
-    this.cookie = cookie;
-    this.nickname = nickname || remark || "号账".split("").reverse().join("") + index;
-    this.remark = remark;
-    this.proxyUrl = proxyUrl;
-    this.coinLimit = COIN_LIMIT;
-    this.coinExceeded = false;
-    this.tasksToExecute = tasksToExecute;
-    this.adAdditionalNum = 0;
-    this.extractCookieInfo();
-    if (udFromLogin && udFromLogin.trim()) {
-      var _0xc92cdg;
-      const ud = String(udFromLogin).trim();
-      _0xc92cdg = 12;
-      if (ud) {
-        this.userId = ud;
-      }
-    }
-    this.headers = {
-      "Host": "nebula.kuaishou.com",
-      "Connection": "keep-alive",
-      "User-Agent": "Mozilla/5.0 (Linux; Android 10; MI 8 Lite Build/QKQ1.190910.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.101 Mobile Safari/537.36",
-      "Cookie": this.cookie,
-      "content-type": "application/json"
-    };
-    this.taskReportPath = "/rest/r/ad/task/report";
-    this.startTime = Date.now();
-    this.endTime = this.startTime - 30000;
-    this.queryParams = "mod=Xiaomi(MI 11)&appver=" + this.appver + "&egid=" + this.egid + "=did&".split("").reverse().join("") + this.did;
-    this.taskConfigs = {
-      "look": {
-        "name": "看广告得金币",
-        "businessId": 672,
-        "posId": 24067,
-        "subPageId": 100026367,
-        "requestSceneType": 1,
-        "taskType": 1
-      },
-      "look_follow": {
-        "name": "追加看广告得金币",
-        "businessId": 672,
-        "posId": 24067,
-        "subPageId": 100026367,
-        "requestSceneType": 2,
-        "taskType": 1
-      },
-      "box": {
-        "name": "宝箱广告",
-        "businessId": 606,
-        "posId": 20346,
-        "subPageId": 100024064,
-        "requestSceneType": 1,
-        "taskType": 1
-      },
-      "food": {
-        "name": "饭补广告",
-        "businessId": 9362,
-        "posId": 24067,
-        "subPageId": 100026367,
-        "requestSceneType": 7,
-        "taskType": 2
-      },
-      "kbox": {
-        "name": "开宝箱",
-        "businessId": 606,
-        "posId": 20346,
-        "subPageId": 100024064,
-        "requestSceneType": 1,
-        "taskType": 1
-      },
-      "search": {
-        "name": "搜索任务",
-        "pageId": 11014,
-        "businessId": 7076,
-        "posId": 216268,
-        "subPageId": 100161537,
-        "requestSceneType": 1,
-        "taskType": 1
-      },
-      "search_follow": {
-        "name": "搜索任务追加",
-        "pageId": 11014,
-        "businessId": 7076,
-        "posId": 216268,
-        "subPageId": 100161537,
-        "requestSceneType": 7,
-        "taskType": 2
-      }
-    };
-    this.taskStats = {};
-    var _0xdbad = 16;
-    const allTasks = new Set(this.tasksToExecute);
-    _0xdbad = 14;
-    allTasks.add("look_follow");
-    allTasks.add("search");
-    allTasks.add("search_follow");
-    allTasks.forEach(taskType => {
-      if (this.taskConfigs[taskType]) {
-        this.taskStats[taskType] = {
-          "success": 0,
-          "failed": 0,
-          "totalReward": 0
-        };
-      }
-    });
-    this.lowRewardStreak = 0;
-    this.lowRewardThreshold = LOW_REWARD_THRESHOLD;
-    this.lowRewardLimit = LOW_REWARD_LIMIT;
-    this.stopAllTasks = false;
-    this.taskLimitReached = {};
-    var _0x6_0xc3g;
-    const allTaskTypes = new Set(this.tasksToExecute);
-    _0x6_0xc3g = 4;
-    allTaskTypes.add("wollof_kool".split("").reverse().join(""));
-    allTaskTypes.add("search");
-    allTaskTypes.add("search_follow");
-    allTaskTypes.forEach(taskType => {
-      if (this.taskConfigs[taskType]) {
-        this.taskLimitReached[taskType] = false;
-      }
-    });
-  }
-  getAccountDisplayName() {
-    const displayName = this.remark || this.nickname || "号账".split("").reverse().join("") + this.index;
-    if (enableColors) {
-      var _0xa5b = 6;
-      const accountLabel = colors.bright + colors.cyan + "账号" + colors.reset;
-      _0xa5b = "pagmnm".split("").reverse().join("");
-      return accountLabel + formatTag(displayName);
-    }
-    return "账号[" + displayName + "]";
-  }
-  getTaskTotalCount(taskType) {
-    switch (taskType) {
-      case "look":
-        return LOOK_COUNT;
-      case "look_follow":
-        return this.tasksToExecute.includes("look") ? LOOK_COUNT * FOLLOW_COUNT : 0;
-      case "hcraes".split("").reverse().join(""):
-        return SEARCH_COUNT;
-      case "search_follow":
-        return this.tasksToExecute.includes("hcraes".split("").reverse().join("")) ? SEARCH_COUNT * SEARCH_FOLLOW_COUNT : 0;
-      case "box":
-        return BOX_COUNT;
-      case "doof".split("").reverse().join(""):
-        return FOOD_COUNT;
-      case "kbox":
-        return KBOX_COUNT;
-      default:
-        return 0;
-    }
-  }
-  async checkCoinLimit() {
-    try {
-      const accountInfo = await getAccountBasicInfo(this.getCookieWithCurrentDid(), this.proxyUrl, this.index);
-      if (accountInfo && accountInfo.totalCoin) {
-        var _0xb3cf;
-        const currentCoins = parseInt(accountInfo.totalCoin);
-        _0xb3cf = 6;
-        if (currentCoins >= this.coinLimit) {
-          console.log("⚠️ " + this.getAccountDisplayName() + " 金币已达 " + currentCoins + " 过超，".split("").reverse().join("") + this.coinLimit + "务任止停将，值阈 ".split("").reverse().join(""));
-          this.coinExceeded = true;
-          this.stopAllTasks = true;
-          return true;
-        }
-      }
-      return false;
-    } catch (error) {
-      console.log(" ❌".split("").reverse().join("") + this.getAccountDisplayName() + " :常异查检币金 ".split("").reverse().join("") + error.message);
-      return false;
-    }
-  }
-  extractCookieInfo() {
-    try {
-      var _0xe8c9b;
-      const extractValue = (key, defaultValue = "") => {
-        const patterns = [new RegExp(`\\b${key}\\s*=\\s*"([^"]+)"`, "i"), new RegExp(`\\b${key}\\s*=\\s*([^;]+)`, "i"), new RegExp(`\\b${key}\\s*:\\s*"([^"]+)"`, "i"), new RegExp(`\\b${key}\\s*:\\s*([^,;]+)`, "i")];
-        for (const pattern of patterns) {
-          const match = this.cookie.match(pattern);
-          if (match && match[1] && match[1].trim()) {
-            return match[1].trim();
-          }
-        }
-        return defaultValue;
-      };
-      _0xe8c9b = 10;
-      this.egid = extractValue("egid");
-      this.did = extractValue("did") || extractValue("oDid");
-      this.userId = extractValue("ud") || extractValue("dIresu".split("").reverse().join("")) || "";
-      this.kuaishouApiSt = extractValue("ts_ipa.uohsiauk".split("").reverse().join("")) || "";
-      this.appver = extractValue("revppa".split("").reverse().join(""), "75601.04.8.31".split("").reverse().join(""));
-      var _0xa513eb = 3;
-      const missingFields = [];
-      _0xa513eb = "kjecol".split("").reverse().join("");
-      if (!this.egid) missingFields.push("egid");
-      if (!this.did) missingFields.push("did".split("").reverse().join(""));
-      if (!this.userId) missingFields.push("dIresu/du".split("").reverse().join(""));
-      if (!this.kuaishouApiSt) missingFields.push("kuaishou.api_st");
-      if (missingFields.length > 0) {
-        console.log("⚠️ " + this.getAccountDisplayName() + " 缺少必要参数: " + missingFields.join(", "));
-      }
-    } catch (error) {
-      console.log("❌ " + this.getAccountDisplayName() + " 解析cookie失败: " + error.message);
-    }
-  }
-  getCookieWithCurrentDid() {
-    try {
-      if (!this.cookie || !this.did) return this.cookie;
-      const cookieParts = String(this.cookie).split(";");
-      const updatedParts = cookieParts.map(part => {
-        var _0xb2eb = 10;
-        const partStr = String(part ?? "");
-        _0xb2eb = "fhneoh";
-        if (!partStr.trim()) return partStr;
-        const hasEquals = partStr.includes("=");
-        const hasColon = partStr.includes(":");
-        const separator = hasEquals ? "=" : hasColon ? ":" : null;
-        if (!separator) return partStr;
-        const [key, ...valueParts] = partStr.split(separator);
-        var _0xbd2;
-        const keyName = String(key || "").trim();
-        _0xbd2 = 1;
-        const keyLower = keyName.toLowerCase();
-        if (keyLower === "did".split("").reverse().join("") || keyLower === "odid") {
-          return keyName + separator + this.did;
-        }
-        return partStr;
-      });
-      return updatedParts.join(" ;".split("").reverse().join(""));
-    } catch (error) {
-      return this.cookie;
-    }
-  }
-  getTaskStats() {
-    return this.taskStats;
-  }
-  printTaskStats() {
-    console.log("\n📊 " + this.getAccountDisplayName() + " 任务执行统计:");
-    for (const [taskType, stats] of Object.entries(this.taskStats)) {
-      var _0x4f636b = 11;
-      const taskConfig = this.taskConfigs[taskType];
-      _0x4f636b = 5;
-      console.log("  " + taskConfig.name + ": 成功" + stats.success + "次, 失败" + stats.failed + "次, 总奖励" + stats.totalReward + "币金".split("").reverse().join(""));
-    }
-  }
-  async retryOperation(operation, operationName, maxRetries = 3, delay = 2000) {
-    let attempt = 0;
-    var _0xba73d;
-    let lastError = null;
-    _0xba73d = 11;
-    while (attempt < maxRetries) {
-      try {
-        var _0xe60ffb = 8;
-        const result = await operation();
-        _0xe60ffb = 7;
-        if (result) return result;
-        lastError = new Error(operationName + "果结空回返 ".split("").reverse().join(""));
-      } catch (error) {
-        lastError = error;
-      }
-      attempt++;
-      if (attempt < maxRetries) {
-        await new Promise(resolve => setTimeout(resolve, delay));
-      }
-    }
-    return null;
-  }
-  needsNewDid = false;
-  async getAdInfo(taskConfig, retryCount = 0) {
-    try {
-      const maxRetries = SKIP_LIVE_ADS ? SKIP_LIVE_MAX_RETRIES : 1;
-      const apiPath = "/rest/e/reward/mixed/ad";
-      var _0x04g3g = 6;
-      const requestParams = {
-        "encData": "|encData|",
-        "sign": "|sign|",
-        "cs": "false",
-        "client_key": "2ac2a76d",
-        "videoModelCrowdTag": "1_23",
-        "os": "android",
-        "kuaishou.api_st": this.kuaishouApiSt,
-        "uQaTag": "1##swLdgl:99#ecPp:-9#cmNt:-0#cmHs:-3#cmMnsl:-0"
-      };
-      _0x04g3g = 9;
-      const deviceInfo = {
-        "earphoneMode": "1",
-        "mod": "Xiaomi(23116PN5BC)",
-        "appver": this.appver,
-        "isp": "CUCC",
-        "language": "zh-cn",
-        "ud": this.userId || "",
-        "did_tag": "0",
-        "net": "WIFI",
-        "kcv": "1599",
-        "app": "0",
-        "kpf": "ANDROID_PHONE",
-        "ver": "11.6",
-        "android_os": "0",
-        "boardPlatform": "pineapple",
-        "kpn": "NEBULA",
-        "androidApiLevel": "35",
-        "country_code": "cn",
-        "sys": "ANDROID_15",
-        "sw": "1080",
-        "sh": "2400",
-        "abi": "arm64",
-        "userRecoBit": "0"
-      };
-      const adRequestData = {
-        "appInfo": {
-          "appId": "kuaishou_nebula",
-          "name": "快手极速版",
-          "packageName": "com.kuaishou.nebula",
-          "version": this.appver,
-          "versionCode": -1
-        },
-        "deviceInfo": {
-          "osType": 1,
-          "osVersion": "15",
-          "deviceId": this.did,
-          "screenSize": {
-            "width": 1080,
-            "height": 2249
-          },
-          "ftt": ""
-        },
-        "userInfo": {
-          "userId": this.userId || "",
-          "age": 0,
-          "gender": ""
-        },
-        "impInfo": [{
-          "pageId": taskConfig.pageId || 11101,
-          "subPageId": taskConfig.subPageId,
-          "action": 0,
-          "browseType": 3,
-          "impExtData": "{}",
-          "mediaExtData": "{}"
-        }]
-      };
-      var _0xaa068d = 7;
-      const encodedData = Buffer.from(JSON.stringify(adRequestData)).toString("base64");
-      _0xaa068d = 12;
-      let signature = await this.getSign(encodedData);
-      if (!signature) {
-        console.log(" ❌".split("").reverse().join("") + this.getAccountDisplayName() + " 获取签名失败");
-        return null;
-      }
-      requestParams.encData = signature.encdata;
-      requestParams.sign = signature.sign;
-      var _0x7_0xda7 = 3;
-      let adSignature = await this.requestSignService({
-        "urlpath": apiPath,
-        "reqdata": querystring.stringify(requestParams) + "&" + querystring.stringify(deviceInfo),
-        "api_client_salt": this.salt
-      }, "获取广告签名");
-      _0x7_0xda7 = 3;
-      if (!adSignature) {
-        console.log(" ❌".split("").reverse().join("") + this.getAccountDisplayName() + "败失名签告广取获 ".split("").reverse().join(""));
-        return null;
-      }
-      var _0x241dbg = 10;
-      const queryParams = {
-        ...deviceInfo,
-        "sig": adSignature.sig,
-        "__NS_sig3": adSignature.__NS_sig3,
-        "__NS_xfalcon": adSignature.__NS_xfalcon || "",
-        "__NStokensig": adSignature.__NStokensig
-      };
-      _0x241dbg = 6;
-      var _0x63184b = 11;
-      const fullUrl = "https://api.e.kuaishou.com" + apiPath + "?" + querystring.stringify(queryParams);
-      _0x63184b = 16;
-      const {
-        "response": response,
-        "body": adResponse
-      } = await sendRequest({
-        "method": "POST",
-        "url": fullUrl,
-        "headers": {
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-          "Host": "api.e.kuaishou.com",
-          "User-Agent": "kwai-android aegon/3.56.0",
-          "Cookie": "=ts_ipa.uohsiauk".split("").reverse().join("") + this.kuaishouApiSt
-        },
-        "form": requestParams,
-        "timeout": 30000
-      }, this.proxyUrl, this.getAccountDisplayName() + " 获取广告");
-      if (!response || !adResponse) {
-        console.log("❌ " + this.getAccountDisplayName() + " 获取广告无响应");
-        return null;
-      }
-      if (adResponse.errorMsg === "KO".split("").reverse().join("") && adResponse.feeds && adResponse.feeds[0] && adResponse.feeds[0].ad) {
-        const adData = adResponse.feeds[0];
-        var _0x92a61f = 15;
-        const creativeId = adData?.ad?.creativeId ?? adData?.creativeId;
-        _0x92a61f = 1;
-        var _0xc4a16e = 12;
-        const expTag = adData.exp_tag || "";
-        _0xc4a16e = "nodgcq";
-        var _0xbf5fcd = 9;
-        const llsid = expTag.split("/")[1]?.split("_")?.[0] || "";
-        _0xbf5fcd = 8;
-        if (!creativeId) {
-          console.log(" ️⚠".split("").reverse().join("") + this.getAccountDisplayName() + "dIevitaerc 告广析解能未 ".split("").reverse().join(""));
-          return null;
-        }
-        const adTitle = (adData.caption || adData?.ad?.caption || "").slice(0, 20);
-        var _0x626b = 13;
-        const infoColor = colors.bright + colors.blue;
-        _0x626b = "eldghj";
-        console.log(colorText("ℹ️", infoColor) + " " + this.getAccountDisplayName() + " 获取广告: " + (adTitle || "无标题"));
-        return {
-          "cid": creativeId,
-          "llsid": llsid
-        };
-      } else {
-        console.log("❌ " + this.getAccountDisplayName() + " 获取广告失败: errorMsg=" + (adResponse?.error_msg || "unknown") + ", result=" + (adResponse?.result || "nwonknu".split("").reverse().join("")));
-        return null;
-      }
-    } catch (error) {
-      console.log("❌ " + this.getAccountDisplayName() + " 获取广告异常: " + error.message);
-      return null;
-    }
-  }
-  async generateSignature(creativeId, llsid, taskType, taskConfig) {
-    try {
-      const businessData = JSON.stringify({
-        "businessId": taskConfig.businessId,
-        "endTime": this.endTime,
-        "extParams": "",
-        "mediaScene": "video",
-        "neoInfos": [{
-          "creativeId": creativeId,
-          "extInfo": "",
-          "llsid": llsid,
-          "requestSceneType": taskConfig.requestSceneType,
-          "taskType": taskConfig.taskType,
-          "watchExpId": "",
-          "watchStage": 0
-        }],
-        "pageId": taskConfig.pageId || 11101,
-        "posId": taskConfig.posId,
-        "reportType": 0,
-        "sessionId": "",
-        "startTime": this.startTime,
-        "subPageId": taskConfig.subPageId
-      });
-      var _0x01g0f;
-      const postData = "bizStr=" + encodeURIComponent(businessData) + "=ts_ipa.uohsiauk&d67a2ca2=yek_tneilc&eslaf=sc&".split("").reverse().join("") + this.kuaishouApiSt;
-      _0x01g0f = "mkcgom".split("").reverse().join("");
-      var _0x324g1c = 4;
-      const fullData = this.queryParams + "&" + postData;
-      _0x324g1c = 4;
-      const signature = await this.requestSignService({
-        "urlpath": this.taskReportPath,
-        "reqdata": fullData,
-        "api_client_salt": this.salt
-      }, this.getAccountDisplayName() + " 生成报告签名");
-      if (!signature) return null;
-      return {
-        "sig": signature.sig,
-        "sig3": signature.__NS_sig3,
-        "sigtoken": signature.__NStokensig,
-        "xfalcon": signature.__NS_xfalcon || "",
-        "post": postData
-      };
-    } catch (error) {
-      return null;
-    }
-  }
-  async submitReport(sig, sig3, sigtoken, xfalcon, postData, taskType, taskConfig) {
-    try {
-      var _0x775bf = 7;
-      const reportUrl = "//:sptth".split("").reverse().join("") + "api.e.kuaishou.com" + this.taskReportPath + "?" + (this.queryParams + "&sig=" + sig + "&__NS_sig3=" + sig3 + "=noclafx_SN__&".split("").reverse().join("") + (xfalcon || "") + "=gisnekotSN__&".split("").reverse().join("") + sigtoken);
-      _0x775bf = 2;
-      const {
-        "response": response,
-        "body": reportResponse
-      } = await sendRequest({
-        "method": "POST",
-        "url": reportUrl,
-        "headers": {
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-          "Host": "api.e.kuaishou.com",
-          "User-Agent": "kwai-android aegon/3.56.0"
-        },
-        "body": postData,
-        "timeout": 12000
-      }, this.proxyUrl, "账号[" + this.nickname + "]" + (this.remark ? "（" + this.remark + "）" : "") + " 提交任务");
-      if (!reportResponse) {
-        return {
-          "success": false,
-          "reward": 0,
-          "shouldRetry": false
-        };
-      }
-      if (reportResponse.result === 1) {
-        var _0x3af = 16;
-        const reward = reportResponse.data?.neoAmount || 0;
-        _0x3af = 9;
-        if (reward <= this.lowRewardThreshold) {
-          this.lowRewardStreak++;
-          if (ENABLE_CHANGE_DID) {
-            const newDid = generateDeviceId();
-            this.did = newDid;
-            this.queryParams = "=revppa&)11 IM(imoaiX=dom".split("").reverse().join("") + this.appver + "&egid=" + this.egid + "=did&".split("").reverse().join("") + newDid;
-            console.log(" \uDD04\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 低奖励触发，已更新设备ID: " + newDid);
-          } else {
-            console.log(" \uDD04\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 低奖励触发，但当前已关闭自动更换did");
-          }
-          console.log(" ️⚠".split("").reverse().join("") + this.getAccountDisplayName() + " 金币奖励(" + reward + "(值阈于等或于低)".split("").reverse().join("") + this.lowRewardThreshold + ")，等待30秒后重试，当前连续低奖励次数：(" + this.lowRewardStreak + ")/" + this.lowRewardLimit);
-          await new Promise(resolve => setTimeout(resolve, 30000));
-          if (this.lowRewardStreak >= this.lowRewardLimit) {
-            console.log("🏁 " + this.getAccountDisplayName() + "续连 ".split("").reverse().join("") + this.lowRewardLimit + "次奖励≤" + this.lowRewardThreshold + "务任部全止停，".split("").reverse().join(""));
-            this.stopAllTasks = true;
-            return {
-              "success": false,
-              "reward": 0,
-              "shouldRetry": false
-            };
-          }
-          return {
-            "success": true,
-            "reward": reward,
-            "shouldRetry": false
-          };
-        } else {
-          if (this.lowRewardStreak > 0) {
-            console.log(" ✅".split("").reverse().join("") + this.getAccountDisplayName() + "(励奖 ".split("").reverse().join("") + reward + ")恢复正常，重置低奖励计数");
-            this.lowRewardStreak = 0;
-          }
-          return {
-            "success": true,
-            "reward": reward,
-            "shouldRetry": false
-          };
-        }
-      }
-      if ([20107, 20108, 1003, 415].includes(reportResponse.result)) {
-        console.log("⚠️ " + this.getAccountDisplayName() + " " + taskConfig.name + " 已达上限");
-        this.taskLimitReached[taskType] = true;
-        return {
-          "success": false,
-          "reward": 0
-        };
-      }
-      return {
-        "success": false,
-        "reward": 0
-      };
-    } catch (error) {
-      return {
-        "success": false,
-        "reward": 0
-      };
-    }
-  }
-  async getSign(encodedData) {
-    var _0xf8d;
-    const maxRetries = 3;
-    _0xf8d = 0;
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        var _0xc991a = 4;
-        const requestData = JSON.stringify({
-          "type": "encsign",
-          "data": encodedData,
-          "ud": this.userId || "",
-          "script_version": SCRIPT_VERSION
-        });
-        _0xc991a = "dogecl".split("").reverse().join("");
-        const {
-          "response": response,
-          "body": signResponse
-        } = await sendRequest({
-          "method": "POST",
-          "url": "https://ks.yubin8.dpdns.org/encsign",
-          "body": requestData,
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "timeout": 30000
-        }, this.proxyUrl, this.getAccountDisplayName() + " encsign签名");
-        if (!response) {
-          if (attempt < maxRetries) continue;else {
-            console.log("❌ " + this.getAccountDisplayName() + "败失求请名签 ".split("").reverse().join(""));
-            return null;
-          }
-        }
-        if (!signResponse) {
-          if (attempt < maxRetries) continue;else {
-            console.log("❌ " + this.getAccountDisplayName() + "空为应响名签 ".split("").reverse().join(""));
-            return null;
-          }
-        }
-        if (signResponse && signResponse.status) {
-          var _0xe2ea = 10;
-          let resultData = signResponse.data;
-          _0xe2ea = 5;
-          if (typeof resultData === "gnirts".split("").reverse().join("")) {
-            try {
-              resultData = JSON.parse(resultData);
-            } catch (error) {
-              if (attempt < maxRetries) continue;else {
-                console.log("❌ " + this.getAccountDisplayName() + " 解析签名数据失败");
-                return null;
-              }
-            }
-          }
-          return resultData;
-        } else {
-          if (attempt >= maxRetries) {
-            console.log("❌ " + this.getAccountDisplayName() + " :误错回返务服名签 ".split("").reverse().join("") + (signResponse?.message || "未知错误"));
-          }
-          if (attempt < maxRetries) continue;else return null;
-        }
-      } catch (error) {
-        if (attempt >= maxRetries) {
-          console.log("❌ " + this.getAccountDisplayName() + " :常异求请名签 ".split("").reverse().join("") + error.message);
-        }
-        if (attempt < maxRetries) continue;else return null;
-      }
-      if (attempt < maxRetries) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-      }
-    }
-    console.log("❌ " + this.getAccountDisplayName() + "数次试重大最达已，败失取获名签 ".split("").reverse().join(""));
-    return null;
-  }
-  async requestSignService(requestData, operationDescription) {
-    const maxRetries = 3;
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        const deviceId = getOrCreateDeviceId();
-        const requestPayload = JSON.stringify({
-          "type": "nssig",
-          "path": requestData.urlpath,
-          "data": requestData.reqdata,
-          "salt": requestData.api_client_salt,
-          "ud": this.userId || "",
-          "script_version": SCRIPT_VERSION,
-          "device_id": deviceId
-        });
-        const {
-          "response": response,
-          "body": signResponse
-        } = await sendRequest({
-          "method": "POST",
-          "url": "https://ks.yubin8.dpdns.org" + "gissn/".split("").reverse().join(""),
-          "headers": {
-            "Content-Type": "application/json",
-            "User-Agent": "Mozilla/5.0"
-          },
-          "body": requestPayload,
-          "timeout": 15000
-        }, this.proxyUrl, operationDescription + "（签名服务）");
-        if (!signResponse) {
-          if (attempt < maxRetries) continue;else {
-            console.log(" ❌".split("").reverse().join("") + this.getAccountDisplayName() + " " + operationDescription + " 签名响应为空");
-            return null;
-          }
-        }
-        if (signResponse && signResponse.status) {
-          let resultData = signResponse.data;
-          if (typeof resultData === "gnirts".split("").reverse().join("")) {
-            try {
-              resultData = JSON.parse(resultData);
-            } catch (error) {
-              if (attempt < maxRetries) continue;else {
-                console.log(" ❌".split("").reverse().join("") + this.getAccountDisplayName() + " " + operationDescription + "败失据数名签析解 ".split("").reverse().join(""));
-                return null;
-              }
-            }
-          }
-          var _0xc374b = 3;
-          let finalResult = resultData;
-          _0xc374b = 13;
-          if (resultData.data && typeof resultData.data === "object") {
-            finalResult = resultData.data;
-          }
-          var _0x6139e;
-          let sig3 = finalResult.nssig3 || finalResult.__NS_sig3;
-          _0x6139e = 1;
-          let tokensig = finalResult.nstokensig || finalResult.__NStokensig;
-          let xfalcon = finalResult.xfalcon || finalResult.nssig4 || finalResult.__NS_xfalcon || "";
-          var _0x271ab = 12;
-          let sig = finalResult.sig;
-          _0x271ab = "gibeei";
-          return {
-            "__NS_sig3": sig3,
-            "__NStokensig": tokensig,
-            "sig": sig,
-            "__NS_xfalcon": xfalcon
-          };
-        }
-        if (attempt >= maxRetries) {
-          console.log("❌ " + this.getAccountDisplayName() + " " + operationDescription + "败失名签 ".split("").reverse().join(""));
-        }
-        if (attempt < maxRetries) continue;else return null;
-      } catch (error) {
-        if (attempt >= maxRetries) {
-          console.log("❌ " + this.getAccountDisplayName() + " " + operationDescription + " :常异名签 ".split("").reverse().join("") + error.message);
-        }
-        if (attempt < maxRetries) continue;else return null;
-      }
-    }
-    console.log("❌ " + this.getAccountDisplayName() + " " + operationDescription + "数次试重大最达已，败失名签 ".split("").reverse().join(""));
-    return null;
-  }
-  async executeTask(taskType) {
-    if (!this.tasksToExecute.includes(taskType)) return false;
-    const taskConfig = this.taskConfigs[taskType];
-    if (!taskConfig) {
-      console.log("❌ " + this.getAccountDisplayName() + " :务任知未 ".split("").reverse().join("") + taskType);
-      return false;
-    }
-    if (this.taskLimitReached[taskType]) return false;
-    try {
-      const initialInfo = await getAccountBasicInfo(this.getCookieWithCurrentDid(), this.proxyUrl, this.index);
-      const initialCoins = initialInfo?.totalCoin || 0;
-      var _0x16a49g = 7;
-      let adInfo;
-      _0x16a49g = 0;
-      let retryCount = 0;
-      var _0xa_0xf0g;
-      const maxAdRetries = 3;
-      _0xa_0xf0g = 9;
-      while (retryCount < maxAdRetries) {
-        const adResult = await this.getAdInfo(taskConfig);
-        if (adResult && adResult.needsNewDid) {
-          this.needsNewDid = true;
-          retryCount++;
-          console.log(" \uDD04\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 正在更新设备ID并重试获取广告 (" + retryCount + "/" + maxAdRetries + ")");
-          continue;
-        } else if (adResult) {
-          adInfo = adResult;
-          break;
-        } else {
-          retryCount++;
-          if (retryCount >= maxAdRetries) {
-            console.log("❌ " + this.getAccountDisplayName() + "取获 ".split("").reverse().join("") + taskConfig.name + "败失息信".split("").reverse().join(""));
-            this.taskStats[taskType].failed++;
-            return false;
-          }
-          await new Promise(resolve => setTimeout(resolve, 2000));
-        }
-      }
-      if (!adInfo) {
-        this.taskStats[taskType].failed++;
-        return false;
-      }
-      const waitTime = Math.floor(Math.random() * (WATCH_AD_MAX - WATCH_AD_MIN + 1)) + WATCH_AD_MIN;
-      console.log("⏱️ " + this.getAccountDisplayName() + " " + taskConfig.name + " 等待 " + waitTime + " 秒后继续");
-      await new Promise(resolve => setTimeout(resolve, waitTime * 1000));
-      const signature = await this.generateSignature(adInfo.cid, adInfo.llsid, taskType, taskConfig);
-      if (!signature) {
-        this.taskStats[taskType].failed++;
-        console.log("❌ " + this.getAccountDisplayName() + " 生成签名失败，本次" + taskConfig.name + "励奖得获未".split("").reverse().join(""));
-        return false;
-      }
-      var _0x7dec4d;
-      let reportResult;
-      _0x7dec4d = 2;
-      var _0xdd_0x212 = 8;
-      let reportAttempt = 0;
-      _0xdd_0x212 = 11;
-      while (reportAttempt < 3) {
-        reportResult = await this.submitReport(signature.sig, signature.sig3, signature.sigtoken, signature.xfalcon || "", signature.post, taskType, taskConfig);
-        if (reportResult?.success || !reportResult?.shouldRetry) {
-          break;
-        }
-        reportAttempt++;
-        if (reportResult.shouldRetry) {
-          await new Promise(resolve => setTimeout(resolve, 30000));
-          console.log(" \uDD04\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 准备重试 (" + reportAttempt + "/3)");
-        }
-      }
-      if (reportResult?.success) {
-        this.taskStats[taskType].success++;
-        this.taskStats[taskType].totalReward += reportResult.reward || 0;
-        const finalInfo = await getAccountBasicInfo(this.getCookieWithCurrentDid(), this.proxyUrl, this.index);
-        var _0xbd3 = 12;
-        const finalCoins = finalInfo?.totalCoin || initialCoins;
-        _0xbd3 = "jeqojk";
-        var _0xec388c = 11;
-        const reward = reportResult.reward || 0;
-        _0xec388c = "elninj";
-        const remark = this.remark || this.nickname || "备注";
-        let taskDescription = "告广到取获".split("").reverse().join("");
-        let taskColor = colors.bright + colors.cyan;
-        switch (taskType) {
-          case "xobk".split("").reverse().join(""):
-            taskDescription = "获取到宝箱";
-            taskColor = colors.bright + colors.magenta;
-            break;
-          case "xob".split("").reverse().join(""):
-            taskDescription = "告广箱宝到取获".split("").reverse().join("");
-            taskColor = colors.bright + colors.blue;
-            break;
-          case "doof".split("").reverse().join(""):
-            taskDescription = "告广补饭到取获".split("").reverse().join("");
-            taskColor = colors.bright + colors.green;
-            break;
-          case "wollof_kool".split("").reverse().join(""):
-            taskDescription = "获取追加广告";
-            taskColor = colors.bright + colors.yellow;
-            break;
-          case "wollof_hcraes".split("").reverse().join(""):
-            taskDescription = "获取到搜索追加广告";
-            taskColor = colors.bright + colors.yellow;
-            break;
-          case "look":
-            taskDescription = "获取到广告";
-            taskColor = colors.bright + colors.cyan;
-            break;
-          case "search":
-            taskDescription = "获取到搜索广告";
-            taskColor = colors.bright + colors.cyan;
-            break;
-        }
-        var _0xb32e;
-        const currentCount = this.taskStats[taskType].success;
-        _0xb32e = "mhjilj";
-        var _0x5517ed = 1;
-        const totalCount = this.getTaskTotalCount(taskType);
-        _0x5517ed = 3;
-        const rewardIndicator = reward >= 100 ? colors.bright + colors.red + "💰[高额奖励]" + colors.reset : colors.bright + colors.green + "💰[奖励]" + colors.reset;
-        var _0x8_0x0b5;
-        const remarkTag = formatTag(remark);
-        _0x8_0x0b5 = 11;
-        const taskDesc = colorText(taskDescription, taskColor);
-        console.log(rewardIndicator + " " + remarkTag + " " + taskDesc + "第（".split("").reverse().join("") + currentCount + "/" + totalCount + ">==）次".split("").reverse().join("") + formatWarning(reward) + " 币金前当 —— 币金".split("").reverse().join("") + formatSuccess(finalCoins));
-        return true;
-      }
-      this.taskStats[taskType].failed++;
-      if (this.taskLimitReached[taskType]) {
-        console.log("⚠️ " + this.getAccountDisplayName() + " " + taskConfig.name + "励奖得获未次本，限上达已 ".split("").reverse().join(""));
-      } else if (reportResult) {
-        console.log(" ❌".split("").reverse().join("") + this.getAccountDisplayName() + " 提交" + taskConfig.name + "失败，本次未获得奖励");
-      } else {
-        console.log(" ❌".split("").reverse().join("") + this.getAccountDisplayName() + " 提交" + taskConfig.name + "失败（网络或服务器异常），本次未获得奖励");
-      }
-      return false;
-    } catch (error) {
-      this.taskStats[taskType].failed++;
-      return false;
-    }
-  }
-  async executeAllTasksByPriority() {
-    console.log("🔀 " + this.getAccountDisplayName() + " 任务执行顺序: " + this.tasksToExecute.join(" → "));
-    for (const taskType of this.tasksToExecute) {
-      if (this.stopAllTasks) {
-        console.log("🛑 " + this.getAccountDisplayName() + " 已停止所有任务");
-        break;
-      }
-      if (this.taskLimitReached[taskType]) {
-        console.log(" ️⏭".split("").reverse().join("") + this.getAccountDisplayName() + " " + this.taskConfigs[taskType]?.name + " 已达上限，跳过");
-        continue;
-      }
-      console.log("🚀 " + this.getAccountDisplayName() + " 开始执行: " + this.taskConfigs[taskType]?.name);
-      switch (taskType) {
-        case "kool".split("").reverse().join(""):
-          await this.executeLookTasks();
-          break;
-        case "hcraes".split("").reverse().join(""):
-          await this.executeSearchTasks();
-          break;
-        case "box":
-          await this.executeBoxTasks();
-          break;
-        case "doof".split("").reverse().join(""):
-          await this.executeFoodTasks();
-          break;
-        case "kbox":
-          await this.executeKboxTasks();
-          break;
-        case "look_follow":
-          console.log(" ️ℹ".split("").reverse().join("") + this.getAccountDisplayName() + "行执动自后功成务任 kool 在将 wollof_kool ".split("").reverse().join(""));
-          break;
-        case "search_follow":
-          console.log("ℹ️ " + this.getAccountDisplayName() + " search_follow 将在 search 任务成功后自动执行");
-          break;
-        default:
-          console.log("❌ " + this.getAccountDisplayName() + " 未知任务类型: " + taskType);
-      }
-      var _0xb9adg;
-      const isLastTask = taskType === this.tasksToExecute[this.tasksToExecute.length - 1];
-      _0xb9adg = 9;
-      if (!isLastTask && !this.stopAllTasks && !this.taskLimitReached[taskType]) {
-        const switchDelay = (Math.floor(Math.random() * (TASK_SWITCH_MAX - TASK_SWITCH_MIN + 1)) + TASK_SWITCH_MIN) * 1000;
-        console.log(" ⏱".split("").reverse().join("") + this.getAccountDisplayName() + " 任务切换 等待 " + Math.round(switchDelay / 1000) + " 秒");
-        await new Promise(resolve => setTimeout(resolve, switchDelay));
-      }
-    }
-    console.log("✅ " + this.getAccountDisplayName() + "成完行执务任有所 ".split("").reverse().join(""));
-    return {};
-  }
-  async executeLookTasks() {
-    console.log(" \uDCFA\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 开始执行看广告任务，计划执行 " + LOOK_COUNT + "次 ".split("").reverse().join(""));
-    for (let i = 0; i < LOOK_COUNT; i++) {
-      if (this.stopAllTasks || this.taskLimitReached.look) {
-        console.log(" \uDED1\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + "止停已务任告广看 ".split("").reverse().join(""));
-        break;
-      }
-      var _0x0be = 8;
-      const currentCount = i + 1;
-      _0x0be = 7;
-      console.log(" \uDD0D\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + "第 务任告广看 ".split("").reverse().join("") + currentCount + "/" + LOOK_COUNT + " 次");
-      const lookResult = await this.executeTask("kool".split("").reverse().join(""));
-      if (lookResult && this.tasksToExecute.includes("wollof_kool".split("").reverse().join("")) && !this.stopAllTasks && !this.taskLimitReached.look_follow && FOLLOW_COUNT > 0) {
-        const followDelay = (Math.floor(Math.random() * (PRE_LOOK_FOLLOW_MAX - PRE_LOOK_FOLLOW_MIN + 1)) + PRE_LOOK_FOLLOW_MIN) * 1000;
-        console.log(" ⏱".split("").reverse().join("") + this.getAccountDisplayName() + " 待等 wollof_kool→kool ".split("").reverse().join("") + Math.round(followDelay / 1000) + " 秒");
-        await new Promise(resolve => setTimeout(resolve, followDelay));
-        console.log(" \uDD04\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 开始执行追加看广告任务，计划执行 " + FOLLOW_COUNT + "次 ".split("").reverse().join(""));
-        for (let j = 0; j < FOLLOW_COUNT; j++) {
-          if (this.stopAllTasks || this.taskLimitReached.look_follow) {
-            console.log(" \uDED1\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + "止停已务任告广看加追 ".split("").reverse().join(""));
-            break;
-          }
-          var _0xa19a4e;
-          const followCount = j + 1;
-          _0xa19a4e = 8;
-          console.log(" \uDCF1\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 追加看广告 第" + followCount + "/" + FOLLOW_COUNT + "次 ".split("").reverse().join(""));
-          await this.executeTask("wollof_kool".split("").reverse().join(""));
-          if (j < FOLLOW_COUNT - 1 && !this.stopAllTasks && !this.taskLimitReached.look_follow) {
-            var _0xa128b;
-            const betweenDelay = (Math.floor(Math.random() * (BETWEEN_LOOK_FOLLOW_MAX - BETWEEN_LOOK_FOLLOW_MIN + 1)) + BETWEEN_LOOK_FOLLOW_MIN) * 1000;
-            _0xa128b = 16;
-            console.log(" ⏱".split("").reverse().join("") + this.getAccountDisplayName() + " 待等 隔间 wollof_kool ".split("").reverse().join("") + Math.round(betweenDelay / 1000) + " 秒");
-            await new Promise(resolve => setTimeout(resolve, betweenDelay));
-          }
-        }
-      }
-      if (i < LOOK_COUNT - 1 && !this.stopAllTasks && !this.taskLimitReached.look) {
-        var _0x371bf;
-        const roundDelay = (Math.floor(Math.random() * (ROUND_END_MAX - ROUND_END_MIN + 1)) + ROUND_END_MIN) * 1000;
-        _0x371bf = 4;
-        console.log(" ⏱".split("").reverse().join("") + this.getAccountDisplayName() + " 待等 隔间 kool ".split("").reverse().join("") + Math.round(roundDelay / 1000) + "秒 ".split("").reverse().join(""));
-        await new Promise(resolve => setTimeout(resolve, roundDelay));
-      }
-    }
-    console.log("✅ " + this.getAccountDisplayName() + "成完行执务任告广看 ".split("").reverse().join(""));
-  }
-  async executeSearchTasks() {
-    console.log(" \uDD0E\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 开始执行搜索任务，计划执行 " + SEARCH_COUNT + " 次");
-    for (let i = 0; i < SEARCH_COUNT; i++) {
-      if (this.stopAllTasks || this.taskLimitReached.search) {
-        console.log(" \uDED1\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 搜索任务已停止");
-        break;
-      }
-      const currentCount = i + 1;
-      console.log("🔍 " + this.getAccountDisplayName() + "第 务任索搜 ".split("").reverse().join("") + currentCount + "/" + SEARCH_COUNT + "次 ".split("").reverse().join(""));
-      var _0xd17f1e;
-      const searchResult = await this.executeTask("hcraes".split("").reverse().join(""));
-      _0xd17f1e = 7;
-      if (searchResult && this.tasksToExecute.includes("search_follow") && !this.stopAllTasks && !this.taskLimitReached.search_follow && SEARCH_FOLLOW_COUNT > 0) {
-        var _0x7d_0x127;
-        const followDelay = (Math.floor(Math.random() * (PRE_SEARCH_FOLLOW_MAX - PRE_SEARCH_FOLLOW_MIN + 1)) + PRE_SEARCH_FOLLOW_MIN) * 1000;
-        _0x7d_0x127 = 1;
-        console.log("⏱ " + this.getAccountDisplayName() + " 待等 wollof_hcraes→hcraes ".split("").reverse().join("") + Math.round(followDelay / 1000) + " 秒");
-        await new Promise(resolve => setTimeout(resolve, followDelay));
-        console.log("🔄 " + this.getAccountDisplayName() + " 开始执行搜索追加任务，计划执行 " + SEARCH_FOLLOW_COUNT + "次 ".split("").reverse().join(""));
-        for (let j = 0; j < SEARCH_FOLLOW_COUNT; j++) {
-          if (this.stopAllTasks || this.taskLimitReached.search_follow) {
-            console.log(" \uDED1\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + "止停已务任加追索搜 ".split("").reverse().join(""));
-            break;
-          }
-          const followCount = j + 1;
-          console.log("📱 " + this.getAccountDisplayName() + " 搜索追加 第" + followCount + "/" + SEARCH_FOLLOW_COUNT + " 次");
-          this.adAdditionalNum++;
-          await this.executeTask("wollof_hcraes".split("").reverse().join(""));
-          this.adAdditionalNum = 0;
-          if (j < SEARCH_FOLLOW_COUNT - 1 && !this.stopAllTasks && !this.taskLimitReached.search_follow) {
-            var _0xaefecf;
-            const betweenDelay = (Math.floor(Math.random() * (BETWEEN_SEARCH_FOLLOW_MAX - BETWEEN_SEARCH_FOLLOW_MIN + 1)) + BETWEEN_SEARCH_FOLLOW_MIN) * 1000;
-            _0xaefecf = 8;
-            console.log(" ⏱".split("").reverse().join("") + this.getAccountDisplayName() + " search_follow 间隔 等待 " + Math.round(betweenDelay / 1000) + "秒 ".split("").reverse().join(""));
-            await new Promise(resolve => setTimeout(resolve, betweenDelay));
-          }
-        }
-      }
-      if (i < SEARCH_COUNT - 1 && !this.stopAllTasks && !this.taskLimitReached.search) {
-        var _0x48914d;
-        const roundDelay = (Math.floor(Math.random() * (ROUND_END_MAX - ROUND_END_MIN + 1)) + ROUND_END_MIN) * 1000;
-        _0x48914d = 1;
-        console.log("⏱ " + this.getAccountDisplayName() + " search 间隔 等待 " + Math.round(roundDelay / 1000) + " 秒");
-        await new Promise(resolve => setTimeout(resolve, roundDelay));
-      }
-    }
-    console.log("✅ " + this.getAccountDisplayName() + "成完行执务任索搜 ".split("").reverse().join(""));
-  }
-  async executeBoxTasks() {
-    console.log(" \uDF81\uD83C".split("").reverse().join("") + this.getAccountDisplayName() + " 行执划计，务任箱宝行执始开 ".split("").reverse().join("") + BOX_COUNT + " 次");
-    for (let i = 0; i < BOX_COUNT; i++) {
-      if (this.stopAllTasks || this.taskLimitReached.box) {
-        console.log(" \uDED1\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 宝箱任务已停止");
-        break;
-      }
-      var _0x3545ca;
-      const currentCount = i + 1;
-      _0x3545ca = 18;
-      console.log(" \uDD0D\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + "第 务任箱宝 ".split("").reverse().join("") + currentCount + "/" + BOX_COUNT + "次 ".split("").reverse().join(""));
-      await this.executeTask("xob".split("").reverse().join(""));
-      if (i < BOX_COUNT - 1 && !this.stopAllTasks && !this.taskLimitReached.box) {
-        var _0x4fe8bb = 7;
-        const switchDelay = (Math.floor(Math.random() * (TASK_SWITCH_MAX - TASK_SWITCH_MIN + 1)) + TASK_SWITCH_MIN) * 1000;
-        _0x4fe8bb = 1;
-        console.log("⏱ " + this.getAccountDisplayName() + " 待等 隔间 xob ".split("").reverse().join("") + Math.round(switchDelay / 1000) + "秒 ".split("").reverse().join(""));
-        await new Promise(resolve => setTimeout(resolve, switchDelay));
-      }
-    }
-    console.log("✅ " + this.getAccountDisplayName() + " 宝箱任务执行完成");
-  }
-  async executeFoodTasks() {
-    console.log("🍚 " + this.getAccountDisplayName() + " 行执划计，务任补饭行执始开 ".split("").reverse().join("") + FOOD_COUNT + " 次");
-    for (let i = 0; i < FOOD_COUNT; i++) {
-      if (this.stopAllTasks || this.taskLimitReached.food) {
-        console.log("🛑 " + this.getAccountDisplayName() + " 饭补任务已停止");
-        break;
-      }
-      var _0x5fee = 16;
-      const currentCount = i + 1;
-      _0x5fee = "kbmihh";
-      console.log("🔍 " + this.getAccountDisplayName() + " 饭补任务 第" + currentCount + "/" + FOOD_COUNT + " 次");
-      await this.executeTask("food");
-      if (i < FOOD_COUNT - 1 && !this.stopAllTasks && !this.taskLimitReached.food) {
-        var _0x31b;
-        const switchDelay = (Math.floor(Math.random() * (TASK_SWITCH_MAX - TASK_SWITCH_MIN + 1)) + TASK_SWITCH_MIN) * 1000;
-        _0x31b = 9;
-        console.log("⏱ " + this.getAccountDisplayName() + " food 间隔 等待 " + Math.round(switchDelay / 1000) + " 秒");
-        await new Promise(resolve => setTimeout(resolve, switchDelay));
-      }
-    }
-    console.log("✅ " + this.getAccountDisplayName() + "成完行执务任补饭 ".split("").reverse().join(""));
-  }
-  async executeKboxTasks() {
-    console.log(" \uDCE6\uD83D".split("").reverse().join("") + this.getAccountDisplayName() + " 开始执行开宝箱任务，计划执行 " + KBOX_COUNT + "次 ".split("").reverse().join(""));
-    for (let i = 0; i < KBOX_COUNT; i++) {
-      if (this.stopAllTasks || this.taskLimitReached.kbox) {
-        console.log("🛑 " + this.getAccountDisplayName() + " 开宝箱任务已停止");
-        break;
-      }
-      var _0xd4e7fb;
-      const currentCount = i + 1;
-      _0xd4e7fb = 4;
-      console.log("🔍 " + this.getAccountDisplayName() + " 开宝箱任务 第" + currentCount + "/" + KBOX_COUNT + "次 ".split("").reverse().join(""));
-      await this.executeTask("kbox");
-      if (i < KBOX_COUNT - 1 && !this.stopAllTasks && !this.taskLimitReached.kbox) {
-        var _0x76833a;
-        const switchDelay = (Math.floor(Math.random() * (TASK_SWITCH_MAX - TASK_SWITCH_MIN + 1)) + TASK_SWITCH_MIN) * 1000;
-        _0x76833a = "jomdcn".split("").reverse().join("");
-        console.log("⏱ " + this.getAccountDisplayName() + " kbox 间隔 等待 " + Math.round(switchDelay / 1000) + "秒 ".split("").reverse().join(""));
-        await new Promise(resolve => setTimeout(resolve, switchDelay));
-      }
-    }
-    console.log("✅ " + this.getAccountDisplayName() + " 开宝箱任务执行完成");
-  }
-}
-function parseAccountString(accountStr, _0x1a9df, _0xc7755a, _0x18a74d) {
-  const _0x9aacc = String(accountStr || "").trim();
-  if (!_0x9aacc) {
-    return null;
-  }
-  _0x1a9df = "";
-  _0xc7755a = "";
-  var _0x8cf4f;
-  _0x18a74d = "";
-  _0x8cf4f = 1;
-  let _0xe7eeg = null;
-  if (_0x9aacc.includes("#")) {
-    var _0xa4adae = 8;
-    const _0xg5ffc = _0x9aacc.split("#");
-    _0xa4adae = 5;
-    if (_0xg5ffc.length === 2) {
-      _0x18a74d = _0xg5ffc[0];
-      _0xc7755a = _0xg5ffc[1];
-    } else if (_0xg5ffc.length === 3) {
-      if (new RegExp("^socks5:\\/\\/", "i").test(_0xg5ffc[2]) || _0xg5ffc[2].includes("|")) {
-        _0x18a74d = _0xg5ffc[0];
-        _0xc7755a = _0xg5ffc[1];
-        _0xe7eeg = _0xg5ffc[2];
-      } else {
-        _0x1a9df = _0xg5ffc[0];
-        _0x18a74d = _0xg5ffc[1];
-        _0xc7755a = _0xg5ffc[2];
-      }
-    } else if (_0xg5ffc.length >= 4) {
-      _0x1a9df = _0xg5ffc[0];
-      _0x18a74d = _0xg5ffc[1];
-      _0xc7755a = _0xg5ffc.slice(2, _0xg5ffc.length - 1).join("#");
-      _0xe7eeg = _0xg5ffc[_0xg5ffc.length - 1];
-    }
-  } else {
-    _0x18a74d = _0x9aacc;
-    _0xc7755a = "";
-  }
-  if (_0xe7eeg) {
-    if (_0xe7eeg === "0" || _0xe7eeg.toLowerCase() === "none") {
-      _0xe7eeg = null;
-    } else if (_0xe7eeg.includes("|")) {
-      const _0x3d1e = _0xe7eeg.split("|");
-      if (_0x3d1e.length >= 2) {
-        const [ip, port, username = "", password = ""] = _0x3d1e.map(part => String(part || "").trim());
-        if (ip && port) {
-          const _0x2g38eb = username || password ? encodeURIComponent(username) + ":" + encodeURIComponent(password) + "@" : "";
-          _0xe7eeg = "//:5skcos".split("").reverse().join("") + _0x2g38eb + ip + ":" + port;
-        } else {
-          _0xe7eeg = null;
-        }
-      } else {
-        _0xe7eeg = null;
-      }
-    }
-  }
-  return {
-    "remark": _0x1a9df || "",
-    "salt": _0xc7755a,
-    "cookie": _0x18a74d,
-    "proxyUrl": _0xe7eeg
-  };
-}
-function getAllAccountConfigs() {
-  const _0xg8ec = parseAccountsFromEnv();
-  var _0x98ed7g;
-  const _0x59c2g = [];
-  _0x98ed7g = "ejaffd".split("").reverse().join("");
-  for (const _0x13_0x145 of _0xg8ec) {
-    const _0x56a68a = parseAccountString(_0x13_0x145);
-    if (_0x56a68a) {
-      _0x59c2g.push(_0x56a68a);
-    } else {
-      console.log("：误错式格号账".split("").reverse().join("") + _0x13_0x145);
-    }
-  }
-  _0x59c2g.forEach((config, index) => {
-    config.index = index + 1;
-  });
-  return _0x59c2g;
-}
-async function executeConcurrently(items, concurrency, processor, _0x48d90d) {
-  var _0x1c6ce;
-  const _0x87c6c = new Array(items.length);
-  _0x1c6ce = 12;
-  _0x48d90d = 0;
-  async function _0x9bf2b() {
-    while (true) {
-      var _0x5eec;
-      const _0xdca62d = _0x48d90d++;
-      _0x5eec = 4;
-      if (_0xdca62d >= items.length) {
-        return;
-      }
-      var _0x0e7edc = 17;
-      const _0xd696df = items[_0xdca62d];
-      _0x0e7edc = 8;
-      try {
-        _0x87c6c[_0xdca62d] = await processor(_0xd696df, _0xdca62d);
-      } catch (error) {
-        console.log("=xedni（常异行执发并".split("").reverse().join("") + (_0xdca62d + 1) + "）：" + error.message);
-        _0x87c6c[_0xdca62d] = null;
-      }
-    }
-  }
-  var _0x35c4e = 8;
-  const _0x84f86e = Array.from({
-    "length": Math.min(concurrency, items.length)
-  }, _0x9bf2b);
-  _0x35c4e = 2;
-  await Promise.all(_0x84f86e);
-  return _0x87c6c;
-}
-function formatAccountDisplay(index, nickname, remark) {
-  var _0xb566c = 11;
-  const _0x2a905b = "账号[" + (nickname || index) + "]" + (remark ? "（" + remark + "）" : "");
-  _0xb566c = 0;
-  return colors.bright + colors.cyan + _0x2a905b + colors.reset;
-}
-async function processAccount(accountConfig) {
-  if (accountConfig.proxyUrl) {
-    var _0x47a82d;
-    const accountDisplay = formatAccountDisplay(accountConfig.index, null, accountConfig.remark);
-    _0x47a82d = 9;
-    var _0xa2_0x4f0;
-    const _0x3d61f = await testProxyConnectivity(accountConfig.proxyUrl, accountDisplay);
-    _0xa2_0x4f0 = 6;
-    console.log("  - " + (_0x3d61f.ok ? "过通证验理代 ✅".split("").reverse().join("") : "败失证验理代 ❌".split("").reverse().join("")) + " :".split("").reverse().join("") + _0x3d61f.msg);
-    if (_0x3d61f.ok && _0x3d61f.ip && _0x3d61f.ip !== "localhost") {
-      if (usedProxyIPs.has(_0x3d61f.ip)) {
-        console.log("⚠️ 存在相同代理IP（" + _0x3d61f.ip + "），继续执行其余账号...");
-      } else {
-        usedProxyIPs.add(_0x3d61f.ip);
-      }
-      console.log(" \uDF10\uD83C".split("").reverse().join("") + accountDisplay + " 使用代理: " + accountConfig.proxyUrl);
-    } else if (!_0x3d61f.ok) {
-      console.log("❌ " + accountDisplay + "号账该过跳，败失试测理代 ".split("").reverse().join(""));
-      return {
-        "index": accountConfig.index,
-        "remark": accountConfig.remark || "无备注",
-        "nickname": "号账".split("").reverse().join("") + accountConfig.index,
-        "initialCoin": 0,
-        "finalCoin": 0,
-        "coinChange": 0,
-        "initialCash": 0,
-        "finalCash": 0,
-        "cashChange": 0,
-        "error": "代理测试失败: " + _0x3d61f.msg,
-        "skipped": true
-      };
-    }
-  } else {
-    const accountDisplay = formatAccountDisplay(accountConfig.index, null, accountConfig.remark);
-    console.log("🌐 " + accountDisplay + " 未配置代理，走直连");
-  }
-  var _0xd463c = 11;
-  const accountDisplay = formatAccountDisplay(accountConfig.index, null, accountConfig.remark);
-  _0xd463c = "bjhdio".split("").reverse().join("");
-  console.log("🔍 " + accountDisplay + "...中息信号账取获 ".split("").reverse().join(""));
-  var _0x57b;
-  let _0xbe_0x102 = await getAccountBasicInfo(accountConfig.cookie, accountConfig.proxyUrl, accountConfig.index);
-  _0x57b = "nhnlbn".split("").reverse().join("");
-  var _0xf2f = 13;
-  let _0x91aa = _0xbe_0x102?.nickname || "号账".split("").reverse().join("") + accountConfig.index;
-  _0xf2f = 9;
-  if (_0xbe_0x102) {
-    var _0xd4afff;
-    const _0x57b3b = _0xbe_0x102.totalCoin != null ? _0xbe_0x102.totalCoin : "未知";
-    _0xd4afff = 10;
-    var _0x1bcf = 7;
-    const _0xba9be = _0xbe_0x102.allCash != null ? _0xbe_0x102.allCash : "未知";
-    _0x1bcf = 9;
-    const fullDisplay = formatAccountDisplay(accountConfig.index, _0x91aa, accountConfig.remark);
-    var _0x38ce6d = 5;
-    const _0x5cg86a = _0xbe_0x102.ud ? "，UD: " + _0xbe_0x102.ud : "";
-    _0x38ce6d = 1;
-    if (enableColors) {
-      console.log("✅ " + fullDisplay + " :币金前当 \uDCB0\uD83D，功成录登 ".split("").reverse().join("") + formatSuccess(_0x57b3b) + " :额余前当 \uDCB8\uD83D，".split("").reverse().join("") + colorText(_0xba9be, colors.bright + colors.yellow) + _0x5cg86a);
-    } else {
-      console.log(" ✅".split("").reverse().join("") + fullDisplay + " :币金前当 \uDCB0\uD83D，功成录登 ".split("").reverse().join("") + _0x57b3b + " :额余前当 \uDCB8\uD83D，".split("").reverse().join("") + _0xba9be + _0x5cg86a);
-    }
-  } else {
-    const fullDisplay = formatAccountDisplay(accountConfig.index, _0x91aa, accountConfig.remark);
-    console.log("❌ " + fullDisplay + " 基本信息获取失败，但仍继续执行任务");
-  }
-  const _0x1dd8da = _0xbe_0x102?.ud || null;
-  var _0x6a7d5b;
-  const _0xc2abe = new KuaishouAccount({
-    ...accountConfig,
-    "nickname": _0x91aa,
-    "tasksToExecute": tasksToExecute,
-    "udFromLogin": _0x1dd8da
-  });
-  _0x6a7d5b = 4;
-  if (_0xbe_0x102) {
-    await _0xc2abe.checkCoinLimit();
-    if (_0xc2abe.coinExceeded) {
-      console.log("⚠️ " + _0xc2abe.getAccountDisplayName() + " 初始金币已超过阈值，不执行任务");
-      const finalInfo = await getAccountBasicInfo(_0xc2abe.getCookieWithCurrentDid(), accountConfig.proxyUrl, accountConfig.index);
-      var _0x18fg;
-      const initialCoins = _0xbe_0x102?.totalCoin || 0;
-      _0x18fg = 9;
-      const finalCoins = finalInfo?.totalCoin || 0;
-      const coinChange = finalCoins - initialCoins;
-      var _0xc2136c;
-      const initialCash = _0xbe_0x102?.allCash || 0;
-      _0xc2136c = 14;
-      var _0xa9bdc = 15;
-      const finalCash = finalInfo?.allCash || 0;
-      _0xa9bdc = "fhfbgq".split("").reverse().join("");
-      var _0x6abeeb = 11;
-      const cashChange = finalCash - initialCash;
-      _0x6abeeb = "opmqlm";
-      return {
-        "index": accountConfig.index,
-        "remark": accountConfig.remark || "无备注",
-        "nickname": _0x91aa,
-        "initialCoin": initialCoins,
-        "finalCoin": finalCoins,
-        "coinChange": coinChange,
-        "initialCash": initialCash,
-        "finalCash": finalCash,
-        "cashChange": cashChange,
-        "stats": _0xc2abe.getTaskStats(),
-        "coinLimitExceeded": true
-      };
-    }
-  }
-  await _0xc2abe.executeAllTasksByPriority();
-  var _0xacgcc = 14;
-  const finalInfo = await getAccountBasicInfo(_0xc2abe.getCookieWithCurrentDid(), accountConfig.proxyUrl, accountConfig.index);
-  _0xacgcc = 10;
-  const initialCoins = _0xbe_0x102?.totalCoin || 0;
-  var _0x7d477d;
-  const finalCoins = finalInfo?.totalCoin || 0;
-  _0x7d477d = 7;
-  var _0x66ba = 11;
-  const coinChange = finalCoins - initialCoins;
-  _0x66ba = "kbfgoc".split("").reverse().join("");
-  var _0xb_0x2d2 = 6;
-  const initialCash = _0xbe_0x102?.allCash || 0;
-  _0xb_0x2d2 = "jhnlcp".split("").reverse().join("");
-  const finalCash = finalInfo?.allCash || 0;
-  var _0xbac4ed = 5;
-  const cashChange = finalCash - initialCash;
-  _0xbac4ed = "defgne".split("").reverse().join("");
-  _0xc2abe.printTaskStats();
-  return {
-    "index": accountConfig.index,
-    "remark": accountConfig.remark || "无备注",
-    "nickname": _0x91aa,
-    "initialCoin": initialCoins,
-    "finalCoin": finalCoins,
-    "coinChange": coinChange,
-    "initialCash": initialCash,
-    "finalCash": finalCash,
-    "cashChange": cashChange,
-    "stats": _0xc2abe.getTaskStats(),
-    "coinLimitExceeded": _0xc2abe.coinExceeded,
-    "infoFetchFailed": !_0xbe_0x102
-  };
-}
-function displayResultsTable(results, _0x59dc9e, _0x5a_0x8da, _0x265a6b, _0x540f4g, _0x87gfba) {
-  if (!results.length) {
-    console.log("\n没有可显示的账号信息。");
+  const _0x1e61a1 = await getSign(_0x10ca9c);
+  if (!_0x1e61a1) {
+    console.log("。ngis取获未".split("").reverse().join(""));
     return;
   }
-  var _0x41a1d = 8;
-  const _0xd49c6g = results.reduce((sum, account) => sum + (parseInt(account.initialCoin) || 0), 0);
-  _0x41a1d = 4;
-  const _0x6c56c = results.reduce((sum, account) => sum + (parseInt(account.finalCoin) || 0), 0);
-  const _0x89dc = _0x6c56c - _0xd49c6g;
-  var _0xed3a;
-  const _0xf_0x7e3 = results.reduce((sum, account) => sum + (parseFloat(account.initialCash) || 0), 0);
-  _0xed3a = 6;
-  const _0x7f8cf = results.reduce((sum, account) => sum + (parseFloat(account.finalCash) || 0), 0);
-  const _0x5f78df = _0x7f8cf - _0xf_0x7e3;
-  _0x59dc9e = 0;
-  var _0xdb31c;
-  _0x5a_0x8da = 0;
-  _0xdb31c = 4;
-  _0x265a6b = 0;
-  results.forEach(account => {
-    if (account.stats) {
-      Object.values(account.stats).forEach(taskStats => {
-        _0x59dc9e += taskStats.success + taskStats.failed;
-        _0x5a_0x8da += taskStats.success;
-        _0x265a6b += taskStats.totalReward;
-      });
+  const _0x2ccd98 = {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 13; 22081212C Build/TKQ1.220829.002) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.97 Mobile Safari/537.36",
+      sign: _0x1e61a1.sign
     }
-  });
-  var _0x44d5ee = 10;
-  const _0x24bd1f = _0x59dc9e > 0 ? (_0x5a_0x8da / _0x59dc9e * 100).toFixed(1) : "0.0".split("").reverse().join("");
-  _0x44d5ee = 2;
-  var _0x9_0xg59;
-  const _0xcacf1d = results.filter(account => account.coinLimitExceeded).length;
-  _0x9_0xg59 = 2;
-  const _0x39d2d = results.filter(account => account.skipped).length;
-  const _0xc4628e = results.filter(account => account.infoFetchFailed).length;
-  console.log("\n\n" + "=".repeat(80));
-  console.log("|" + centerText("      快手极速版自动化任务执行结果汇总表      ", 78) + "|");
-  console.log("=".repeat(80));
-  console.log("|" + (" :数号账总".split("").reverse().join("") + results.length).padEnd(22) + (" :号账过跳".split("").reverse().join("") + _0x39d2d).padEnd(22) + ("总任务数: " + _0x59dc9e).padEnd(22) + (" :率功成务任".split("").reverse().join("") + _0x24bd1f + "%").padEnd(10) + "|");
-  console.log("|" + ("总金币变化: " + _0x89dc).padEnd(26) + (" :励奖币金总".split("").reverse().join("") + _0x265a6b).padEnd(26) + ("总余额变化: " + _0x5f78df.toFixed(2)).padEnd(24) + "|");
-  console.log("-".repeat(80));
-  var _0x73d8g = 7;
-  const _0x6aa9ed = ["序号", "备注", "称昵号账".split("").reverse().join(""), "初始金币", "币金终最".split("").reverse().join(""), "化变币金".split("").reverse().join(""), "初始余额", "额余终最".split("").reverse().join(""), "余额变化", "态状".split("").reverse().join("")];
-  _0x73d8g = 6;
-  const _0xab7f = [6, 16, 16, 12, 12, 12, 12, 12, 12, 10];
-  _0x540f4g = "|";
-  _0x6aa9ed.forEach((header, index) => {
-    _0x540f4g += centerText(header, _0xab7f[index]) + "|";
-  });
-  console.log(_0x540f4g);
-  _0x87gfba = "|";
-  _0xab7f.forEach(width => {
-    _0x87gfba += "-".repeat(width) + "|";
-  });
-  console.log(_0x87gfba);
-  results.forEach(account => {
-    let _0x3cc4d = "|";
-    _0x3cc4d += centerText(account.index, _0xab7f[0]) + "|";
-    _0x3cc4d += centerText(account.remark, _0xab7f[1]) + "|";
-    let _0xfb21gd = account.nickname || "-";
-    if (account.skipped) _0xfb21gd += "❌ ".split("").reverse().join("");else if (account.coinLimitExceeded) _0xfb21gd += "️⚠ ".split("").reverse().join("");else if (account.infoFetchFailed) _0xfb21gd += "\uDD36\uD83D ".split("").reverse().join("");
-    _0x3cc4d += centerText(_0xfb21gd.substring(0, _0xab7f[2] - 2), _0xab7f[2]) + "|";
-    _0x3cc4d += centerText(account.initialCoin, _0xab7f[3]) + "|";
-    _0x3cc4d += centerText(account.finalCoin, _0xab7f[4]) + "|";
-    var _0x098bf = 10;
-    const _0x5g9c = account.coinChange >= 0 ? "+" + account.coinChange : account.coinChange;
-    _0x098bf = 15;
-    _0x3cc4d += centerText(_0x5g9c, _0xab7f[5]) + "|";
-    _0x3cc4d += centerText(account.initialCash, _0xab7f[6]) + "|";
-    _0x3cc4d += centerText(account.finalCash, _0xab7f[7]) + "|";
-    var _0x99522d = 10;
-    const _0x82f = account.cashChange >= 0 ? "+" + account.cashChange.toFixed(2) : account.cashChange.toFixed(2);
-    _0x99522d = 5;
-    _0x3cc4d += centerText(_0x82f, _0xab7f[8]) + "|";
-    let _0x584d = "成完".split("").reverse().join("");
-    if (account.skipped) _0x584d = "跳过";else if (account.coinLimitExceeded) _0x584d = "限超".split("").reverse().join("");else if (account.infoFetchFailed) _0x584d = "息信无".split("").reverse().join("");
-    _0x3cc4d += centerText(_0x584d, _0xab7f[9]) + "|";
-    console.log(_0x3cc4d);
-  });
-  console.log("=".repeat(80));
-  console.log("|" + centerText("      任务执行完成，请查看详细结果      ", 78) + "|");
-  console.log("=".repeat(80));
+  };
+  const _0x53db52 = await getLevelRightsList(_0x2a2c94, _0x2ccd98, _0x1e61a1.accId);
+  if (_0x53db52 && _0x53db52.length > 0) {
+    console.log("获取到了rightsId:" + _0x53db52[0]);
+  } else {
+    console.log("未能获取rightsId。");
+    return;
+  }
+  if (_0x4e74cc) {
+    var _0x299706;
+    const _0x10abe3 = runTime(23, 59, 59) + 0.5;
+    _0x299706 = 2;
+    const _0xa277b3 = _0x10abe3 - Math.floor(Date.now() / 1000) - _0x4b1e6c;
+    printn("待等".split("").reverse().join("") + _0xa277b3 + "s");
+    await new Promise(_0x2b5afe => setTimeout(_0x2b5afe, _0xa277b3 * 1000));
+  }
+  await exchangeForDay(_0x2a2c94, _0x2ccd98, _0x53db52[0], 0.1, _0x1e61a1.accId);
 }
-async function testSignService() {
+async function qgDay(_0xdc1bec, _0x40a385, _0x3c292f, _0x1dc52e) {
+  console.log("白天兑换逻辑 - 号码: " + getFirstThree(_0xdc1bec));
+}
+async function main(_0x259945, _0x5bfa52, _0x115ba9) {
+  const _0x240ce3 = [];
+  const _0x4badef = process.env.dxdl;
+  if (!_0x4badef) {
+    console.log("式格 码密#号账 为置配请，量变境环 ldxd 置设未 :误错".split("").reverse().join(""));
+    return;
+  }
+  var _0x4b755c;
+  const _0x111b0b = _0x4badef.split("&");
+  _0x4b755c = 14;
+  for (const _0x3eed64 of _0x111b0b) {
+    var _0x5385f5 = 6;
+    const _0x5e4d4e = _0x3eed64.split("#");
+    _0x5385f5 = "qcjecl";
+    if (_0x5e4d4e.length !== 2) {
+      console.log("跳过无效账号格式: " + _0x3eed64 + "，请使用 账号#密码 格式");
+      continue;
+    }
+    const [_0x2ad6fb, _0x3a6b1b] = _0x5e4d4e;
+    !dhjl[yf]["等级话费"] && (dhjl[yf]["等级话费"] = "");
+    if (dhjl[yf]["等级话费"].includes(_0x2ad6fb)) {
+      printn(_0x2ad6fb + " 等级话费 已兑换");
+      continue;
+    }
+    printn(getFirstThree(_0x2ad6fb) + "开始登录");
+    var _0x5b2b61 = 0;
+    const _0x19f746 = await userLoginNormal(_0x2ad6fb, _0x3a6b1b);
+    _0x5b2b61 = "babmgg";
+    _0x19f746 ? _0x115ba9 > 15 ? _0x240ce3.push(qgNight(_0x2ad6fb, _0x19f746, _0x259945, _0x5bfa52)) : _0x240ce3.push(qgDay(_0x2ad6fb, _0x19f746, _0x259945, _0x5bfa52)) : printn(_0x2ad6fb + " 登录失败");
+  }
+  await Promise.all(_0x240ce3);
+}
+async function run(_0x59fc46, _0xb1a123) {
+  console.log("配置信息: 每个账号发送 " + runNum + " 次兑换请求");
+  !verifyLicense() && (console.log("程序终止: 卡密验证失败！变量 dx0d 值【QQ群1029832220】"), process.exit(1));
+  const _0x262446 = new Date().getHours();
+  console.log(" :为时小前当".split("").reverse().join("") + _0x262446);
+  var _0xf4fbcf;
+  _0xf4fbcf = 17;
+  if (_0x262446 > 0 && _0x262446 < 10) {
+    console.log("当前小时为: " + _0x262446 + " 已过0点但未到10点，开始准备抢十点场次");
+    _0x59fc46 = runTime(9, 59, 8);
+  } else {
+    _0x262446 >= 10 && _0x262446 <= 14 ? (console.log("当前小时为: " + _0x262446 + "次场点四十抢备准始开，点41到未但点01过已 ".split("").reverse().join("")), _0x59fc46 = runTime(13, 59, 8)) : (console.log(" :为时小前当".split("").reverse().join("") + _0x262446 + " 已过14点，开始准备抢凌晨场次"), _0x59fc46 = runTime(23, 57, 57));
+  }
+  const _0x163fd = true;
+  if (_0x59fc46 > Math.floor(Date.now() / 1000)) {
+    const _0x237a76 = _0x59fc46 - Math.floor(Date.now() / 1000);
+    console.log("未到时间，计算后差异: " + _0x237a76 + " 秒");
+    _0x163fd && (console.log("注意: 一定要先测试，根据自身网络设定重发次数和多账号策略，避免抢购过早或过晚"), console.log("开始等待..."), await new Promise(_0x5ddd8a => setTimeout(_0x5ddd8a, _0x237a76 * 1000)));
+  }
+  var _0x5f4446;
+  _0xb1a123 = 0;
+  _0x5f4446 = 0;
+  var _0xa9955e;
+  const _0x5ae931 = _0xb1a123 > 0 ? _0xb1a123 : 0;
+  _0xa9955e = "ipfomg";
   try {
-    var _0x5ca3c = 12;
-    const _0xba8c4a = {
-      "type": "encsign",
-      "data": "dGVzdF9kYXRh",
-      "ud": "test_user",
-      "script_version": SCRIPT_VERSION
-    };
-    _0x5ca3c = 7;
-    const {
-      "response": response,
-      "body": body
-    } = await sendRequest({
-      "method": "POST",
-      "url": "https://ks.yubin8.dpdns.org/encsign",
-      "body": JSON.stringify(_0xba8c4a),
-      "headers": {
-        "Content-Type": "application/json"
-      },
-      "timeout": 10000
-    }, null, "encsign签名服务测试");
-    if (!response) {
-      console.log("应响无 :败失试测务服名签ngiscne ❌".split("").reverse().join(""));
-      return false;
-    }
-    if (body && body.status) {
-      console.log("功成试测务服名签ngiscne ✅".split("").reverse().join(""));
-      return true;
-    } else {
-      console.log(" :败失试测务服名签ngiscne ❌".split("").reverse().join("") + (body?.message || "未知错误"));
-      return false;
-    }
-  } catch (error) {
-    console.log("❌ encsign签名服务测试异常: " + error.message);
-    return false;
+    await main(_0x5ae931, _0x163fd, _0x262446);
+  } catch (_0x1f3ac0) {
+    console.log("脚本执行过程中发生异常: " + _0x1f3ac0.message);
+  } finally {
+    var _0x423d9b = 6;
+    const _0x38a5cd = exchangeStats.generateReport();
+    _0x423d9b = 4;
+    console.log("\n" + "=".repeat(50));
+    console.log(_0x38a5cd);
+    console.log("=".repeat(50));
+    console.log("所有任务都已执行完毕!");
   }
 }
-async function testNssigService() {
-  try {
-    const _0x16_0x4a4 = getOrCreateDeviceId();
-    var _0xa01efd;
-    const _0x792gfa = {
-      "type": "nssig",
-      "path": "/rest/e/reward/mixed/ad",
-      "data": "test=data&salt=test_salt",
-      "salt": "test_salt",
-      "ud": "test_user",
-      "script_version": SCRIPT_VERSION,
-      "device_id": _0x16_0x4a4
-    };
-    _0xa01efd = 14;
-    const {
-      "response": response,
-      "body": body
-    } = await sendRequest({
-      "method": "POST",
-      "url": "https://ks.yubin8.dpdns.org/nssig",
-      "body": JSON.stringify(_0x792gfa),
-      "headers": {
-        "Content-Type": "application/json"
-      },
-      "timeout": 10000
-    }, null, "试测务服名签gissn".split("").reverse().join(""));
-    if (!response) {
-      console.log("❌ nssig签名服务测试失败: 无响应");
-      return false;
-    }
-    if (body && body.status) {
-      console.log("✅ nssig签名服务测试成功");
-      return true;
-    } else {
-      console.log("❌ nssig签名服务测试失败: " + (body?.message || "未知错误"));
-      return false;
-    }
-  } catch (error) {
-    console.log(" :常异试测务服名签gissn ❌".split("").reverse().join("") + error.message);
-    return false;
-  }
-}
-(async () => {
-  console.log("证验密卡需无，本版费免友妖 ✅".split("").reverse().join(""));
-  const deviceId = getOrCreateDeviceId();
-  console.log(" :DI备设 \uDCF1\uD83D".split("").reverse().join("") + deviceId);
-  var _0x46c4d = 14;
-  const encsignTest = await testSignService();
-  _0x46c4d = 1;
-  const nssigTest = await testNssigService();
-  if (!encsignTest || !nssigTest) {
-    console.log("\n❌ 签名服务测试失败，脚本终止执行");
-    console.log("💡 请检查以下问题:");
-    console.log("  1. 网络连接是否正常");
-    console.log("  2. 签名服务地址是否正确: https://ks.yubin8.dpdns.org");
-    console.log("  3. 服务是否可用");
-    console.log("  4. 防火墙或代理设置");
-    process.exit(1);
-  }
-  var _0x6c5acd;
-  const accountConfigs = getAllAccountConfigs();
-  _0x6c5acd = 7;
-  if (!accountConfigs.length) {
-    console.error("息信号账置配未 :误错 ❌\n".split("").reverse().join(""));
-    console.log("\n💡 请设置环境变量 ksck 或 ksck1, ksck2... 来配置账号");
-    process.exit(1);
-  }
-  console.log("═══════════════════════════════════════════════════════════════".split("").reverse().join(""));
-  console.log("：息信置配前当 \uDCCB\uD83D".split("").reverse().join(""));
-  console.log("  金币上限 (KSCOIN_LIMIT): " + COIN_LIMIT);
-  console.log(" :)DLOHSERHT_DRAWER_WOLSK( 值阈励奖低  ".split("").reverse().join("") + LOW_REWARD_THRESHOLD);
-  console.log(" :)TIMIL_DRAWER_WOLSK( 限上励奖低续连  ".split("").reverse().join("") + LOW_REWARD_LIMIT);
-  console.log("  并发策略: 每个账号同时进行 (" + accountCount + " 并发)");
-  console.log("  跳过直播广告 (SKIP_LIVE_ADS): " + (SKIP_LIVE_ADS ? "启用，重试" + SKIP_LIVE_MAX_RETRIES + "次" : "用禁".split("").reverse().join("")));
-  console.log(" :)ksaT( 务任行执  ".split("").reverse().join("") + tasksToExecute.join(" ,".split("").reverse().join("")));
-  if (tasksToExecute.includes("kool".split("").reverse().join(""))) {
-    console.log(" :)TNUOC_KOOLSK( 数次行执总 kool  ".split("").reverse().join("") + LOOK_COUNT);
-  }
-  if (tasksToExecute.includes("box")) {
-    console.log(" :)TNUOC_XOBSK( 数次行执总 xob  ".split("").reverse().join("") + BOX_COUNT);
-  }
-  if (tasksToExecute.includes("food")) {
-    console.log(" :)TNUOC_DOOFSK( 数次行执总 doof  ".split("").reverse().join("") + FOOD_COUNT);
-  }
-  if (tasksToExecute.includes("kbox")) {
-    console.log("  kbox 总执行次数 (KSKBOX_COUNT): " + KBOX_COUNT);
-  }
-  if (tasksToExecute.includes("hcraes".split("").reverse().join(""))) {
-    console.log(" :)TNUOC_HCRAESSK( 数次行执总 hcraes  ".split("").reverse().join("") + SEARCH_COUNT);
-  }
-  if (tasksToExecute.includes("look_follow")) {
-    console.log("  每次 look 成功追加 look_follow 次数 (KSFOLLOW_COUNT): " + FOLLOW_COUNT);
-  }
-  if (tasksToExecute.includes("search_follow")) {
-    console.log(" :)TNUOC_WOLLOFHCRAESSK( 数次 wollof_hcraes 加追功成 hcraes 次每  ".split("").reverse().join("") + SEARCH_FOLLOW_COUNT);
-  }
-  console.log("公益接口，撑不住就进群提醒我修复 1029832220");
-  console.log("═══════════════════════════════════════════════════════════════\n");
-  console.log(" 共，务任行执始开 \uDE80\uD83D".split("").reverse().join("") + accountConfigs.length + "\n...号账个 ".split("").reverse().join(""));
-  const results = [];
-  const concurrency = Math.max(1, Math.min(MAX_CONCURRENCY, accountConfigs.length));
-  await executeConcurrently(accountConfigs, concurrency, async accountConfig => {
-    try {
-      var _0x1eab9a = 10;
-      const accountResult = await processAccount(accountConfig);
-      _0x1eab9a = 1;
-      results.push({
-        "index": accountConfig.index,
-        "remark": accountConfig.remark || "无备注",
-        "nickname": accountResult?.nickname || "账号" + accountConfig.index,
-        "initialCoin": accountResult?.initialCoin || 0,
-        "finalCoin": accountResult?.finalCoin || 0,
-        "coinChange": accountResult?.coinChange || 0,
-        "initialCash": accountResult?.initialCash || 0,
-        "finalCash": accountResult?.finalCash || 0,
-        "cashChange": accountResult?.cashChange || 0,
-        "stats": accountResult?.stats || {},
-        "coinLimitExceeded": accountResult?.coinLimitExceeded || false,
-        "skipped": accountResult?.skipped || false,
-        "infoFetchFailed": accountResult?.infoFetchFailed || false,
-        "error": accountResult?.error || null
-      });
-    } catch (error) {
-      console.log("账号[" + accountConfig.index + "]" + (accountConfig.remark ? "（" + accountConfig.remark + "）" : "") + " ❌ 执行异常：" + error.message);
-      results.push({
-        "index": accountConfig.index,
-        "remark": accountConfig.remark || "注备无".split("").reverse().join(""),
-        "nickname": "账号" + accountConfig.index,
-        "initialCoin": 0,
-        "finalCoin": 0,
-        "coinChange": 0,
-        "initialCash": 0,
-        "finalCash": 0,
-        "cashChange": 0,
-        "error": error.message,
-        "skipped": true
-      });
-    }
-  });
-  results.sort((a, b) => a.index - b.index);
-  console.log("\n全部完成。", "✅");
-  console.log("\n---------------------------------------------- 账号信息汇总 ----------------------------------------------");
-  displayResultsTable(results);
-})();
+run().catch(console.error);
