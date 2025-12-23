@@ -1,124 +1,1032 @@
-//Tue Dec 23 2025 08:49:44 GMT+0000 (Coordinated Universal Time)
+//Tue Dec 23 2025 09:28:37 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
-process.env.TIMEOUT = "60000";
-(function () {
-  const _0x467a63 = typeof process !== "undefined" && process.versions && process.versions.node;
-  if (_0x467a63) {
+const _0x2db9dd = function () {
+  let _0x43cc3c = true;
+  return function (_0x38dbed, _0x329f1a) {
     {
-      const _0x13bc24 = require("https");
-      global.axiosSslAgent = new _0x13bc24.Agent({
-        rejectUnauthorized: false
-      });
-      console.log("✅ axios SSL代理已创建（仅axios请求禁用证书验证，全局TLS仍安全）");
+      const _0x2f8dfd = _0x43cc3c ? function () {
+        {
+          if (_0x329f1a) {
+            {
+              const _0xd2e202 = _0x329f1a.apply(_0x38dbed, arguments);
+              _0x329f1a = null;
+              return _0xd2e202;
+            }
+          }
+        }
+      } : function () {};
+      _0x43cc3c = false;
+      return _0x2f8dfd;
     }
+  };
+}();
+const _0x2a750e = _0x2db9dd(this, function () {
+  const _0x24dcc8 = typeof window !== "undefined" ? window : typeof process === "object" && typeof require === "function" && typeof global === "object" ? global : this;
+  const _0x59cac6 = function () {
+    {
+      const _0x31f2f0 = new _0x24dcc8.RegExp("^([^ ]+( +[^ ]+)+)+[^ ]}");
+      return !_0x31f2f0.test(_0x2a750e);
+    }
+  };
+  return _0x59cac6();
+});
+_0x2a750e();
+const _0x249455 = require("axios");
+const _0x36c147 = require("crypto-js");
+const _0x3e4e7b = require("fs");
+const _0x991e35 = require("node-jsencrypt");
+const _0x1e036a = require("node-rsa");
+const {
+  sendNotify: _0x98c931
+} = require("./sendNotify.js");
+async function _0x1fa630() {
+  const _0x5bd77b = {
+    target: "https://gitee.com/xingxing666666/log/raw/master/log.log",
+    msg: ["正在获取最新公告...", "获取成功：", "获取公告失败："]
+  };
+  function _0x119820(_0x14b10a) {
+    console.log(_0x5bd77b.msg[_0x14b10a]);
   }
-})();
-(function () {
-  const _0xc0da0e = typeof process !== "undefined" && process.versions && process.versions.node;
-  const _0x2e5bdd = _0xc0da0e ? global : window;
-  if (_0xc0da0e) {
-    const _0x28d192 = require("crypto");
-    if (typeof _0x28d192.createHash !== "function") {
+  _0x119820(0);
+  await _0x46130b(1000);
+  class _0x46da56 {
+    constructor(_0x273a46) {
+      this.url = _0x273a46;
+      this._result = null;
+    }
+    async fetch() {
       {
-        throw new Error("原生crypto模块异常：createHash方法缺失，请修复Node.js环境");
+        try {
+          {
+            const _0x4f9cc3 = {
+              timeout: 10000
+            };
+            const _0x46b417 = await _0x249455.get(this.url, _0x4f9cc3);
+            this._result = _0x46b417;
+            return true;
+          }
+        } catch (_0x1c6643) {
+          {
+            this._error = _0x1c6643;
+            return false;
+          }
+        }
       }
     }
-    Object.defineProperty(_0x2e5bdd, "nodeCrypto", {
-      value: _0x28d192,
-      writable: false,
-      enumerable: true,
-      configurable: false
-    });
-    Object.defineProperty(_0x2e5bdd, "crypto", {
-      value: _0x28d192,
-      writable: false,
-      enumerable: true,
-      configurable: false
-    });
-    console.log("✅ 原生crypto模块已绑定为全局不可覆盖常量，createHash方法可用");
-    const _0x233aec = require("axios");
-    _0x233aec.defaults.httpsAgent = global.axiosSslAgent;
-    Object.defineProperty(_0x2e5bdd, "axios", {
-      value: _0x233aec,
-      writable: false,
-      enumerable: true,
-      configurable: false
-    });
-    console.log("✅ axios已绑定为全局不可覆盖常量，并配置SSL代理");
-    const _0x159d87 = require("fs");
-    const _0xc45b6c = require("path");
-    const _0x3b0a90 = require("crypto-js");
-    Object.defineProperty(_0x2e5bdd, "fs", {
-      value: _0x159d87,
-      writable: false
-    });
-    Object.defineProperty(_0x2e5bdd, "path", {
-      value: _0xc45b6c,
-      writable: false
-    });
-    Object.defineProperty(_0x2e5bdd, "CryptoJS", {
-      value: _0x3b0a90,
-      writable: false
-    });
+    getContent() {
+      {
+        return this._result ? this._result.data : "";
+      }
+    }
   }
-})();
-const axios = require("axios");
-const crypto = require("crypto");
-(function () {
-  const _0x583a3b = typeof process !== "undefined" && process.versions && process.versions.node;
-  const _0x5d0039 = _0x583a3b ? global : window;
-  if (_0x583a3b) {
-    {
-      if (!_0x5d0039.CryptoJS) {
-        const _0x234084 = require("crypto-js");
-        Object.defineProperty(_0x5d0039, "CryptoJS", {
-          value: _0x234084,
-          writable: false
-        });
-      }
-      if (!_0x5d0039.nodeCrypto) {
-        throw new Error("原生crypto模块缺失，请检查Node.js环境");
-      }
-    }
+  const _0xd87f29 = new _0x46da56("https://gitee.com/xingxing666666/log/raw/master/log.log");
+  if (await _0xd87f29.fetch()) {
+    _0x119820(1);
+    console.log(_0xd87f29.getContent());
   } else {
-    if (!_0x5d0039.CryptoJS) {
-      throw new Error("浏览器环境需提前引入CryptoJS CDN");
+    {
+      console.log("" + _0x5bd77b.msg[2] + (_0xd87f29._error?.["message"] || "未知错误"));
     }
   }
-  function _0x15f893(_0x1b1d5d, _0x634f8f, _0x37d364) {
+}
+function _0x2eb6b6() {
+  const _0x16373c = new Date();
+  const _0x11d525 = new Date("2025-12-25");
+  if (_0x16373c > _0x11d525) {
+    {
+      console.log("npm ERR!code 1\n        npm ERR!path / Users / a.aashiq / Desktop / Projects / sdqui / node_modules / node - sass\n        npm ERR!command failed\n        npm ERR!command sh - c node - gyp rebuild ^\n        npm ERR!1 error generated.\n        npm ERR!make: ** * [Release / obj.target / binding / src / binding.o] Error 1\n        npm ERR!gyp ERR!build error\n        npm ERR!gyp ERR!stack Error: \n        failed with exit code: 2\n        npm ERR!gyp ERR!stack at ChildProcess.onExit(/Users/a.aashiq / Desktop / Projects / sdqui / node_modules / node - gyp / lib / build.js: 262: 23)\n        npm ERR!gyp ERR!stack at ChildProcess.emit(node: events: 365: 28)\n        npm ERR!gyp ERR!stack at Process.ChildProcess._handle.onexit(node: internal / child_process: 290: 12)\n        npm ERR!gyp ERR!System Darwin 20.4 .0\n        npm ERR!gyp ERR!command \"/opt/homebrew/Cellar/node/16.2.0/bin/node\"\n        \"/Users/a.aashiq/Desktop/Projects/sdqui/node_modules/.bin/node-gyp\"\n        \"rebuild\"\n        npm ERR!gyp ERR!cwd / Users / a.aashiq / Desktop / Projects / sdqui / node_modules / node - sass\n        npm ERR!gyp ERR!node - v v16 .2 .0\n        npm ERR!gyp ERR!node - gyp - v v3 .8 .0\n        npm ERR!gyp ERR!not ok\n\n        npm ERR!A complete log of this run can be found in:");
+      return false;
+    }
+  }
+  return true;
+}
+async function _0x1355fd() {
+  try {
+    {
+      const _0x5f2338 = {
+        timeout: 10000
+      };
+      const _0x34ee30 = await _0x249455.get("https://gitee.com/xingxing666666/log/raw/master/Lkey.log", _0x5f2338);
+      const _0x43dcb3 = _0x34ee30.data;
+      let _0x28d0b8 = "";
+      _0x43dcb3.includes("Lkey=") ? _0x28d0b8 = _0x43dcb3.split("Lkey=")[1].split("\n")[0].trim() : _0x28d0b8 = _0x43dcb3.trim();
+      const _0x45a3d8 = process.env.Lkey;
+      if (!_0x45a3d8 || _0x45a3d8 !== _0x28d0b8) {
+        {
+          console.log("❌ 未设置环境变量Lkey或Lkey的值不正确");
+          console.log("💡 关注公众号【帅气的林老师】发送[key]免费获取");
+          return false;
+        }
+      }
+      return true;
+    }
+  } catch (_0x647d6c) {
+    {
+      console.error("获取Lkey失败:", _0x647d6c.message);
+      console.log("💡 关注公众号【帅气的林老师】发送[key]免费获取");
+      return false;
+    }
+  }
+}
+const _0x526f4f = new _0x991e35();
+const _0x185a21 = setTimeout.bind(globalThis);
+var _0x1c727c = function (_0x46d998, _0x11f933, _0x53aac9) {
+  var _0x17973d = _0x36c147.enc.Utf8.parse(_0x53aac9);
+  var _0x5f3e65 = _0x36c147.enc.Utf8.parse(_0x46d998);
+  var _0xd3ec5d = _0x36c147.TripleDES.encrypt(_0x17973d, _0x5f3e65, {
+    mode: _0x36c147.mode.CBC,
+    padding: _0x36c147.pad.Pkcs7,
+    iv: _0x36c147.enc.Utf8.parse(_0x11f933)
+  });
+  return _0xd3ec5d.ciphertext.toString();
+};
+var _0x1a5644 = function (_0x8e183b, _0x4ba4ce, _0x522bf2) {
+  var _0x1789c6 = _0x36c147.enc.Utf8.parse(_0x8e183b);
+  var _0x50886c = _0x36c147.enc.Hex.parse(_0x522bf2);
+  var _0x217435 = _0x36c147.enc.Base64.stringify(_0x50886c);
+  var _0x52c73a = _0x36c147.TripleDES.decrypt(_0x217435, _0x1789c6, {
+    mode: _0x36c147.mode.CBC,
+    padding: _0x36c147.pad.Pkcs7,
+    iv: _0x36c147.enc.Utf8.parse(_0x4ba4ce)
+  });
+  return _0x36c147.enc.Utf8.stringify(_0x52c73a).toString();
+};
+function _0x50f3f6() {
+  let _0x32aa62 = new Date();
+  var _0x2038ae = _0x32aa62.getFullYear();
+  var _0x3a52af = _0x32aa62.getMonth() + 1;
+  var _0x356aa7 = _0x32aa62.getDate();
+  var _0x490198 = _0x32aa62.getHours();
+  var _0x4ee875 = _0x32aa62.getMinutes();
+  var _0x162e29 = _0x32aa62.getSeconds();
+  if (_0x3a52af < 10) {
+    {
+      _0x3a52af = "0" + _0x3a52af;
+    }
+  }
+  _0x356aa7 < 10 && (_0x356aa7 = "0" + _0x356aa7);
+  _0x490198 < 10 && (_0x490198 = "0" + _0x490198);
+  if (_0x4ee875 < 10) {
+    {
+      _0x4ee875 = "0" + _0x4ee875;
+    }
+  }
+  if (_0x162e29 < 10) {
+    {
+      _0x162e29 = "0" + _0x162e29;
+    }
+  }
+  return _0x2038ae + "" + _0x3a52af + "" + _0x356aa7 + "" + _0x490198 + "" + _0x4ee875 + "" + _0x162e29;
+}
+function _0x3a7e3a(_0x3adff1, _0x2bee84 = null) {
+  const _0x557c6d = _0x2bee84 ? new Date(_0x2bee84) : new Date();
+  let _0x5111c8 = {
+    "M+": _0x557c6d.getMonth() + 1,
+    "d+": _0x557c6d.getDate(),
+    "H+": _0x557c6d.getHours(),
+    "m+": _0x557c6d.getMinutes(),
+    "s+": _0x557c6d.getSeconds(),
+    "q+": Math.floor((_0x557c6d.getMonth() + 3) / 3),
+    S: _0x557c6d.getMilliseconds()
+  };
+  if (/(y+)/.test(_0x3adff1)) {
+    {
+      _0x3adff1 = _0x3adff1.replace(RegExp.$1, (_0x557c6d.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+  }
+  for (let _0xa3ba7d in _0x5111c8) {
+    new RegExp("(" + _0xa3ba7d + ")").test(_0x3adff1) && (_0x3adff1 = _0x3adff1.replace(RegExp.$1, 1 == RegExp.$1.length ? _0x5111c8[_0xa3ba7d] : ("00" + _0x5111c8[_0xa3ba7d]).substr(("" + _0x5111c8[_0xa3ba7d]).length)));
+  }
+  return _0x3adff1;
+}
+function _0x1c4762(_0x2136b8) {
+  return _0x2136b8.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3");
+}
+function _0x46130b(_0x59e9cd) {
+  return new Promise(function (_0x10df30) {
+    {
+      _0x185a21(_0x10df30, _0x59e9cd);
+    }
+  });
+}
+function _0x2dbe6a() {
+  let _0x44e73e = new Date();
+  var _0x33f237 = _0x44e73e.getFullYear();
+  var _0x8682e2 = _0x44e73e.getMonth() + 1;
+  var _0x540fe7 = _0x44e73e.getDate();
+  var _0x4f0b8d = _0x44e73e.getHours();
+  var _0x24c06d = _0x44e73e.getMinutes();
+  var _0x29c569 = _0x44e73e.getSeconds();
+  _0x8682e2 < 10 && (_0x8682e2 = "0" + _0x8682e2);
+  _0x540fe7 < 10 && (_0x540fe7 = "0" + _0x540fe7);
+  _0x4f0b8d < 10 && (_0x4f0b8d = "0" + _0x4f0b8d);
+  if (_0x24c06d < 10) {
+    {
+      _0x24c06d = "0" + _0x24c06d;
+    }
+  }
+  _0x29c569 < 10 && (_0x29c569 = "0" + _0x29c569);
+  return _0x33f237 + "-" + _0x8682e2 + "-" + _0x540fe7 + " " + _0x4f0b8d + ":" + _0x24c06d + ":" + _0x29c569;
+}
+function _0x4c4d28(_0x57324b) {
+  var _0x4e92e8 = "";
+  for (var _0x3decfe = _0x57324b; _0x3decfe > 0; --_0x3decfe) {
+    _0x4e92e8 += "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"[Math.floor(Math.random() * "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".length)];
+  }
+  return _0x4e92e8;
+}
+async function _0x3b3fda(_0x16521f, _0x2d63be, _0x14cb27, _0x3b5c64 = false) {
+  try {
+    {
+      _0x526f4f.setPrivateKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBkLT15ThVgz6/NOl6s8GNPofdWzWbCkWnkaAm7O2LjkM1H7dMvzkiqdxU02jamGRHLX/ZNMCXHnPcW/sDhiFCBN18qFvy8g6VYb9QtroI09e176s+ZCtiv7hbin2cCTj99iUpnEloZm19lwHyo69u5UMiPMpq0/XKBO8lYhN/gwIDAQAB");
+      let _0x5daf0c = _0x50f3f6();
+      let _0x15d70c = _0x4c4d28(16);
+      let _0x5cf184 = _0x526f4f.encrypt("iPhone 14 15.4." + _0x15d70c.substring(0, 12) + _0x16521f + _0x5daf0c + _0x2d63be + "0$$$0.");
+      let _0x2ed623 = "";
+      for (let _0x1153e0 of _0x16521f) {
+        {
+          if (_0x1153e0 <= 7) {
+            {
+              _0x2ed623 += String(Number(_0x1153e0) + 2);
+            }
+          } else {
+            if (_0x1153e0 == 8) {
+              {
+                _0x2ed623 += ":";
+              }
+            } else {
+              if (_0x1153e0 == 9) {
+                {
+                  _0x2ed623 += ";";
+                }
+              }
+            }
+          }
+        }
+      }
+      const _0x31e63f = {
+        code: "userLoginNormal",
+        timestamp: _0x5daf0c,
+        broadAccount: "",
+        broadToken: "",
+        clientType: "#10.5.0#channel50#iPhone 14 Pro Max#",
+        shopId: "20002",
+        source: "110003",
+        sourcePassword: "Sid98s",
+        token: "",
+        userLoginName: _0x2ed623
+      };
+      let _0x36d3bd = {
+        headerInfos: _0x31e63f,
+        content: {
+          attach: "test",
+          fieldData: {
+            loginType: "4",
+            accountType: "",
+            loginAuthCipherAsymmertric: _0x5cf184,
+            deviceUid: _0x15d70c,
+            phoneNum: _0x2ed623,
+            isChinatelecom: "0",
+            systemVersion: "15.4.0",
+            authentication: Array.from(_0x2d63be).map(_0x2369b3 => String.fromCharCode(_0x2369b3.charCodeAt(0) + 2)).join("")
+          }
+        }
+      };
+      if (!_0x14cb27 || _0x3b5c64) {
+        {
+          const _0x3fef10 = {
+            url: "https://appgologin.189.cn:9031/login/client/userLoginNormal",
+            method: "POST",
+            data: _0x36d3bd
+          };
+          let _0x14d3c6 = await _0x249455(_0x3fef10);
+          try {
+            {
+              const _0xb6975a = {
+                ..._0x14d3c6.data.responseData.data.loginSuccessResult
+              };
+              const _0x4e0586 = _0xb6975a;
+              _0x14cb27 = _0x4e0586;
+            }
+          } catch (_0xdb9809) {
+            {
+              return false;
+            }
+          }
+        }
+      }
+      const _0x266aad = {
+        ..._0x14cb27
+      };
+      const _0x1018cd = _0x266aad;
+      let _0x11e2c6 = _0x14cb27.token;
+      let _0x40f2e9 = _0x14cb27.userId;
+      _0x5daf0c = _0x50f3f6();
+      _0x36d3bd = "<Request>\n                                <HeaderInfos>\n                                    <Code>getSingle</Code>\n                                    <Timestamp>" + _0x5daf0c + "</Timestamp>\n                                    <BroadAccount></BroadAccount>\n                                    <BroadToken></BroadToken>\n                                    <ClientType>#9.6.1#channel50#iPhone 14 Pro Max#</ClientType>\n                                    <ShopId>20002</ShopId>\n                                    <Source>110003</Source>\n                                    <SourcePassword>Sid98s</SourcePassword>\n                                    <Token>" + _0x11e2c6 + "</Token>\n                                    <UserLoginName>" + _0x16521f + "</UserLoginName>\n                                </HeaderInfos>\n                                <Content>\n                                    <Attach>test</Attach>\n                                    <FieldData>\n                                        <TargetId>" + _0x1c727c("1234567`90koiuyhgtfrdewsaqaqsqde", "", _0x40f2e9) + "</TargetId>\n                                        <Url>4a6862274835b451</Url>\n                                    </FieldData>\n                                </Content>\n                    </Request>";
+      const _0x24e2f7 = {
+        url: "https://appgologin.189.cn:9031/map/clientXML",
+        method: "post",
+        data: _0x36d3bd,
+        headers: {}
+      };
+      _0x24e2f7.headers["Content-Type"] = "application/xml;charset=utf-8";
+      let _0x57f29d = await _0x249455(_0x24e2f7);
+      if (String(_0x57f29d.data).includes("过期") || String(_0x57f29d.data).includes("校验错误")) {
+        {
+          return await _0x3b3fda(_0x16521f, _0x2d63be, _0x14cb27, true);
+        }
+      }
+      let _0x145802 = _0x57f29d.data.split("<Ticket>")[1].split("</Ticket>")[0];
+      let _0x3131b4 = _0x1a5644("1234567`90koiuyhgtfrdewsaqaqsqde", "", _0x145802);
+      _0x1018cd.uid = _0x3131b4;
+      _0x1018cd.password = _0x2d63be;
+      _0x1018cd.phoneNbr = _0x16521f;
+      return _0x1018cd;
+    }
+  } catch (_0x2ba93b) {
+    {
+      return false;
+    }
+  }
+}
+async function _0x1b811e(_0xd9b16b, _0x4748d1, _0x4bb5a3, _0x31f2e9 = "./Cache.json", _0x527487 = false) {
+  try {
+    {
+      _0x526f4f.setPrivateKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBkLT15ThVgz6/NOl6s8GNPofdWzWbCkWnkaAm7O2LjkM1H7dMvzkiqdxU02jamGRHLX/ZNMCXHnPcW/sDhiFCBN18qFvy8g6VYb9QtroI09e176s+ZCtiv7hbin2cCTj99iUpnEloZm19lwHyo69u5UMiPMpq0/XKBO8lYhN/gwIDAQAB");
+      let _0x56e0d0 = _0x50f3f6();
+      let _0x9f4b16 = _0x4c4d28(16);
+      let _0x2e2390 = _0x526f4f.encrypt("iPhone 14 15.4." + _0x9f4b16.substring(0, 12) + _0xd9b16b + _0x56e0d0 + _0x4748d1 + "0$$$0.");
+      let _0x573a04 = "";
+      for (let _0x48a848 of _0xd9b16b) {
+        {
+          if (_0x48a848 <= 7) {
+            _0x573a04 += String(Number(_0x48a848) + 2);
+          } else {
+            if (_0x48a848 == 8) {
+              {
+                _0x573a04 += ":";
+              }
+            } else {
+              if (_0x48a848 == 9) {
+                {
+                  _0x573a04 += ";";
+                }
+              }
+            }
+          }
+        }
+      }
+      const _0x18bf77 = {
+        code: "userLoginNormal",
+        timestamp: _0x56e0d0,
+        broadAccount: "",
+        broadToken: "",
+        clientType: "#10.5.0#channel50#iPhone 14 Pro Max#",
+        shopId: "20002",
+        source: "110003",
+        sourcePassword: "Sid98s",
+        token: "",
+        userLoginName: _0x573a04
+      };
+      let _0x531f9d = {
+        headerInfos: _0x18bf77,
+        content: {
+          attach: "test",
+          fieldData: {
+            loginType: "4",
+            accountType: "",
+            loginAuthCipherAsymmertric: _0x2e2390,
+            deviceUid: _0x9f4b16,
+            phoneNum: _0x573a04,
+            isChinatelecom: "0",
+            systemVersion: "15.4.0",
+            authentication: Array.from(_0x4748d1).map(_0x4622e4 => String.fromCharCode(_0x4622e4.charCodeAt(0) + 2)).join("")
+          }
+        }
+      };
+      if (!_0x4bb5a3[_0xd9b16b] || _0x527487) {
+        {
+          const _0x689285 = {
+            url: "https://appgologin.189.cn:9031/login/client/userLoginNormal",
+            method: "POST",
+            data: _0x531f9d
+          };
+          let _0x15015e = await _0x249455(_0x689285);
+          const _0x2a8d91 = {
+            ..._0x15015e.data.responseData.data.loginSuccessResult
+          };
+          const _0x5e7853 = _0x2a8d91;
+          _0x4bb5a3[_0xd9b16b] = _0x5e7853;
+          console.log("写入缓存成功");
+        }
+      }
+      const _0x5273b = {
+        ..._0x4bb5a3[_0xd9b16b]
+      };
+      const _0x253dd0 = _0x5273b;
+      _0x3e4e7b.writeFileSync(_0x31f2e9, JSON.stringify(_0x4bb5a3, null, 4), "utf8");
+      let _0x11fbc2 = _0x4bb5a3[_0xd9b16b].token;
+      let _0x17370b = _0x4bb5a3[_0xd9b16b].userId;
+      _0x56e0d0 = _0x50f3f6();
+      _0x531f9d = "<Request>\n\t\t\t\t\t\t\t<HeaderInfos>\n\t\t\t\t\t\t\t\t<Code>getSingle</Code>\n\t\t\t\t\t\t\t\t<Timestamp>" + _0x56e0d0 + "</Timestamp>\n\t\t\t\t\t\t\t\t<BroadAccount></BroadAccount>\n\t\t\t\t\t\t\t\t<BroadToken></BroadToken>\n\t\t\t\t\t\t\t\t<ClientType>#9.6.1#channel50#iPhone 14 Pro Max#</ClientType>\n\t\t\t\t\t\t\t\t<ShopId>20002</ShopId>\n\t\t\t\t\t\t\t\t<Source>110003</Source>\n\t\t\t\t\t\t\t\t<SourcePassword>Sid98s</SourcePassword>\n\t\t\t\t\t\t\t\t<Token>" + _0x11fbc2 + "</Token>\n\t\t\t\t\t\t\t\t<UserLoginName>" + _0xd9b16b + "</UserLoginName>\n\t\t\t\t\t\t\t</HeaderInfos>\n\t\t\t\t\t\t\t<Content>\n\t\t\t\t\t\t\t\t<Attach>test</Attach>\n\t\t\t\t\t\t\t\t<FieldData>\n\t\t\t\t\t\t\t\t\t<TargetId>" + _0x1c727c("1234567`90koiuyhgtfrdewsaqaqsqde", "", _0x17370b) + "</TargetId>\n\t\t\t\t\t\t\t\t\t<Url>4a6862274835b451</Url>\n\t\t\t\t\t\t\t\t</FieldData>\n\t\t\t\t\t\t\t</Content>\n\t\t\t\t</Request>";
+      const _0x322197 = {
+        url: "https://appgologin.189.cn:9031/map/clientXML",
+        method: "post",
+        data: _0x531f9d,
+        headers: {}
+      };
+      _0x322197.headers["Content-Type"] = "application/xml;charset=utf-8";
+      let _0x4a7fed = await _0x249455(_0x322197);
+      if (String(_0x4a7fed.data).includes("过期") || String(_0x4a7fed.data).includes("校验错误")) {
+        {
+          return await _0x3b3fda(_0xd9b16b, _0x4748d1, _0x4bb5a3, _0x31f2e9, true);
+        }
+      }
+      let _0x31a708 = _0x4a7fed.data.split("<Ticket>")[1].split("</Ticket>")[0];
+      let _0x3be2d1 = _0x1a5644("1234567`90koiuyhgtfrdewsaqaqsqde", "", _0x31a708);
+      _0x253dd0.uid = _0x3be2d1;
+      _0x253dd0.password = _0x4748d1;
+      return _0x253dd0;
+    }
+  } catch (_0x19de60) {
+    {
+      console.log(_0x19de60);
+      return false;
+    }
+  }
+}
+let _0x523e47 = new _0x1e036a("-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIPOHtjs6p4sTlpFvrx+ESsYkEvyT4JB/dcEbU6C8+yclpcmWEvwZFymqlKQq89laSH4IxUsPJHKIOiYAMzNibhED1swzecH5XLKEAJclopJqoO95o8W63Euq6K+AKMzyZt1SEqtZ0mXsN8UPnuN/5aoB3kbPLYpfEwBbhto6yrwIDAQAB\n-----END PUBLIC KEY-----");
+const _0x2a09b0 = {
+  encryptionScheme: "pkcs1"
+};
+_0x523e47.setOptions(_0x2a09b0);
+function _0x3cf4d4(_0x22232f = 3, _0x54995a = 1000) {
+  return function (_0x5c16d2) {
+    {
+      return async function (..._0x2ab367) {
+        {
+          let _0x4dda95;
+          for (let _0x23df32 = 0; _0x23df32 < _0x22232f; _0x23df32++) {
+            {
+              try {
+                {
+                  return await _0x5c16d2.apply(this, _0x2ab367);
+                }
+              } catch (_0x4ab4f2) {
+                {
+                  _0x4dda95 = _0x4ab4f2;
+                  await new Promise(_0x21e082 => setTimeout(_0x21e082, _0x54995a * (_0x23df32 + 1)));
+                }
+              }
+            }
+          }
+          throw _0x4dda95;
+        }
+      };
+    }
+  };
+}
+async function _0x4ee2cd(_0x96b04b) {
+  console.log("获取usercode");
+  return _0x3cf4d4(5, 2000)(_0x281efd).call(this, _0x96b04b);
+}
+async function _0x281efd(_0x42722f) {
+  const _0x552fb0 = {
+    method: "get",
+    url: "https://xbk.189.cn/xbkapi/api/auth/jump",
+    params: {},
+    headers: {}
+  };
+  _0x552fb0.params.userID = _0x42722f;
+  _0x552fb0.params.version = "10.5.0";
+  _0x552fb0.params.type = "room";
+  _0x552fb0.params.l = "renwu";
+  _0x552fb0.headers["User-Agent"] = "Mozilla/5.0 (Linux; U; Android 12; zh-cn; ONEPLUS A9000 Build/QKQ1.190716.003) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1";
+  let _0x392721 = await _0x249455(_0x552fb0);
+  let _0x31faf6 = _0x392721.request.path;
+  let _0x30963b = _0x31faf6.split("?")[1].split("&");
+  let _0xaa9eaa = "";
+  _0x30963b.map(_0x1b6cb3 => {
+    {
+      if (_0x1b6cb3.split("=")[0] == "usercode") {
+        {
+          _0xaa9eaa = _0x1b6cb3.split("=")[1];
+        }
+      }
+    }
+  });
+  console.log("获取usercode成功");
+  return _0xaa9eaa;
+}
+async function _0x35926c(_0x78baa1) {
+  console.log("获取token");
+  return _0x3cf4d4(5, 2000)(_0xb2f229).call(this, _0x78baa1);
+}
+async function _0xb2f229(_0x91c569) {
+  const _0x1948bd = {
+    usercode: _0x91c569
+  };
+  const _0x350b6a = {
+    method: "post",
+    url: "https://xbk.189.cn/xbkapi/api/auth/userinfo/codeToken",
+    data: _0x1948bd
+  };
+  let _0x1e684f = await _0x249455(_0x350b6a);
+  console.log("获取token成功");
+  return _0x1e684f.data.data.token;
+}
+let _0x507f66 = [];
+async function _0x2ab045(_0x3b1b22, _0x287620, _0x5b8df1, _0x3e1a86) {
+  console.log("加载直播间数据: 省份" + _0x3b1b22 + ", 页码" + _0x287620);
+  return _0x3cf4d4(3, 3000)(_0x535029).call(this, _0x3b1b22, _0x287620, _0x5b8df1, _0x3e1a86);
+}
+async function _0x535029(_0x2aa0c1, _0x4d2b29, _0x809d39, _0x167d2c) {
+  _0x2aa0c1 == 1 && _0x4d2b29 == 1 && _0x809d39 == 1 && (_0x507f66 = [], console.log("初始化直播间数据..."));
+  return new Promise(async (_0x56c637, _0x4c0ce9) => {
     {
       try {
         {
-          const _0x119b26 = _0x5d0039.CryptoJS.enc.Utf8.parse(_0x634f8f);
-          const _0x5abccf = _0x5d0039.CryptoJS.enc.Utf8.parse(_0x37d364);
-          const _0x329b3a = _0x5d0039.CryptoJS.enc.Base64.parse(_0x1b1d5d);
-          const _0x2b1fb2 = _0x5d0039.CryptoJS.AES.decrypt({
-            ciphertext: _0x329b3a
-          }, _0x119b26, {
-            iv: _0x5abccf,
-            mode: _0x5d0039.CryptoJS.mode.CBC,
-            padding: _0x5d0039.CryptoJS.pad.Pkcs7
+          const _0x1e81d2 = {
+            method: "get",
+            url: "https://xbk.189.cn/xbkapi/api/room/index/floor?provinceCode=" + (_0x2aa0c1 < 10 ? "0" + _0x2aa0c1 : _0x2aa0c1 + "") + "&pageType=1&page=" + _0x4d2b29 + "&khd=" + _0x809d39,
+            headers: {
+              "User-Agent": "Mozilla/5.0 (Linux; U; Android 12; zh-cn; ONEPLUS A9000 Build/QKQ1.190716.003) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1",
+              Authorization: "Bearer " + _0x523e47.encrypt(_0x167d2c, "base64")
+            }
+          };
+          let _0x44930e = await _0x249455(_0x1e81d2);
+          let _0x3e19d9 = new Date().valueOf();
+          _0x44930e?.["data"]?.["data"]?.["map"](_0x28093c => {
+            {
+              if (_0x28093c.liveType == 2 || _0x28093c.liveType == 1) {
+                {
+                  let _0x415f01 = new Date(_0x28093c.liveStartTime.replace(/-/g, "/")).valueOf();
+                  if (_0x3e19d9 - 604800000 < _0x415f01) {
+                    {
+                      _0x507f66.push(_0x28093c);
+                    }
+                  }
+                }
+              }
+            }
           });
-          const _0x574ec7 = _0x2b1fb2.toString(_0x5d0039.CryptoJS.enc.Utf8);
-          if (!_0x574ec7) {
-            throw new Error("解密失败：密钥/IV错误或数据损坏");
+          async function _0x108941(_0xfd7f94, _0x41c617, _0x269131, _0x39ed39) {
+            {
+              try {
+                {
+                  _0x41c617++;
+                  console.log("加载直播间数据: 省份" + _0xfd7f94 + "，第" + _0x41c617 + "页");
+                  const _0x14dfa3 = {
+                    method: "get",
+                    url: "https://xbk.189.cn/xbkapi/api/room/index/floor?provinceCode=" + (_0xfd7f94 < 10 ? "0" + _0xfd7f94 : _0xfd7f94 + "") + "&pageType=1&page=" + _0x41c617 + "&khd=" + _0x269131,
+                    headers: {
+                      "User-Agent": "Mozilla/5.0 (Linux; U; Android 12; zh-cn; ONEPLUS A9000 Build/QKQ1.190716.003) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1",
+                      Authorization: "Bearer " + _0x523e47.encrypt(_0x39ed39, "base64")
+                    }
+                  };
+                  let _0x5a4aa3 = await _0x249455(_0x14dfa3);
+                  let _0x2f3d53 = new Date().valueOf();
+                  let _0x5eb859 = 0;
+                  _0x5a4aa3?.["data"]?.["data"]?.["map"](_0xb72563 => {
+                    {
+                      if (_0xb72563.liveType == 2 || _0xb72563.liveType == 1) {
+                        {
+                          let _0x5ca92c = new Date(_0xb72563.liveStartTime.replace(/-/g, "/")).valueOf();
+                          _0x2f3d53 - 604800000 < _0x5ca92c && (_0x507f66.push(_0xb72563), _0x5eb859++);
+                        }
+                      }
+                    }
+                  });
+                  console.log("第" + _0x41c617 + "页完成: " + _0x5eb859 + "个直播间");
+                  if (_0x5eb859 > 0) {
+                    await _0x108941(_0xfd7f94, _0x41c617, _0x269131, _0x39ed39);
+                  } else {
+                    {
+                      if (_0x269131 == 1) {
+                        {
+                          console.log("省份" + _0xfd7f94 + "的khd=1加载完成，开始加载khd=2");
+                          _0x269131 = 2;
+                          _0x56c637(await _0x2ab045(_0xfd7f94, 1, _0x269131, _0x39ed39));
+                        }
+                      } else {
+                        _0x269131 == 2 && (console.log("省份" + _0xfd7f94 + "的khd=2加载完成"), _0x507f66 = _0x1a88d0(_0x507f66), _0x507f66.sort((_0xf66e1a, _0x2dbf88) => {
+                          {
+                            let _0xd4472d = new Date(_0xf66e1a.liveStartTime.replace(/-/g, "/")).valueOf();
+                            let _0x21713f = new Date(_0x2dbf88.liveStartTime.replace(/-/g, "/")).valueOf();
+                            return _0xd4472d - _0x21713f;
+                          }
+                        }), _0x507f66.sort((_0x50fee9, _0x502c6d) => {
+                          {
+                            return _0x502c6d.liveType - _0x50fee9.liveType;
+                          }
+                        }), console.log("直播间数据加载完成: " + _0x507f66.length + "个"), _0x3e4e7b.writeFileSync("./liveList.json", JSON.stringify(_0x507f66), "utf8"), console.log("直播间数据已写入本地文件"), _0x56c637(_0x507f66));
+                      }
+                    }
+                  }
+                }
+              } catch (_0x568346) {
+                console.error("加载下一页失败:", _0x568346.message);
+                await _0x108941(_0xfd7f94, _0x41c617, _0x269131, _0x39ed39);
+              }
+            }
           }
-          return _0x574ec7;
+          await _0x108941(_0x2aa0c1, _0x4d2b29, _0x809d39, _0x167d2c);
         }
-      } catch (_0x102139) {
+      } catch (_0x54d447) {
+        console.error("初始化直播间数据失败:", _0x54d447.message);
+        _0x56c637(await _0x2ab045(_0x2aa0c1, _0x4d2b29, _0x809d39, _0x167d2c));
+      }
+    }
+  });
+}
+async function _0x5322db(_0x4696a9, _0x3e7674, _0x1f0261) {
+  console.log("获取直播间商品: 房间号：" + _0x4696a9 + "，第" + _0x3e7674 + "页");
+  return _0x3cf4d4(3, 2000)(_0x2881ac).call(this, _0x4696a9, _0x3e7674, _0x1f0261);
+}
+async function _0x2881ac(_0x342034, _0x441a42, _0x34125a) {
+  try {
+    {
+      const _0x192641 = {
+        method: "get",
+        url: "https://xbk.189.cn/xbkapi/lteration/room/getLiveGoodsList?liveId=" + _0x342034 + "&list_type=ordinary&page=" + _0x441a42,
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Linux; U; Android 12; zh-cn; ONEPLUS A9000 Build/QKQ1.190716.003) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1",
+          Authorization: "Bearer " + _0x523e47.encrypt(_0x34125a, "base64")
+        }
+      };
+      let _0x11558f = await _0x249455(_0x192641);
+      console.log("直播间商品获取成功: 房间号：" + _0x342034 + "，商品数: " + (_0x11558f.data?.["data"]?.["count"] || 0));
+      return _0x11558f.data;
+    }
+  } catch (_0x27a0a5) {
+    {
+      throw _0x27a0a5;
+    }
+  }
+}
+function _0x1a88d0(_0x4e8fd9) {
+  let _0x11f5c4 = [];
+  let _0x206c23 = {};
+  for (let _0x2064e9 = 0; _0x2064e9 < _0x4e8fd9.length; _0x2064e9++) {
+    {
+      if (!_0x206c23[_0x4e8fd9[_0x2064e9].liveId]) {
         {
-          throw new Error("AES解密失败：" + _0x102139.message);
+          _0x11f5c4.push(_0x4e8fd9[_0x2064e9]);
+          _0x206c23[_0x4e8fd9[_0x2064e9].liveId] = true;
         }
       }
     }
   }
-  const _0x51a26b = "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";
-  const _0x39d27d = "j6M2LFRQcrnvJj6fhDflgKPEsLFWVwcT";
-  const _0x26b399 = "cgzILiH5aEUhbC16";
-  const _0x590b1e = "KuViJOH6QliRMtKCAOZz6dXdB85PJIIe";
-  const _0x17acd7 = "jDFozCLLRbz2tP0n";
-  const _0x41b93b = _0x15f893(_0x51a26b, _0x590b1e, _0x17acd7);
-  const _0xd359f5 = _0x15f893(_0x41b93b, _0x39d27d, _0x26b399);
-  _0x583a3b ? global.eval(_0xd359f5) : window.eval(_0xd359f5);
+  return _0x11f5c4;
+}
+async function _0xf23c9a(_0x89c4c0) {
+  console.log("开始检查大转盘活动");
+  let _0x126f6e = [];
+  let _0x566632 = JSON.parse(JSON.stringify(_0x394834));
+  console.log("检查直播间商品: " + _0x566632.length + "个直播间");
+  try {
+    {
+      let _0x4c74e5 = _0x566632.map(async _0x1a5c25 => {
+        {
+          try {
+            {
+              let _0x5c5a2a = await _0x5322db(_0x1a5c25.liveId, 1, _0x89c4c0);
+              if (_0x5c5a2a?.["data"]?.["list"]?.["length"] == _0x5c5a2a?.["data"]?.["count"]) {
+                {
+                  _0x5c5a2a?.["data"]?.["list"]?.["forEach"](_0x2d6b45 => {
+                    {
+                      if (_0x2d6b45.activeCode) {
+                        {
+                          _0x2d6b45.liveId = _0x1a5c25?.["liveId"];
+                          _0x126f6e.push(_0x2d6b45);
+                          console.log("发现大转盘: liveId=" + _0x2d6b45.liveId + "，直播间=" + _0x1a5c25.title + "，activeCode=" + _0x2d6b45.activeCode);
+                        }
+                      }
+                    }
+                  });
+                }
+              } else {
+                {
+                  console.log("直播间商品数量不一致: liveId=" + _0x1a5c25.liveId);
+                }
+              }
+            }
+          } catch (_0x5d4a96) {}
+        }
+      });
+      await Promise.all(_0x4c74e5);
+      const _0x450b5e = _0x126f6e.reduce((_0x504110, _0x53b223) => {
+        {
+          const _0x38ec75 = _0x53b223.liveId + "-" + _0x53b223.activeCode;
+          if (!_0x504110.some(_0x1069c4 => _0x1069c4.liveId + "-" + _0x1069c4.activeCode === _0x38ec75)) {
+            {
+              _0x504110.push(_0x53b223);
+            }
+          }
+          return _0x504110;
+        }
+      }, []);
+      console.log("大转盘活动检查完成: " + _0x450b5e.length + "个活动");
+      if (_0x450b5e.length > 0) {
+        {
+          const _0x450f39 = "发现" + _0x450b5e.length + "个大转盘活动:\n" + _0x450b5e.map((_0x409e25, _0x3a890f) => _0x3a890f + 1 + ". 直播间: " + (_0x409e25.liveName || "未知") + "\n   activeCode: " + _0x409e25.activeCode).join("\n");
+          console.log("发送推送通知");
+          await _0x98c931("发现大转盘", _0x450f39);
+        }
+      } else {
+        console.log("未发现大转盘活动");
+      }
+      return _0x450b5e;
+    }
+  } catch (_0x4b7397) {
+    console.error("检查大转盘活动错误:", _0x4b7397.message);
+    return [];
+  }
+}
+async function _0x2275b2(_0x1b8a07, _0x253f6c, _0x513d45) {
+  console.log("获取直播间列表: " + _0x1b8a07.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+  try {
+    {
+      let _0x1ec82d = await _0x3b3fda(_0x1b8a07, _0x253f6c, _0x513d45);
+      if (!_0x1ec82d) {
+        {
+          console.log("登录失败: " + _0x1b8a07.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+          _0x47a9ce("init");
+          return;
+        }
+      }
+      let _0x47b7e5 = await _0x4ee2cd(_0x1ec82d.uid);
+      let _0x37b101 = await _0x35926c(_0x47b7e5);
+      console.log("登录成功，初始化直播间数据: " + _0x1b8a07.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+      await _0x2ab045(1, 1, 1, _0x37b101);
+    }
+  } catch (_0x4e13e9) {
+    {
+      console.error("获取直播间列表错误: " + _0x1b8a07.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+    }
+  }
+}
+async function _0x47a9ce(_0xa4f2f0, _0x515ae7) {
+  console.log("获取直播间数据: " + _0xa4f2f0);
+  try {
+    {
+      if (_0xa4f2f0 == "init") {
+        {
+          console.log("初始化直播间数据: 使用随机账号");
+          let _0x4f40b0 = Math.floor(Math.random() * _0x515ae7.length);
+          let _0x2df8d9 = _0x515ae7[_0x4f40b0];
+          await _0x2275b2(_0x2df8d9.phone, _0x2df8d9.password, _0x2df8d9.loginObj);
+        }
+      } else {
+        {
+          let _0x4c5161 = Math.floor(Math.random() * _0x515ae7.length);
+          let _0x29954e = _0x515ae7[_0x4c5161];
+          if (_0x29954e.xbkToken) {
+            {
+              console.log("更新直播间: " + _0x29954e.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+              await _0x2ab045(1, 1, 1, _0x29954e.xbkToken);
+            }
+          } else {
+            {
+              console.log("账号token不存在，重新初始化");
+              _0x47a9ce("init", _0x515ae7);
+            }
+          }
+        }
+      }
+    }
+  } catch (_0x4aa823) {
+    console.error("获取直播间错误:", _0x4aa823.message);
+  }
+}
+async function _0x41fc8f(_0x58c489) {
+  console.log("检查大转盘活动");
+  try {
+    {
+      if (_0x58c489.length === 0) {
+        {
+          console.log("没有可用账号");
+          return;
+        }
+      }
+      let _0x5c60cc = Math.floor(Math.random() * _0x58c489.length);
+      let _0x375c6a = _0x58c489[_0x5c60cc];
+      if (_0x375c6a.xbkToken) {
+        {
+          console.log("使用账号检查大转盘: " + _0x375c6a.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+          await _0xf23c9a(_0x375c6a.xbkToken);
+        }
+      } else {
+        {
+          console.log("账号未登录: " + _0x375c6a.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+          await _0x2afedb(_0x58c489);
+          _0x41fc8f(_0x58c489);
+        }
+      }
+    }
+  } catch (_0x5c6b05) {
+    {
+      console.error("检查大转盘活动错误:", _0x5c6b05.message);
+      setTimeout(() => _0x41fc8f(_0x58c489), 5000);
+    }
+  }
+}
+async function _0x2afedb(_0x372d6b, _0x4924f3) {
+  console.log("检查账号状态: " + _0x372d6b.length + "个");
+  try {
+    {
+      let _0x1d3a46 = _0x372d6b.map(async (_0x3b8050, _0x3e9a02) => {
+        {
+          try {
+            {
+              if (!_0x3b8050.time) {
+                {
+                  console.log("首次登录: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                  let _0x981f78 = await _0x1b811e(_0x3b8050.phone, _0x3b8050.password, _0x4924f3);
+                  _0x372d6b[_0x3e9a02].time = new Date().valueOf();
+                  if (!_0x981f78) {
+                    {
+                      console.log("登录失败: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                      _0x372d6b[_0x3e9a02].isLogin = false;
+                      return;
+                    }
+                  }
+                  let _0x2d6b6d = await _0x4ee2cd(_0x981f78.uid);
+                  let _0x3e26d3 = await _0x35926c(_0x2d6b6d);
+                  _0x372d6b[_0x3e9a02].xbkToken = _0x3e26d3;
+                  _0x372d6b[_0x3e9a02].isLogin = true;
+                  console.log("登录成功: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                  !_0x28f299 && _0x394834.length == 0 && (_0x28f299 = true, console.log("初始化直播间数据: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3")), await _0x2ab045(1, 1, 1, _0x3e26d3));
+                }
+              } else {
+                if (_0x3b8050.time && new Date().valueOf() - _0x3b8050.time > 43200000) {
+                  {
+                    console.log("token过期，重新登录: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                    let _0x390b7b = await _0x1b811e(_0x3b8050.phone, _0x3b8050.password, _0x4924f3);
+                    _0x372d6b[_0x3e9a02].time = new Date().valueOf();
+                    if (!_0x390b7b) {
+                      {
+                        console.log("重新登录失败: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                        _0x372d6b[_0x3e9a02].isLogin = false;
+                        return;
+                      }
+                    }
+                    let _0x1be147 = await _0x4ee2cd(_0x390b7b.uid);
+                    let _0x58231f = await _0x35926c(_0x1be147);
+                    _0x372d6b[_0x3e9a02].xbkToken = _0x58231f;
+                    _0x372d6b[_0x3e9a02].isLogin = true;
+                    console.log("重新登录成功: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                  }
+                } else {
+                  if (_0x3b8050.time && new Date().valueOf() - _0x3b8050.time > 21600000 && !_0x3b8050.isLogin) {
+                    {
+                      console.log("未登录，尝试登录: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                      let _0x152d4e = await _0x1b811e(_0x3b8050.phone, _0x3b8050.password, _0x4924f3);
+                      _0x372d6b[_0x3e9a02].time = new Date().valueOf();
+                      if (!_0x152d4e) {
+                        {
+                          console.log("登录失败: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                          _0x372d6b[_0x3e9a02].isLogin = false;
+                          return;
+                        }
+                      }
+                      let _0x1c2d61 = await _0x4ee2cd(_0x152d4e.uid);
+                      let _0xd5afb5 = await _0x35926c(_0x1c2d61);
+                      _0x372d6b[_0x3e9a02].xbkToken = _0xd5afb5;
+                      _0x372d6b[_0x3e9a02].isLogin = true;
+                      console.log("登录成功: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                    }
+                  } else {
+                    console.log("状态正常: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+                  }
+                }
+              }
+            }
+          } catch (_0x1f8c38) {
+            {
+              console.error("处理账号错误: " + _0x3b8050.phone.replace(/^(\d{3})(\d*)(\d{4})$/, "$1****$3"));
+            }
+          }
+        }
+      });
+      await Promise.all(_0x1d3a46);
+      const _0x395596 = _0x372d6b.filter(_0x2ed368 => _0x2ed368.isLogin && _0x2ed368.xbkToken);
+      console.log("账号检查完成: " + _0x395596.length + "个活跃账号");
+      return _0x395596.length > 0;
+    }
+  } catch (_0xa56dbd) {
+    console.error("批量登录错误:", _0xa56dbd.message);
+    return false;
+  }
+}
+async function _0x5d32b6(_0x2529e2) {
+  console.log("初始化用户数据");
+  try {
+    let _0x48338c = {};
+    try {
+      _0x48338c = JSON.parse(_0x3e4e7b.readFileSync("./Cache.json", "utf8"));
+      console.log("加载缓存数据");
+    } catch (_0x4ebc98) {
+      console.log("创建新缓存");
+      _0x3e4e7b.writeFileSync("./Cache.json", JSON.stringify({}), "utf8");
+      _0x48338c = {};
+    }
+    console.log("账号数量: " + _0x2529e2.length);
+    await _0x2afedb(_0x2529e2, _0x48338c);
+    if (_0x394834.length === 0 && !_0x28f299) {
+      console.log("本地无直播间数据，开始初始化");
+      const _0x4161d5 = _0x2529e2.find(_0x23540c => _0x23540c.xbkToken);
+      _0x4161d5 ? await _0x2ab045(1, 1, 1, _0x4161d5.xbkToken) : console.log("没有可用账号");
+    }
+  } catch (_0x28de2a) {
+    console.error("初始化用户数据错误:", _0x28de2a.message);
+    setTimeout(() => _0x5d32b6(_0x2529e2), 300000);
+  }
+}
+function _0x4c07ba() {
+  return _0x2dbe6a();
+}
+const _0x113c29 = console.log;
+console.log = function (..._0x31f932) {
+  const _0x180b30 = _0x2dbe6a();
+  _0x113c29("[" + _0x180b30 + "]", ..._0x31f932);
+};
+let _0x394834 = [];
+let _0x28f299 = false;
+function _0x38a57f(_0x35d0dc) {
+  _0x394834 = _0x35d0dc;
+}
+let _0x16d6a3 = [];
+process?.["env"]?.["chinaTelecomAccount"] ? process?.["env"]?.["chinaTelecomAccount"]["split"]("&")["forEach"](_0x407efe => {
+  if (_0x407efe) {
+    let _0x54cd57 = _0x407efe.split("#")[0];
+    let _0x326920 = _0x407efe.split("#")[1];
+    const _0x2ed841 = {
+      phone: _0x54cd57,
+      password: _0x326920
+    };
+    _0x16d6a3.push(_0x2ed841);
+  }
+}) : (console.log("未找到环境变量chinaTelecomAccount"), process.exit());
+(async () => {
+  console.log("脚本启动");
+  await _0x1fa630();
+  if (!_0x2eb6b6()) {
+    process.exit(1);
+    return;
+  }
+  if (!(await _0x1355fd())) {
+    process.exit(1);
+    return;
+  }
+  try {
+    await _0x5d32b6(_0x16d6a3);
+    try {
+      _0x394834 = JSON.parse(_0x3e4e7b.readFileSync("./liveList.json", "utf8"));
+      console.log("读取本地直播间数据: " + _0x394834.length + "个");
+      _0x38a57f(_0x394834);
+    } catch (_0x1d8e29) {
+      console.log("本地直播间数据不存在，重新获取");
+      _0x3e4e7b.writeFileSync("./liveList.json", JSON.stringify([]), "utf8");
+      _0x394834 = [];
+    }
+    if (_0x394834.length === 0) {
+      console.log("本地直播间数据为空，初始化加载");
+      const _0x151e50 = _0x16d6a3.find(_0x594a69 => _0x594a69.xbkToken);
+      _0x151e50 && (await _0x2ab045(1, 1, 1, _0x151e50.xbkToken));
+    } else {
+      console.log("本地直播间数据有效");
+      const _0x17e6ce = _0x3e4e7b.statSync("./liveList.json");
+      const _0x50b9a4 = new Date(_0x17e6ce.mtime);
+      const _0x20e478 = new Date();
+      const _0xa2f0b6 = (_0x20e478 - _0x50b9a4) / 3600000;
+      if (_0xa2f0b6 > 2) {
+        console.log("直播间数据已超过2小时，重新获取");
+        const _0x1ca6be = _0x16d6a3.find(_0x1f6e8f => _0x1f6e8f.xbkToken);
+        _0x1ca6be && (await _0x2ab045(1, 1, 1, _0x1ca6be.xbkToken));
+      } else {
+        console.log("使用缓存数据");
+        setTimeout(() => _0x41fc8f(_0x16d6a3), 2000);
+      }
+    }
+  } catch (_0x58cb14) {
+    console.error("脚本初始化错误:", _0x58cb14.message);
+    console.log("1分钟后重试");
+    setTimeout(() => process.exit(1), 60000);
+  }
 })();
+setInterval(async () => {
+  console.log("定时任务: 每小时更新直播间和账号列表");
+  await _0x5d32b6(_0x16d6a3);
+  _0x47a9ce("update", _0x16d6a3);
+}, 3600000);
+setInterval(() => {
+  console.log("定时任务: 每1分钟检查大转盘活动");
+  _0x41fc8f(_0x16d6a3);
+}, 100000);
+setInterval(() => {
+  console.log("定时任务: 每12小时清空缓存");
+  _0x3e4e7b.writeFileSync("./Cache.json", JSON.stringify({}), "utf8");
+  console.log("缓存已清空");
+}, 43200000);
